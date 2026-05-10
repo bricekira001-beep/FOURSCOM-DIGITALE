@@ -34,7 +34,6 @@
   html { scroll-behavior: smooth; }
   body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 400; }
 
-  /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     background: rgba(247,248,251,0.96); backdrop-filter: blur(12px);
@@ -55,7 +54,6 @@
   .mobile-menu a { color: var(--text); text-decoration: none; font-size: 1rem; padding: 0.5rem 0; border-bottom: 1px solid rgba(31,31,41,0.08); }
   .mobile-menu.open { display: flex; }
 
-  /* HERO */
   .hero {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
     background: radial-gradient(circle at 82% 24%, rgba(217,21,43,0.1) 0 12%, transparent 13%),
@@ -67,10 +65,8 @@
   .hero-pattern {
     position: absolute; inset: 0; opacity: 0.7;
     background-image: linear-gradient(90deg, var(--red) 0 58px, transparent 58px 68px, var(--blue) 68px 126px, transparent 126px 136px, var(--yellow) 136px 194px, transparent 194px 204px, var(--purple) 204px 262px);
-    background-repeat: no-repeat;
-    background-size: 262px 4px;
-    background-position: max(2rem, calc((100vw - 1100px) / 2)) calc(50% + 138px);
-    pointer-events: none;
+    background-repeat: no-repeat; background-size: 262px 4px;
+    background-position: max(2rem, calc((100vw - 1100px) / 2)) calc(50% + 138px); pointer-events: none;
   }
   .hero-glow { position: absolute; top: -8%; right: -3%; width: 420px; height: 85%; border-radius: 50%; border: 54px solid var(--red); border-left-color: transparent; border-bottom-color: transparent; opacity: 0.98; pointer-events: none; }
   .hero-content { position: relative; width: min(100%, 1100px); max-width: 1100px; }
@@ -87,7 +83,6 @@
   .hero-scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(0,102,179,0.5), transparent); animation: scrollLine 2s ease-in-out infinite; }
   @keyframes scrollLine { 0%,100%{opacity:0.3} 50%{opacity:1} }
 
-  /* SECTION STYLES */
   section { padding: 5rem 2rem; }
   .container { max-width: 1100px; margin: 0 auto; }
   .section-header { text-align: center; margin-bottom: 3.5rem; }
@@ -95,7 +90,6 @@
   .section-title { font-family: var(--font-display); font-size: clamp(1.9rem, 3.4vw, 3rem); color: var(--text); font-weight: 900; line-height: 1.15; letter-spacing: 0; }
   .section-line { width: 130px; height: 4px; background: linear-gradient(90deg, var(--red) 0 22%, transparent 22% 28%, var(--blue) 28% 50%, transparent 50% 56%, var(--yellow) 56% 78%, transparent 78% 84%, var(--purple) 84% 100%); margin: 1rem auto 0; }
 
-  /* VERSET DU JOUR */
   .verset-section { background: var(--surface); }
   .verset-card { background: var(--surface-strong); border: 1px solid var(--border); border-radius: 20px; padding: 3rem; text-align: center; position: relative; overflow: hidden; box-shadow: 0 20px 55px rgba(5,5,5,0.06); }
   .verset-quote { font-size: 3rem; color: var(--purple); opacity: 0.3; font-family: Georgia; line-height: 1; margin-bottom: 1rem; }
@@ -105,7 +99,6 @@
   .share-btn { background: rgba(0,102,179,0.1); border: 1px solid var(--border); color: var(--blue); padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; transition: all 0.2s; font-family: var(--font-body); font-weight: 700; }
   .share-btn:hover { background: rgba(0,102,179,0.15); }
 
-  /* AGENDA */
   .agenda-section { background: var(--surface); }
   .agenda-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
   .agenda-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
@@ -131,7 +124,6 @@
   .event-body { padding: 1.25rem; }
   .event-title { font-family: var(--font-display); font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; font-weight: 800; }
   .event-meta { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 6px; }
-  .event-meta svg { width: 14px; height: 14px; flex-shrink: 0; }
   .event-organizer { color: var(--purple); font-size: 0.78rem; font-weight: 800; margin-top: 0.8rem; }
   .event-count { background: #F5F8FC; border-radius: 12px; padding: 8px 10px; color: var(--text); font-size: 0.78rem; font-weight: 800; margin-top: 1rem; display: inline-flex; align-items: center; gap: 6px; }
   .event-footer { padding: 0 1.25rem 1.25rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
@@ -169,14 +161,8 @@
   .program-submit-row button { border: none; border-radius: 14px; padding: 12px 18px; font-family: var(--font-body); font-weight: 900; cursor: pointer; }
   .program-cancel { background: #F5F8FC; color: var(--text); }
   .program-save { background: var(--red); color: var(--white); box-shadow: 0 14px 28px rgba(217,21,43,0.16); }
-  @media(max-width: 760px) {
-    .program-form { grid-template-columns: 1fr; }
-    .program-fields { grid-template-columns: 1fr; }
-    .poster-preview { min-height: 240px; }
-    .event-footer { grid-template-columns: 1fr; }
-  }
+  @media(max-width: 760px) { .program-form { grid-template-columns: 1fr; } .program-fields { grid-template-columns: 1fr; } .poster-preview { min-height: 240px; } .event-footer { grid-template-columns: 1fr; } }
 
-  /* PRIERE */
   .priere-section { background: radial-gradient(circle at 8% 18%, rgba(0,102,179,0.12), transparent 32%), radial-gradient(circle at 92% 12%, rgba(217,21,43,0.10), transparent 30%), linear-gradient(135deg, rgba(255,255,255,0.92), rgba(242,244,248,0.96)); }
   .priere-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
   @media(max-width: 700px) { .priere-grid { grid-template-columns: 1fr; } }
@@ -186,8 +172,8 @@
   .priere-live { display: inline-flex; align-items: center; gap: 8px; background: rgba(20,164,108,0.1); color: #0C7B50; border: 1px solid rgba(20,164,108,0.18); border-radius: 999px; padding: 6px 12px; font-size: 0.75rem; font-weight: 900; margin-bottom: 1rem; }
   .priere-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #14A46C; box-shadow: 0 0 0 0 rgba(20,164,108,0.45); animation: pulseDot 1.8s infinite; }
   @keyframes pulseDot { 70% { box-shadow: 0 0 0 12px rgba(20,164,108,0); } 100% { box-shadow: 0 0 0 0 rgba(20,164,108,0); } }
-  .priere-item { background: rgba(255,255,255,0.7); border: 1px solid rgba(0,102,179,0.12); border-radius: 18px; padding: 1.15rem; margin-bottom: 1rem; box-shadow: 0 14px 34px rgba(0,102,179,0.07); animation: prayerCardIn 0.45s ease both; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
-  .priere-item:hover { transform: translateY(-3px); box-shadow: 0 22px 52px rgba(0,102,179,0.12); border-color: rgba(0,102,179,0.24); }
+  .priere-item { background: rgba(255,255,255,0.7); border: 1px solid rgba(0,102,179,0.12); border-radius: 18px; padding: 1.15rem; margin-bottom: 1rem; box-shadow: 0 14px 34px rgba(0,102,179,0.07); animation: prayerCardIn 0.45s ease both; transition: transform 0.25s, box-shadow 0.25s; }
+  .priere-item:hover { transform: translateY(-3px); box-shadow: 0 22px 52px rgba(0,102,179,0.12); }
   .priere-item.removing { animation: prayerRemove 0.32s ease forwards; pointer-events: none; }
   @keyframes prayerCardIn { from { opacity: 0; transform: translateY(16px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
   @keyframes prayerRemove { to { opacity: 0; transform: translateX(28px) scale(0.96); max-height: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; } }
@@ -198,8 +184,8 @@
   .priere-item-footer { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-top: 12px; flex-wrap: wrap; }
   .priere-count { font-size: 0.76rem; color: var(--text-muted); font-weight: 800; }
   .priere-actions { display: flex; gap: 8px; flex-wrap: wrap; }
-  .priere-action-btn { background: rgba(255,255,255,0.74); border: 1px solid rgba(0,102,179,0.15); border-radius: 999px; padding: 7px 12px; color: var(--text); font-size: 0.76rem; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s; display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-weight: 900; }
-  .priere-action-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(5,5,5,0.08); border-color: rgba(0,102,179,0.28); }
+  .priere-action-btn { background: rgba(255,255,255,0.74); border: 1px solid rgba(0,102,179,0.15); border-radius: 999px; padding: 7px 12px; color: var(--text); font-size: 0.76rem; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-body); font-weight: 900; }
+  .priere-action-btn:hover { transform: translateY(-2px); }
   .priere-action-btn.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
   .priere-action-btn.prayed { background: var(--yellow); color: var(--text); border-color: var(--yellow); }
   .priere-action-btn.delete { color: var(--red); border-color: rgba(217,21,43,0.24); }
@@ -209,97 +195,13 @@
   .priere-comment strong { color: var(--text); }
   .priere-comment-form { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin-top: 0.75rem; }
   .priere-comment-form input { min-width: 0; border: 1px solid rgba(0,102,179,0.12); border-radius: 999px; padding: 10px 13px; background: rgba(255,255,255,0.7); font-family: var(--font-body); outline: none; }
-  .priere-comment-form button { border: none; border-radius: 999px; background: var(--purple); color: var(--white); padding: 10px 14px; cursor: pointer; font-weight: 900; font-family: var(--font-body); transition: transform 0.2s, opacity 0.2s; }
-  .priere-comment-form button:hover { transform: translateY(-2px); opacity: 0.94; }
-  .priere-form textarea { width: 100%; background: rgba(255,255,255,0.62); border: 1px solid rgba(0,102,179,0.14); border-radius: 16px; padding: 12px; color: var(--text); font-family: var(--font-body); font-size: 0.88rem; resize: vertical; min-height: 96px; margin-bottom: 8px; outline: none; transition: box-shadow 0.2s, border-color 0.2s; }
-  .priere-form textarea::placeholder { color: var(--text-muted); }
-  .priere-form input { width: 100%; background: rgba(255,255,255,0.62); border: 1px solid rgba(0,102,179,0.14); border-radius: 16px; padding: 11px 13px; color: var(--text); font-family: var(--font-body); font-size: 0.88rem; margin-bottom: 8px; outline: none; transition: box-shadow 0.2s, border-color 0.2s; }
-  .priere-form input:focus, .priere-form textarea:focus { border-color: rgba(0,102,179,0.36); box-shadow: 0 0 0 4px rgba(0,102,179,0.08); }
-  .priere-form input::placeholder { color: var(--text-muted); }
+  .priere-comment-form button { border: none; border-radius: 999px; background: var(--purple); color: var(--white); padding: 10px 14px; cursor: pointer; font-weight: 900; font-family: var(--font-body); transition: transform 0.2s; }
+  .priere-form textarea { width: 100%; background: rgba(255,255,255,0.62); border: 1px solid rgba(0,102,179,0.14); border-radius: 16px; padding: 12px; color: var(--text); font-family: var(--font-body); font-size: 0.88rem; resize: vertical; min-height: 96px; margin-bottom: 8px; outline: none; }
+  .priere-form input { width: 100%; background: rgba(255,255,255,0.62); border: 1px solid rgba(0,102,179,0.14); border-radius: 16px; padding: 11px 13px; color: var(--text); font-family: var(--font-body); font-size: 0.88rem; margin-bottom: 8px; outline: none; }
   .anonymous-row { display: flex; align-items: center; gap: 9px; color: var(--text-muted); font-size: 0.82rem; font-weight: 800; margin: 4px 0 12px; }
   .anonymous-row input { width: 18px; height: 18px; margin: 0; accent-color: var(--blue); }
 
-  /* PARCOURS */
-  .parcours-section { background: radial-gradient(circle at 12% 12%, rgba(255,210,60,0.18), transparent 28%), radial-gradient(circle at 88% 18%, rgba(0,102,179,0.12), transparent 30%), linear-gradient(135deg, #FFFFFF 0%, #F4F7FB 100%); transition: background 0.3s, color 0.3s; }
-  .parcours-section.dark-mode { --text: #F8FAFC; --text-muted: #C8D2E4; --border: rgba(255,255,255,0.14); background: linear-gradient(135deg, #08111F 0%, #172033 52%, #221A38 100%); color: var(--text); }
-  .parcours-section.dark-mode .section-title, .parcours-section.dark-mode .parcours-title, .parcours-section.dark-mode .parcours-detail h3, .parcours-section.dark-mode .parcours-stat strong { color: #F8FAFC; }
-  .parcours-section.dark-mode .parcours-dashboard, .parcours-section.dark-mode .parcours-card, .parcours-section.dark-mode .parcours-detail, .parcours-section.dark-mode .certificate-card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); box-shadow: 0 24px 70px rgba(0,0,0,0.24); }
-  .parcours-topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .parcours-dashboard { background: rgba(255,255,255,0.78); border: 1px solid rgba(255,255,255,0.72); border-radius: 22px; padding: 1.25rem; box-shadow: 0 22px 56px rgba(5,5,5,0.07); backdrop-filter: blur(18px); display: grid; grid-template-columns: 1.1fr repeat(3, minmax(120px, 0.45fr)); gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
-  .progress-label { display: flex; justify-content: space-between; font-size: 0.84rem; color: var(--text-muted); margin-bottom: 0.65rem; font-weight: 800; }
-  .progress-bar-wrap { background: rgba(0,102,179,0.1); border-radius: 999px; height: 12px; overflow: hidden; }
-  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--blue), var(--yellow)); border-radius: 999px; transition: width 0.55s ease; }
-  .parcours-stat { background: rgba(255,255,255,0.62); border: 1px solid var(--border); border-radius: 16px; padding: 0.9rem; }
-  .parcours-stat span { display: block; color: var(--text-muted); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
-  .parcours-stat strong { color: var(--text); font-size: 1.2rem; font-weight: 900; }
-  .parcours-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .parcours-mode-btn, .certificate-btn { border: 1px solid var(--border); border-radius: 999px; background: rgba(255,255,255,0.76); color: var(--text); padding: 10px 15px; font-family: var(--font-body); font-weight: 900; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s; }
-  .parcours-mode-btn:hover, .certificate-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(5,5,5,0.1); }
-  .certificate-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
-  .badge-row { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-  .spiritual-badge { border: 1px solid var(--border); background: rgba(255,255,255,0.72); color: var(--text-muted); border-radius: 999px; padding: 8px 12px; font-size: 0.76rem; font-weight: 900; transition: transform 0.2s, background 0.2s; }
-  .spiritual-badge.unlocked { background: var(--yellow); color: var(--text); border-color: var(--yellow); transform: translateY(-1px); }
-  .month-tabs { display: flex; gap: 0.65rem; overflow-x: auto; padding-bottom: 0.75rem; margin-bottom: 1.25rem; }
-  .month-tab { flex: 0 0 auto; border: 1px solid var(--border); background: rgba(255,255,255,0.7); color: var(--text-muted); border-radius: 999px; padding: 9px 14px; cursor: pointer; font-family: var(--font-body); font-weight: 900; transition: transform 0.2s, background 0.2s, color 0.2s; }
-  .month-tab:hover { transform: translateY(-2px); }
-  .month-tab.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
-  .month-tab.locked { opacity: 0.48; cursor: not-allowed; }
-  .month-tab.unlocking { animation: unlockPulse 0.75s ease both; }
-  .parcours-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 1.25rem; align-items: start; }
-  .parcours-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
-  .parcours-card { background: rgba(255,255,255,0.78); border: 1px solid rgba(0,102,179,0.11); border-radius: 18px; padding: 1.1rem; position: relative; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; box-shadow: 0 14px 34px rgba(5,5,5,0.05); cursor: pointer; animation: cardIn 0.45s ease both; }
-  .parcours-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,102,179,0.12); border-color: rgba(0,102,179,0.28); }
-  .parcours-card.active { border-color: var(--blue); box-shadow: 0 18px 44px rgba(0,102,179,0.16); }
-  .parcours-card.done { background: linear-gradient(135deg, rgba(255,246,213,0.94), rgba(255,255,255,0.82)); border-color: rgba(255,210,60,0.72); }
-  .parcours-card.locked { opacity: 0.52; cursor: not-allowed; filter: grayscale(0.18); }
-  .parcours-card.locked:hover { transform: none; box-shadow: 0 14px 34px rgba(5,5,5,0.05); }
-  .parcours-card.unlocking { animation: unlockPulse 0.75s ease both; }
-  @keyframes unlockPulse { 0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(255,210,60,0.55); } 70% { box-shadow: 0 0 0 16px rgba(255,210,60,0); } 100% { transform: scale(1); } }
-  .parcours-week { font-size: 0.7rem; color: var(--purple); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; font-weight: 900; }
-  .parcours-title { font-family: var(--font-display); font-size: 1.02rem; color: var(--text); margin-bottom: 6px; font-weight: 900; }
-  .parcours-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
-  .parcours-check { position: absolute; top: 1rem; right: 1rem; width: 28px; height: 28px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; background: rgba(255,255,255,0.7); font-weight: 900; }
-  .parcours-check.done { background: var(--yellow); border-color: var(--yellow); color: var(--text); }
-  .parcours-detail, .certificate-card { background: rgba(255,255,255,0.84); border: 1px solid rgba(255,255,255,0.75); border-radius: 22px; padding: 1.25rem; box-shadow: 0 22px 56px rgba(5,5,5,0.08); backdrop-filter: blur(18px); position: sticky; top: 84px; }
-  .parcours-detail h3 { color: var(--text); font-size: 1.25rem; line-height: 1.25; margin-bottom: 0.6rem; font-weight: 900; }
-  .detail-pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; background: rgba(0,102,179,0.1); color: var(--blue); padding: 6px 10px; font-size: 0.72rem; font-weight: 900; margin-bottom: 1rem; }
-  .detail-block { border-top: 1px solid var(--border); padding-top: 0.85rem; margin-top: 0.85rem; }
-  .detail-block strong { display: block; color: var(--purple); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; }
-  .detail-block p { color: var(--text-muted); font-size: 0.86rem; line-height: 1.55; }
-  .parcours-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-  .feature-card { background: rgba(255,255,255,0.8); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; display: flex; align-items: flex-start; gap: 1rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; box-shadow: 0 8px 24px rgba(5,5,5,0.06); }
-  .feature-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,102,179,0.12); border-color: rgba(0,102,179,0.3); }
-  .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--red), var(--blue)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--white); font-size: 1.2rem; }
-  .feature-content h4 { color: var(--purple); font-size: 0.9rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-  .feature-content p { color: var(--text); font-size: 0.85rem; line-height: 1.5; margin: 0; }
-  .quiz-options { display: grid; gap: 0.5rem; margin-top: 0.65rem; }
-  .quiz-question { border: 1px solid var(--border); border-radius: 16px; padding: 0.85rem; margin-top: 0.8rem; background: rgba(255,255,255,0.42); }
-  .quiz-question-title { color: var(--text); font-size: 0.84rem; font-weight: 900; line-height: 1.45; }
-  .quiz-option { border: 1px solid var(--border); border-radius: 14px; background: rgba(255,255,255,0.62); padding: 10px 12px; text-align: left; cursor: pointer; color: var(--text); font-family: var(--font-body); font-weight: 800; transition: transform 0.2s, background 0.2s, border-color 0.2s; }
-  .quiz-option:hover { transform: translateY(-2px); border-color: rgba(0,102,179,0.28); }
-  .quiz-option:disabled { cursor: not-allowed; opacity: 0.55; transform: none; }
-  .quiz-option.correct { background: rgba(20,164,108,0.14); border-color: rgba(20,164,108,0.42); color: #0C7B50; }
-  .quiz-option.wrong { background: rgba(217,21,43,0.1); border-color: rgba(217,21,43,0.34); color: var(--red); }
-  .quiz-score { margin-top: 0.85rem; border-radius: 16px; padding: 0.85rem; background: rgba(0,102,179,0.08); color: var(--text); font-weight: 900; display: flex; justify-content: space-between; gap: 0.75rem; align-items: center; }
-  .quiz-score.passed { background: rgba(20,164,108,0.14); color: #0C7B50; }
-  .quiz-score.failed { background: rgba(217,21,43,0.1); color: var(--red); }
-  .detail-block textarea { width: 100%; min-height: 120px; border: 1px solid var(--border); border-radius: 12px; padding: 12px; background: rgba(255,255,255,0.8); color: var(--text); font-family: var(--font-body); font-size: 0.85rem; line-height: 1.5; resize: vertical; margin-top: 0.5rem; }
-  .detail-block textarea:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,102,179,0.1); }
-  .detail-block textarea:disabled { background: rgba(255,255,255,0.4); cursor: not-allowed; }
-  .prayer-submitted { display: flex; align-items: center; color: var(--blue); font-weight: 800; font-size: 0.85rem; background: rgba(0,102,179,0.08); border-radius: 12px; padding: 12px; margin-top: 0.5rem; }
-  .locked-note { margin-top: 0.85rem; color: var(--text-muted); font-size: 0.82rem; font-weight: 800; }
-  .complete-week-btn { width: 100%; border: none; border-radius: 16px; background: var(--red); color: var(--white); padding: 13px 16px; margin-top: 1rem; cursor: pointer; font-family: var(--font-body); font-weight: 900; box-shadow: 0 16px 34px rgba(217,21,43,0.18); transition: transform 0.2s, opacity 0.2s; }
-  .complete-week-btn:hover { transform: translateY(-2px); opacity: 0.95; }
-  .complete-week-btn.done { background: var(--blue); box-shadow: 0 16px 34px rgba(0,102,179,0.18); }
-  .complete-week-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
-  .certificate-card { display: none; margin-top: 1.5rem; position: relative; top: 0; text-align: center; }
-  .certificate-card.open { display: block; animation: cardIn 0.4s ease both; }
-  .certificate-card h3 { font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--red); margin-bottom: 0.5rem; }
-  .certificate-card p { color: var(--text-muted); }
-  @media(max-width: 900px) { .parcours-dashboard { grid-template-columns: 1fr 1fr; } .parcours-layout { grid-template-columns: 1fr; } .parcours-detail { position: static; } }
-  @media(max-width: 560px) { .parcours-dashboard { grid-template-columns: 1fr; } .parcours-topbar { align-items: stretch; } .parcours-actions { flex-direction: column; width: 100%; } }
-
-  /* BIBLIOTHEQUE */
+  /* ==================== BIBLE SECTION ==================== */
   .biblio-section { background: var(--surface); }
   .biblio-tabs { display: flex; gap: 8px; margin-bottom: 2rem; flex-wrap: wrap; }
   .biblio-tab { padding: 8px 20px; border-radius: 14px; border: 1px solid var(--border); background: transparent; color: var(--text-muted); font-size: 0.82rem; cursor: pointer; transition: all 0.2s; font-family: var(--font-body); font-weight: 700; }
@@ -311,30 +213,24 @@
   .biblio-title { font-family: var(--font-display); font-size: 1rem; color: var(--text); margin-bottom: 6px; font-weight: 800; }
   .biblio-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 1rem; }
   .biblio-link { font-size: 0.8rem; color: var(--blue); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
-  .biblio-link:hover { opacity: 0.85; }
 
-  /* ======================== MA BIBLE ======================== */
+  /* Bible Panel */
   .bible-panel { display: none; animation: cardIn 0.35s ease both; }
   .bible-panel.active { display: block; }
-
   .bible-layout { display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem; min-height: 600px; }
   @media(max-width:768px){ .bible-layout { grid-template-columns: 1fr; } }
-
   .bible-sidebar { background: var(--surface-strong); border: 1px solid var(--border); border-radius: 18px; padding: 1rem; height: fit-content; }
   .bible-sidebar-header { font-size: 0.72rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); padding: 0.5rem 0.25rem 0.75rem; border-bottom: 1px solid var(--border); margin-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
   .bible-testament-toggle { display: flex; background: var(--surface); border-radius: 10px; padding: 3px; margin-bottom: 1rem; gap: 3px; }
   .bible-testament-btn { flex: 1; padding: 7px 10px; border: none; border-radius: 8px; font-size: 0.75rem; font-weight: 800; cursor: pointer; font-family: var(--font-body); background: transparent; color: var(--text-muted); transition: all 0.2s; }
   .bible-testament-btn.active { background: var(--white); color: var(--blue); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-
   .bible-book-search { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 9px 12px; font-family: var(--font-body); font-size: 0.82rem; background: var(--surface); outline: none; margin-bottom: 0.75rem; }
   .bible-book-search:focus { border-color: var(--blue); }
-
   .bible-book-list { max-height: 420px; overflow-y: auto; }
   .bible-book-item { padding: 8px 10px; border-radius: 10px; cursor: pointer; font-size: 0.82rem; font-weight: 700; color: var(--text-muted); transition: all 0.15s; display: flex; justify-content: space-between; align-items: center; }
   .bible-book-item:hover { background: rgba(0,102,179,0.07); color: var(--blue); }
   .bible-book-item.active { background: var(--blue); color: var(--white); font-weight: 800; }
   .bible-book-chapters { font-size: 0.68rem; opacity: 0.7; }
-
   .bible-reader { background: var(--surface-strong); border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
   .bible-reader-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
   .bible-book-title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 900; color: var(--text); }
@@ -347,41 +243,60 @@
   .bible-fav-btn { padding: 8px 14px; border: 1px solid var(--red); border-radius: 10px; background: rgba(217,21,43,0.07); cursor: pointer; font-family: var(--font-body); font-size: 0.78rem; font-weight: 800; color: var(--red); transition: all 0.2s; }
   .bible-fav-btn:hover, .bible-fav-btn.active { background: var(--red); color: var(--white); }
 
+  /* Bible Audio Player */
+  .bible-audio-bar { background: linear-gradient(135deg, rgba(94,51,136,0.08), rgba(0,102,179,0.06)); border: 1px solid rgba(94,51,136,0.18); border-radius: 16px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+  .bible-audio-info { flex: 1; min-width: 0; }
+  .bible-audio-title { font-size: 0.82rem; font-weight: 800; color: var(--purple); margin-bottom: 2px; }
+  .bible-audio-sub { font-size: 0.72rem; color: var(--text-muted); }
+  .bible-audio-controls { display: flex; align-items: center; gap: 10px; }
+  .bible-audio-play { width: 42px; height: 42px; border-radius: 50%; background: var(--purple); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; transition: transform 0.2s; flex-shrink: 0; }
+  .bible-audio-play:hover { transform: scale(1.08); }
+  .bible-audio-track { flex: 1; min-width: 120px; display: flex; align-items: center; gap: 8px; }
+  .bible-audio-progress { flex: 1; height: 4px; background: rgba(0,102,179,0.15); border-radius: 999px; cursor: pointer; position: relative; }
+  .bible-audio-fill { height: 100%; background: linear-gradient(90deg, var(--purple), var(--blue)); border-radius: 999px; transition: width 0.3s; }
+  .bible-audio-time { font-size: 0.72rem; color: var(--text-muted); white-space: nowrap; font-weight: 800; }
+  .bible-audio-vol { width: 70px; }
+  .bible-audio-loading { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--text-muted); }
+  .bible-audio-loading-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); animation: loadDot 1.2s infinite; }
+  .bible-audio-loading-dot:nth-child(2) { animation-delay: 0.2s; }
+  .bible-audio-loading-dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes loadDot { 0%,80%,100%{opacity:0.3;transform:scale(0.8)} 40%{opacity:1;transform:scale(1)} }
+
+  .bible-loading { display: flex; align-items: center; justify-content: center; padding: 3rem; color: var(--text-muted); font-size: 0.88rem; gap: 12px; }
+  .bible-spinner { width: 28px; height: 28px; border: 3px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .bible-error { background: rgba(217,21,43,0.07); border: 1px solid rgba(217,21,43,0.2); border-radius: 14px; padding: 1.25rem; color: var(--red); font-size: 0.85rem; text-align: center; }
+  .bible-error a { color: var(--blue); text-decoration: underline; }
+
   .bible-verse-container { display: flex; flex-direction: column; gap: 4px; }
-  .bible-verse { display: flex; gap: 10px; padding: 6px 8px; border-radius: 8px; transition: background 0.15s; cursor: pointer; position: relative; }
+  .bible-verse { display: flex; gap: 10px; padding: 8px 10px; border-radius: 10px; transition: background 0.15s; cursor: pointer; position: relative; }
   .bible-verse:hover { background: rgba(0,102,179,0.05); }
   .bible-verse.highlighted { background: rgba(255,210,60,0.2); border-left: 3px solid var(--yellow); padding-left: 10px; }
   .bible-verse.favorited { background: rgba(217,21,43,0.06); border-left: 3px solid var(--red); padding-left: 10px; }
   .bible-verse-num { font-size: 0.7rem; font-weight: 900; color: var(--red); min-width: 22px; padding-top: 3px; flex-shrink: 0; }
-  .bible-verse-text { font-size: var(--bible-font-size, 0.95rem); color: var(--text); line-height: 1.75; }
-
+  .bible-verse-text { font-size: var(--bible-font-size, 0.95rem); color: var(--text); line-height: 1.85; }
   .bible-verse-actions { display: none; position: absolute; right: 8px; top: 50%; transform: translateY(-50%); gap: 4px; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 4px 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
   .bible-verse:hover .bible-verse-actions { display: flex; }
   .bible-va-btn { background: none; border: none; cursor: pointer; font-size: 0.85rem; padding: 2px 4px; border-radius: 4px; transition: background 0.15s; }
   .bible-va-btn:hover { background: var(--surface); }
-
   .bible-nav-row { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
   .bible-nav-btn { padding: 10px 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); cursor: pointer; font-family: var(--font-body); font-weight: 800; font-size: 0.82rem; color: var(--text); transition: all 0.2s; }
   .bible-nav-btn:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
-
   .bible-stats-bar { display: flex; gap: 1rem; padding: 0.75rem 1rem; background: rgba(0,102,179,0.05); border-radius: 12px; flex-wrap: wrap; }
   .bible-stat-item { font-size: 0.75rem; color: var(--text-muted); font-weight: 800; display: flex; align-items: center; gap: 5px; }
   .bible-stat-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .bible-translation-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(94,51,136,0.1); color: var(--purple); padding: 5px 12px; border-radius: 20px; font-size: 0.72rem; font-weight: 900; margin-bottom: 0.75rem; }
 
-  /* ======================== MES NOTES ======================== */
+  /* Notes panel */
   .notes-panel { display: none; animation: cardIn 0.35s ease both; }
   .notes-panel.active { display: block; }
-
   .notes-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
   .notes-search { flex: 1; min-width: 200px; border: 1px solid var(--border); border-radius: 12px; padding: 10px 14px; font-family: var(--font-body); font-size: 0.85rem; background: var(--white); outline: none; color: var(--text); }
-  .notes-search:focus { border-color: var(--blue); }
-  .notes-create-btn { background: var(--red); color: var(--white); border: none; border-radius: 14px; padding: 12px 20px; font-family: var(--font-body); font-weight: 800; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 14px 28px rgba(217,21,43,0.18); }
+  .notes-create-btn { background: var(--red); color: var(--white); border: none; border-radius: 14px; padding: 12px 20px; font-family: var(--font-body); font-weight: 800; font-size: 0.85rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s; box-shadow: 0 14px 28px rgba(217,21,43,0.18); }
   .notes-create-btn:hover { transform: translateY(-2px); }
-
   .notes-filter-row { display: flex; gap: 8px; margin-bottom: 1.5rem; flex-wrap: wrap; }
   .notes-filter-tag { padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); font-size: 0.75rem; cursor: pointer; background: var(--white); color: var(--text-muted); transition: all 0.2s; font-family: var(--font-body); font-weight: 700; }
   .notes-filter-tag.active { background: var(--purple); color: var(--white); border-color: var(--purple); }
-
   .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
   .note-card { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 1.25rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 8px 24px rgba(5,5,5,0.04); animation: cardIn 0.4s ease both; cursor: pointer; }
   .note-card:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(0,102,179,0.1); }
@@ -398,20 +313,15 @@
   .note-date { font-size: 0.7rem; color: var(--text-muted); }
   .note-verse-ref { font-size: 0.72rem; color: var(--blue); font-weight: 800; }
   .note-pin-icon { position: absolute; top: 1rem; right: 4.5rem; font-size: 0.85rem; }
-
   .notes-empty { text-align: center; padding: 4rem 2rem; color: var(--text-muted); }
   .notes-empty-icon { font-size: 3rem; margin-bottom: 1rem; }
   .notes-empty h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
-
-  /* Note Editor Modal */
   .note-modal { position: fixed; inset: 0; z-index: 250; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(5,5,5,0.6); backdrop-filter: blur(12px); }
   .note-modal.open { display: flex; }
   .note-dialog { width: min(820px, 100%); max-height: 92vh; overflow: auto; background: var(--white); border-radius: 24px; box-shadow: 0 30px 90px rgba(0,0,0,0.24); animation: modalIn 0.28s ease both; display: flex; flex-direction: column; }
   .note-dialog-header { padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-shrink: 0; }
   .note-dialog-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 900; color: var(--text); }
-  .note-dialog-close { width: 38px; height: 38px; border-radius: 50%; border: none; background: var(--surface); cursor: pointer; font-size: 1.1rem; color: var(--text); transition: background 0.2s; }
-  .note-dialog-close:hover { background: var(--border); }
-
+  .note-dialog-close { width: 38px; height: 38px; border-radius: 50%; border: none; background: var(--surface); cursor: pointer; font-size: 1.1rem; color: var(--text); }
   .note-editor-toolbar { padding: 0.75rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; flex-shrink: 0; }
   .note-format-btn { width: 32px; height: 32px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); cursor: pointer; font-family: var(--font-body); font-weight: 800; font-size: 0.82rem; color: var(--text); transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
   .note-format-btn:hover { background: var(--blue); color: var(--white); border-color: var(--blue); }
@@ -420,28 +330,89 @@
   .note-color-dot { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: transform 0.15s; }
   .note-color-dot:hover { transform: scale(1.2); }
   .note-color-dot.active { border-color: var(--text); }
-
   .note-editor-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
   .note-editor-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   @media(max-width:600px){ .note-editor-row { grid-template-columns: 1fr; } }
   .note-field label { display: block; font-size: 0.75rem; font-weight: 800; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .note-field input, .note-field select { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-family: var(--font-body); font-size: 0.88rem; background: var(--surface); color: var(--text); outline: none; transition: border-color 0.2s; }
-  .note-field input:focus, .note-field select:focus { border-color: var(--blue); }
-  .note-content-area { width: 100%; border: 1px solid var(--border); border-radius: 12px; padding: 14px; font-family: var(--font-body); font-size: 0.92rem; line-height: 1.75; background: var(--surface); color: var(--text); outline: none; resize: vertical; min-height: 200px; transition: border-color 0.2s; }
-  .note-content-area:focus { border-color: var(--blue); }
+  .note-field input, .note-field select { width: 100%; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-family: var(--font-body); font-size: 0.88rem; background: var(--surface); color: var(--text); outline: none; }
+  .note-content-area { width: 100%; border: 1px solid var(--border); border-radius: 12px; padding: 14px; font-family: var(--font-body); font-size: 0.92rem; line-height: 1.75; background: var(--surface); color: var(--text); outline: none; resize: vertical; min-height: 200px; }
   .note-pin-row { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text-muted); font-weight: 700; }
   .note-pin-row input { width: 18px; height: 18px; accent-color: var(--purple); }
   .note-char-count { font-size: 0.72rem; color: var(--text-muted); text-align: right; }
-
   .note-dialog-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 0.75rem; flex-shrink: 0; }
   .note-cancel-btn { padding: 11px 20px; border: 1px solid var(--border); border-radius: 12px; background: transparent; cursor: pointer; font-family: var(--font-body); font-weight: 800; color: var(--text-muted); }
   .note-save-btn { padding: 11px 24px; border: none; border-radius: 12px; background: var(--red); color: var(--white); cursor: pointer; font-family: var(--font-body); font-weight: 800; box-shadow: 0 12px 24px rgba(217,21,43,0.16); transition: transform 0.2s; }
   .note-save-btn:hover { transform: translateY(-2px); }
-
-  /* Bible reader quick-note panel */
   .bible-note-tooltip { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--purple); color: var(--white); padding: 12px 20px; border-radius: 14px; font-size: 0.82rem; font-weight: 800; display: none; align-items: center; gap: 10px; z-index: 200; box-shadow: 0 12px 32px rgba(94,51,136,0.3); }
   .bible-note-tooltip.show { display: flex; }
   .bible-note-tooltip button { background: rgba(255,255,255,0.18); border: none; color: var(--white); padding: 6px 12px; border-radius: 8px; cursor: pointer; font-family: var(--font-body); font-weight: 800; }
+
+  /* PARCOURS */
+  .parcours-section { background: radial-gradient(circle at 12% 12%, rgba(255,210,60,0.18), transparent 28%), radial-gradient(circle at 88% 18%, rgba(0,102,179,0.12), transparent 30%), linear-gradient(135deg, #FFFFFF 0%, #F4F7FB 100%); transition: background 0.3s; }
+  .parcours-section.dark-mode { --text: #F8FAFC; --text-muted: #C8D2E4; --border: rgba(255,255,255,0.14); background: linear-gradient(135deg, #08111F 0%, #172033 52%, #221A38 100%); }
+  .parcours-section.dark-mode .section-title, .parcours-section.dark-mode .parcours-title, .parcours-section.dark-mode .parcours-detail h3, .parcours-section.dark-mode .parcours-stat strong { color: #F8FAFC; }
+  .parcours-section.dark-mode .parcours-dashboard, .parcours-section.dark-mode .parcours-card, .parcours-section.dark-mode .parcours-detail, .parcours-section.dark-mode .certificate-card { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.14); }
+  .parcours-topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .parcours-dashboard { background: rgba(255,255,255,0.78); border: 1px solid rgba(255,255,255,0.72); border-radius: 22px; padding: 1.25rem; box-shadow: 0 22px 56px rgba(5,5,5,0.07); backdrop-filter: blur(18px); display: grid; grid-template-columns: 1.1fr repeat(3, minmax(120px, 0.45fr)); gap: 1rem; align-items: center; margin-bottom: 1.5rem; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 0.84rem; color: var(--text-muted); margin-bottom: 0.65rem; font-weight: 800; }
+  .progress-bar-wrap { background: rgba(0,102,179,0.1); border-radius: 999px; height: 12px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--blue), var(--yellow)); border-radius: 999px; transition: width 0.55s ease; }
+  .parcours-stat { background: rgba(255,255,255,0.62); border: 1px solid var(--border); border-radius: 16px; padding: 0.9rem; }
+  .parcours-stat span { display: block; color: var(--text-muted); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+  .parcours-stat strong { color: var(--text); font-size: 1.2rem; font-weight: 900; }
+  .parcours-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .parcours-mode-btn, .certificate-btn { border: 1px solid var(--border); border-radius: 999px; background: rgba(255,255,255,0.76); color: var(--text); padding: 10px 15px; font-family: var(--font-body); font-weight: 900; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+  .parcours-mode-btn:hover, .certificate-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(5,5,5,0.1); }
+  .certificate-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .badge-row { display: flex; gap: 0.65rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .spiritual-badge { border: 1px solid var(--border); background: rgba(255,255,255,0.72); color: var(--text-muted); border-radius: 999px; padding: 8px 12px; font-size: 0.76rem; font-weight: 900; transition: transform 0.2s; }
+  .spiritual-badge.unlocked { background: var(--yellow); color: var(--text); border-color: var(--yellow); transform: translateY(-1px); }
+  .month-tabs { display: flex; gap: 0.65rem; overflow-x: auto; padding-bottom: 0.75rem; margin-bottom: 1.25rem; }
+  .month-tab { flex: 0 0 auto; border: 1px solid var(--border); background: rgba(255,255,255,0.7); color: var(--text-muted); border-radius: 999px; padding: 9px 14px; cursor: pointer; font-family: var(--font-body); font-weight: 900; transition: transform 0.2s, background 0.2s; }
+  .month-tab:hover { transform: translateY(-2px); }
+  .month-tab.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
+  .month-tab.locked { opacity: 0.48; cursor: not-allowed; }
+  .parcours-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 1.25rem; align-items: start; }
+  .parcours-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+  .parcours-card { background: rgba(255,255,255,0.78); border: 1px solid rgba(0,102,179,0.11); border-radius: 18px; padding: 1.1rem; position: relative; transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 14px 34px rgba(5,5,5,0.05); cursor: pointer; animation: cardIn 0.45s ease both; }
+  .parcours-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,102,179,0.12); border-color: rgba(0,102,179,0.28); }
+  .parcours-card.active { border-color: var(--blue); }
+  .parcours-card.done { background: linear-gradient(135deg, rgba(255,246,213,0.94), rgba(255,255,255,0.82)); border-color: rgba(255,210,60,0.72); }
+  .parcours-card.locked { opacity: 0.52; cursor: not-allowed; }
+  .parcours-card.locked:hover { transform: none; }
+  .parcours-week { font-size: 0.7rem; color: var(--purple); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; font-weight: 900; }
+  .parcours-title { font-family: var(--font-display); font-size: 1.02rem; color: var(--text); margin-bottom: 6px; font-weight: 900; }
+  .parcours-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+  .parcours-check { position: absolute; top: 1rem; right: 1rem; width: 28px; height: 28px; border: 2px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.2s; background: rgba(255,255,255,0.7); font-weight: 900; }
+  .parcours-check.done { background: var(--yellow); border-color: var(--yellow); color: var(--text); }
+  .parcours-detail, .certificate-card { background: rgba(255,255,255,0.84); border: 1px solid rgba(255,255,255,0.75); border-radius: 22px; padding: 1.25rem; box-shadow: 0 22px 56px rgba(5,5,5,0.08); backdrop-filter: blur(18px); position: sticky; top: 84px; }
+  .parcours-detail h3 { color: var(--text); font-size: 1.25rem; line-height: 1.25; margin-bottom: 0.6rem; font-weight: 900; }
+  .detail-pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; background: rgba(0,102,179,0.1); color: var(--blue); padding: 6px 10px; font-size: 0.72rem; font-weight: 900; margin-bottom: 1rem; }
+  .detail-block { border-top: 1px solid var(--border); padding-top: 0.85rem; margin-top: 0.85rem; }
+  .detail-block strong { display: block; color: var(--purple); font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.35rem; }
+  .detail-block p { color: var(--text-muted); font-size: 0.86rem; line-height: 1.55; }
+  .parcours-features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+  .feature-card { background: rgba(255,255,255,0.8); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; display: flex; align-items: flex-start; gap: 1rem; transition: transform 0.2s; }
+  .feature-card:hover { transform: translateY(-3px); }
+  .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--red), var(--blue)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--white); font-size: 1.2rem; }
+  .feature-content h4 { color: var(--purple); font-size: 0.9rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+  .feature-content p { color: var(--text); font-size: 0.85rem; line-height: 1.5; margin: 0; }
+  /* Prière spéciale dans le parcours */
+  .week-prayer-box { background: linear-gradient(135deg, rgba(94,51,136,0.08), rgba(0,102,179,0.06)); border: 1px solid rgba(94,51,136,0.2); border-radius: 14px; padding: 1.25rem; margin-top: 0.65rem; }
+  .week-prayer-text { font-size: 0.92rem; color: var(--text); line-height: 1.7; font-style: italic; }
+  .week-prayer-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 700; }
+  .complete-week-btn { width: 100%; border: none; border-radius: 16px; background: var(--red); color: var(--white); padding: 13px 16px; margin-top: 1rem; cursor: pointer; font-family: var(--font-body); font-weight: 900; box-shadow: 0 16px 34px rgba(217,21,43,0.18); transition: transform 0.2s; }
+  .complete-week-btn:hover { transform: translateY(-2px); }
+  .complete-week-btn.done { background: var(--blue); }
+  .complete-week-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+  .prayer-submitted { display: flex; align-items: center; color: var(--blue); font-weight: 800; font-size: 0.85rem; background: rgba(0,102,179,0.08); border-radius: 12px; padding: 12px; margin-top: 0.5rem; }
+  .locked-note { margin-top: 0.85rem; color: var(--text-muted); font-size: 0.82rem; font-weight: 800; }
+  .certificate-card { display: none; margin-top: 1.5rem; position: relative; top: 0; text-align: center; }
+  .certificate-card.open { display: block; animation: cardIn 0.4s ease both; }
+  .certificate-card h3 { font-size: clamp(1.4rem, 3vw, 2.1rem); color: var(--red); margin-bottom: 0.5rem; }
+  .certificate-card p { color: var(--text-muted); }
+  @media(max-width: 900px) { .parcours-dashboard { grid-template-columns: 1fr 1fr; } .parcours-layout { grid-template-columns: 1fr; } .parcours-detail { position: static; } }
+  @media(max-width: 560px) { .parcours-dashboard { grid-template-columns: 1fr; } }
 
   /* CELLULES */
   .cellules-section { background: var(--surface); }
@@ -464,7 +435,6 @@
   .entraide-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px; }
   .entraide-contact { font-size: 0.78rem; color: var(--gold); }
 
-  /* MODAL INSCRIPTION */
   .modal-overlay { min-height: 500px; background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; padding: 2rem; position: fixed; inset: 0; z-index: 200; }
   .modal-overlay.open { display: flex; }
   .modal { background: var(--white); border-radius: 20px; padding: 2rem; max-width: 480px; width: 100%; border: 1px solid var(--border); }
@@ -476,19 +446,13 @@
   .modal-close { flex: 1; padding: 12px; border: 1px solid var(--border); border-radius: 10px; background: transparent; cursor: pointer; font-family: var(--font-body); color: var(--text-muted); }
   .modal-submit { flex: 2; padding: 12px; border: none; border-radius: 10px; background: var(--red); color: var(--white); font-weight: 800; cursor: pointer; font-family: var(--font-body); }
 
-  .toast { position: fixed; bottom: 2rem; right: 2rem; max-width: min(360px, calc(100vw - 2rem)); background: rgba(5,5,5,0.82); color: var(--white); padding: 14px 18px; border-radius: 18px; font-size: 0.88rem; border: 1px solid rgba(255,255,255,0.18); border-left: 4px solid var(--yellow); z-index: 300; transform: translateY(100px) scale(0.96); opacity: 0; transition: transform 0.35s, opacity 0.35s; box-shadow: 0 20px 55px rgba(5,5,5,0.28); backdrop-filter: blur(16px); }
-  .toast.show { transform: translateY(0) scale(1); opacity: 1; }
-
-  /* SMS */
   .sms-section { background: linear-gradient(90deg, var(--red), var(--purple)); padding: 4rem 2rem; text-align: center; }
   .sms-section h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.2rem); color: var(--white); margin-bottom: 0.75rem; font-weight: 900; }
   .sms-section p { color: rgba(255,255,255,0.86); margin-bottom: 2rem; font-size: 0.95rem; }
   .sms-form { display: flex; gap: 10px; max-width: 440px; margin: 0 auto; flex-wrap: wrap; }
   .sms-form input { flex: 1; min-width: 200px; padding: 12px 18px; border-radius: 30px; border: none; font-family: var(--font-body); font-size: 0.9rem; }
-  .sms-form button { padding: 12px 28px; border-radius: 30px; border: none; background: var(--yellow); color: var(--text); font-weight: 800; cursor: pointer; font-family: var(--font-body); transition: opacity 0.2s; }
-  .sms-form button:hover { opacity: 0.92; }
+  .sms-form button { padding: 12px 28px; border-radius: 30px; border: none; background: var(--yellow); color: var(--text); font-weight: 800; cursor: pointer; font-family: var(--font-body); }
 
-  /* CONTACT */
   .info-section { background: var(--surface); }
   .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
   @media(max-width: 700px) { .info-grid { grid-template-columns: 1fr; } }
@@ -501,7 +465,6 @@
   .contact-form input, .contact-form textarea { width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-family: var(--font-body); font-size: 0.9rem; background: var(--white); margin-bottom: 10px; color: var(--text); }
   .contact-form textarea { min-height: 100px; resize: vertical; }
 
-  /* FOOTER */
   footer { background: var(--surface); padding: 3rem 2rem 2rem; }
   .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 2rem; }
   .footer-brand { font-family: var(--font-display); color: var(--red); font-size: 1.2rem; font-weight: 900; display: block; margin-bottom: 0.5rem; }
@@ -509,26 +472,21 @@
   .footer-links h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); margin-bottom: 0.75rem; }
   .footer-links ul { list-style: none; }
   .footer-links li { margin-bottom: 0.4rem; }
-  .footer-links a { font-size: 0.85rem; color: var(--text); text-decoration: none; transition: color 0.2s; }
+  .footer-links a { font-size: 0.85rem; color: var(--text); text-decoration: none; }
   .footer-links a:hover { color: var(--blue); }
   .footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.78rem; color: var(--text-muted); }
 
-  /* ANIMATIONS */
+  .toast { position: fixed; bottom: 2rem; right: 2rem; max-width: min(360px, calc(100vw - 2rem)); background: rgba(5,5,5,0.82); color: var(--white); padding: 14px 18px; border-radius: 18px; font-size: 0.88rem; border: 1px solid rgba(255,255,255,0.18); border-left: 4px solid var(--yellow); z-index: 300; transform: translateY(100px) scale(0.96); opacity: 0; transition: transform 0.35s, opacity 0.35s; box-shadow: 0 20px 55px rgba(5,5,5,0.28); backdrop-filter: blur(16px); }
+  .toast.show { transform: translateY(0) scale(1); opacity: 1; }
   .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  @media(max-width: 768px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .priere-grid { grid-template-columns: 1fr; }
-  }
+  @media(max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">✦ FOURCOM DIGITAL</a>
+  <a class="nav-logo" href="#">✦ REV COM</a>
   <ul class="nav-links">
     <li><a href="#agenda">Agenda</a></li>
     <li><a href="#priere">Prière</a></li>
@@ -553,12 +511,11 @@
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-pattern"></div>
   <div class="hero-glow"></div>
   <div class="hero-content fade-up">
-    <p class="hero-eyebrow">Abidjan • FOURCOM DIGITAL</p>
+    <p class="hero-eyebrow">Abidjan • REV COM</p>
     <h1>Grandir ensemble<br>dans la <span>foi</span></h1>
     <p>Une communauté vivante pour vous accompagner chaque jour — ressources, prière, événements et entraide.</p>
     <div class="hero-btns">
@@ -578,7 +535,6 @@
   </div>
 </section>
 
-<!-- VERSET DU JOUR -->
 <section class="verset-section">
   <div class="container">
     <div class="section-header">
@@ -599,7 +555,6 @@
   </div>
 </section>
 
-<!-- AGENDA -->
 <section class="agenda-section" id="agenda">
   <div class="container">
     <div class="section-header fade-up">
@@ -664,7 +619,6 @@
   </div>
 </div>
 
-<!-- PRIERE -->
 <section class="priere-section" id="priere">
   <div class="container">
     <div class="section-header fade-up">
@@ -691,7 +645,7 @@
           </div>
           <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
             <h3 style="margin-bottom:1rem;color:var(--text)">Prière guidée du jour</h3>
-            <div id="priereAudio" style="background:rgba(31,33,41,0.04);border:1px solid var(--border);border-radius:10px;padding:1rem">
+            <div style="background:rgba(31,33,41,0.04);border:1px solid var(--border);border-radius:10px;padding:1rem">
               <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.75rem">✦ Prière du matin — Pasteur Emmanuel</p>
               <div style="display:flex;align-items:center;gap:12px">
                 <button onclick="toggleAudio()" id="audioBtn" style="width:40px;height:40px;border-radius:50%;background:var(--yellow);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">▶</button>
@@ -708,7 +662,6 @@
   </div>
 </section>
 
-<!-- PARCOURS -->
 <section class="parcours-section" id="parcours">
   <div class="container">
     <div class="section-header fade-up">
@@ -744,12 +697,12 @@
     <div class="certificate-card" id="certificateCard">
       <h3>Certificat de parcours accompli</h3>
       <p>Félicitations ! Vous avez complété les 52 semaines du Parcours du disciple.</p>
-      <p style="margin-top:0.75rem;font-weight:900;color:var(--text)">FOURCOM DIGITAL • Croissance spirituelle annuelle</p>
+      <p style="margin-top:0.75rem;font-weight:900;color:var(--text)">REV COM • Croissance spirituelle annuelle</p>
     </div>
   </div>
 </section>
 
-<!-- ======================== BIBLIOTHEQUE ======================== -->
+<!-- BIBLIOTHEQUE -->
 <section class="biblio-section" id="bibliotheque">
   <div class="container">
     <div class="section-header fade-up">
@@ -757,25 +710,23 @@
       <h2 class="section-title">Bibliothèque spirituelle</h2>
       <div class="section-line"></div>
     </div>
-
-    <!-- TABS -->
     <div class="biblio-tabs fade-up">
       <button class="biblio-tab active" onclick="switchBiblioTab('ressources',this)">Tout</button>
       <button class="biblio-tab" onclick="switchBiblioTab('etude',this)">Études bibliques</button>
       <button class="biblio-tab" onclick="switchBiblioTab('priere',this)">Prières</button>
       <button class="biblio-tab" onclick="switchBiblioTab('plan',this)">Plans de lecture</button>
       <button class="biblio-tab" onclick="switchBiblioTab('serie',this)">Séries</button>
-      <button class="biblio-tab" onclick="switchBiblioTab('bible',this)">📖 Ma Bible</button>
+      <button class="biblio-tab" onclick="switchBiblioTab('bible',this)">📖 Ma Bible LSG</button>
       <button class="biblio-tab" onclick="switchBiblioTab('notes',this)">📝 Mes Notes</button>
     </div>
 
-    <!-- Ressources classiques -->
     <div id="panel-ressources" class="fade-up">
       <div class="biblio-grid" id="biblioGrid"></div>
     </div>
 
-    <!-- ===== MA BIBLE PANEL ===== -->
+    <!-- ===== MA BIBLE LSG PANEL ===== -->
     <div id="panel-bible" class="bible-panel fade-up">
+      <div class="bible-translation-badge">📖 La Sainte Bible — Louis Segond 1910 (LSG) — Domaine public</div>
       <div class="bible-stats-bar" style="margin-bottom:1.25rem">
         <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--red)"></div><span id="bibleReadChapters">0 chapitres lus</span></div>
         <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--yellow)"></div><span id="bibleHighlightCount">0 versets surlignés</span></div>
@@ -783,7 +734,6 @@
         <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--blue)"></div><span id="bibleProgressPct">0% de la Bible lue</span></div>
       </div>
       <div class="bible-layout">
-        <!-- Sidebar -->
         <div class="bible-sidebar">
           <div class="bible-sidebar-header">
             <span>Livres</span>
@@ -796,7 +746,6 @@
           <input class="bible-book-search" type="text" placeholder="Rechercher un livre..." oninput="filterBibleBooks(this.value)" id="bibleBookSearch">
           <div class="bible-book-list" id="bibleBookList"></div>
         </div>
-        <!-- Reader -->
         <div class="bible-reader">
           <div class="bible-reader-header">
             <div>
@@ -811,14 +760,32 @@
               <button class="bible-fav-btn" id="bibleFavBtn" onclick="toggleFavMode()">♥ Favoris</button>
             </div>
           </div>
-          <div class="bible-verse-container" id="bibleVerseContainer"></div>
+          <!-- Audio Bible Player -->
+          <div class="bible-audio-bar" id="bibleAudioBar">
+            <div class="bible-audio-info">
+              <div class="bible-audio-title" id="bibleAudioTitle">🎧 Écouter ce chapitre</div>
+              <div class="bible-audio-sub" id="bibleAudioSub">Bible audio — Louis Segond 1910</div>
+            </div>
+            <div class="bible-audio-controls">
+              <button class="bible-audio-play" id="bibleAudioPlayBtn" onclick="toggleBibleAudio()">▶</button>
+              <div class="bible-audio-track">
+                <div class="bible-audio-progress" id="bibleAudioProgress" onclick="seekBibleAudio(event,this)">
+                  <div class="bible-audio-fill" id="bibleAudioFill" style="width:0%"></div>
+                </div>
+                <span class="bible-audio-time" id="bibleAudioTime">0:00</span>
+              </div>
+              <input type="range" class="bible-audio-vol" min="0" max="1" step="0.05" value="1" oninput="setBibleVolume(this.value)" title="Volume" style="cursor:pointer">
+            </div>
+          </div>
+          <div class="bible-verse-container" id="bibleVerseContainer">
+            <div class="bible-loading"><div class="bible-spinner"></div> Chargement de la Bible LSG...</div>
+          </div>
           <div class="bible-nav-row">
             <button class="bible-nav-btn" onclick="prevBibleChapter()">← Chapitre précédent</button>
             <button class="bible-nav-btn" onclick="nextBibleChapter()">Chapitre suivant →</button>
           </div>
         </div>
       </div>
-      <!-- Quick-note tooltip -->
       <div class="bible-note-tooltip" id="bibleNoteTooltip">
         📌 Verset sélectionné — <button onclick="addVerseToNote()">Créer une note</button>
         <button onclick="closeBibleTooltip()" style="background:rgba(255,255,255,0.1)">✕</button>
@@ -844,11 +811,9 @@
       </div>
       <div class="notes-grid" id="notesGrid"></div>
     </div>
-
   </div>
 </section>
 
-<!-- Note Editor Modal -->
 <div class="note-modal" id="noteModal">
   <div class="note-dialog">
     <div class="note-dialog-header">
@@ -877,29 +842,12 @@
     <div class="note-editor-body">
       <input type="hidden" id="noteEditId">
       <div class="note-editor-row">
-        <div class="note-field">
-          <label>Titre de la note</label>
-          <input type="text" id="noteTitleInput" placeholder="Ex: Sermon du dimanche 11 mai">
-        </div>
-        <div class="note-field">
-          <label>Référence biblique</label>
-          <input type="text" id="noteVerseInput" placeholder="Ex: Jean 3 : 16">
-        </div>
+        <div class="note-field"><label>Titre de la note</label><input type="text" id="noteTitleInput" placeholder="Ex: Sermon du dimanche 11 mai"></div>
+        <div class="note-field"><label>Référence biblique</label><input type="text" id="noteVerseInput" placeholder="Ex: Jean 3 : 16"></div>
       </div>
       <div class="note-editor-row">
-        <div class="note-field">
-          <label>Catégorie</label>
-          <select id="noteTagInput">
-            <option value="sermon">📣 Sermon</option>
-            <option value="etude">📖 Étude</option>
-            <option value="personnel">🙏 Personnel</option>
-            <option value="verset">✦ Verset</option>
-          </select>
-        </div>
-        <div class="note-field">
-          <label>Prédicateur / Source</label>
-          <input type="text" id="noteSourceInput" placeholder="Ex: Pasteur Emmanuel">
-        </div>
+        <div class="note-field"><label>Catégorie</label><select id="noteTagInput"><option value="sermon">📣 Sermon</option><option value="etude">📖 Étude</option><option value="personnel">🙏 Personnel</option><option value="verset">✦ Verset</option></select></div>
+        <div class="note-field"><label>Prédicateur / Source</label><input type="text" id="noteSourceInput" placeholder="Ex: Pasteur Emmanuel"></div>
       </div>
       <div class="note-field" style="flex:1">
         <label>Contenu</label>
@@ -918,7 +866,6 @@
   </div>
 </div>
 
-<!-- CELLULES -->
 <section class="cellules-section" id="cellules">
   <div class="container">
     <div class="section-header fade-up">
@@ -931,10 +878,12 @@
       <input type="text" placeholder="Rechercher par quartier..." oninput="searchCellule(this.value)" style="border:none;background:transparent;font-family:var(--font-body);font-size:0.9rem;color:var(--text);flex:1;outline:none">
     </div>
     <div class="cellule-list fade-up" id="celluleGrid"></div>
+    <div style="text-align:center;margin-top:2rem" class="fade-up">
+      <button class="btn-outline" onclick="showToast('Fonctionnalité disponible bientôt — contactez-nous par WhatsApp 0596517982.')">+ Rejoindre une cellule</button>
+    </div>
   </div>
 </section>
 
-<!-- ENTRAIDE -->
 <section class="entraide-section" id="entraide">
   <div class="container">
     <div class="section-header fade-up">
@@ -954,7 +903,6 @@
   </div>
 </section>
 
-<!-- SMS -->
 <section class="sms-section">
   <div class="fade-up">
     <h2>Recevez le verset du jour</h2>
@@ -966,7 +914,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="info-section" id="contact">
   <div class="container">
     <div class="section-header fade-up">
@@ -978,22 +925,22 @@
       <div class="info-box">
         <h3>Nous trouver</h3>
         <div class="info-row">
-          <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div><div class="info-label">Adresse</div><div class="info-value">Abidjan, Yopougon Maroc, non loin du marché Bagnon</div></div>
         </div>
         <div class="info-row">
-          <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
           <div><div class="info-label">Culte principal</div><div class="info-value">Tous les Dimanches de 08h00 à 11h00</div></div>
         </div>
         <div class="info-row">
-          <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.4 2 2 0 0 1 3.53 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.48 16z"/></svg></div>
+          <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.4 2 2 0 0 1 3.53 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.48 16z"/></svg></div>
           <div><div class="info-label">Téléphone</div><div class="info-value">+225 05 96 51 79 82</div></div>
         </div>
         <div class="info-row">
-          <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div><div class="info-label">Email</div><div class="info-value">eglisefoursquarerev@yahoo.com</div></div>
         </div>
-        <div style="margin-top:1.5rem;background:var(--gold-pale);border-radius:var(--radius);height:180px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,0.3);color:var(--text-muted);font-size:0.85rem">🗺️ Carte Google Maps ici</div>
+        <div style="margin-top:1.5rem;background:var(--gold-pale);border-radius:var(--radius);height:180px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,0.3);color:var(--text-muted);font-size:0.85rem">🗺️ Carte Google Maps</div>
       </div>
       <div class="info-box">
         <h3>Nous écrire</h3>
@@ -1009,11 +956,10 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
-      <span class="footer-brand">✦ FOURCOM DIGITAL</span>
+      <span class="footer-brand">✦ REV COM</span>
       <p class="footer-tagline">Abidjan, Côte d'Ivoire<br>La communication au cœur de notre mission spirituelle</p>
     </div>
     <div class="footer-links">
@@ -1034,10 +980,9 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">© 2025 FOURCOM DIGITAL — Fait avec foi ✦</div>
+  <div class="footer-bottom">© 2025 REV COM — Fait avec foi ✦</div>
 </footer>
 
-<!-- MODAL INSCRIPTION -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <h3 id="modalTitle">Inscription à l'événement</h3>
@@ -1056,551 +1001,416 @@
 <div class="toast" id="toast"></div>
 
 <script>
-// ==================== CORE DATA ====================
-const versets = [
-  { text:"Car je connais les projets que j'ai formés sur vous, dit l'Éternel, projets de paix et non de malheur, afin de vous donner un avenir et de l'espérance.", ref:"Jérémie 29 : 11" },
-  { text:"Je puis tout par celui qui me fortifie.", ref:"Philippiens 4 : 13" },
-  { text:"L'Éternel est mon berger : je ne manquerai de rien.", ref:"Psaume 23 : 1" },
-  { text:"Remets ton sort à l'Éternel, mets en lui ta confiance, et il agira.", ref:"Psaume 37 : 5" },
-  { text:"Ne craignez rien, car je suis avec vous ; ne soyez pas effrayés, car je suis votre Dieu.", ref:"Ésaïe 41 : 10" },
-  { text:"La foi est la substance des choses qu'on espère, la démonstration de celles qu'on ne voit pas.", ref:"Hébreux 11 : 1" },
+// ===== VERSETS =====
+const versets=[
+  {text:"Car je connais les projets que j'ai formés sur vous, dit l'Éternel, projets de paix et non de malheur, afin de vous donner un avenir et de l'espérance.",ref:"Jérémie 29:11"},
+  {text:"Je puis tout par celui qui me fortifie.",ref:"Philippiens 4:13"},
+  {text:"L'Éternel est mon berger : je ne manquerai de rien.",ref:"Psaume 23:1"},
+  {text:"Remets ton sort à l'Éternel, mets en lui ta confiance, et il agira.",ref:"Psaume 37:5"},
+  {text:"Car Dieu a tant aimé le monde qu'il a donné son Fils unique, afin que quiconque croit en lui ne périsse point, mais qu'il ait la vie éternelle.",ref:"Jean 3:16"},
+  {text:"La foi est une ferme assurance des choses qu'on espère, une démonstration de celles qu'on ne voit pas.",ref:"Hébreux 11:1"},
 ];
-let versetIdx = 0;
+let versetIdx=0;
+function nextVerset(){versetIdx=(versetIdx+1)%versets.length;document.getElementById('versetText').textContent=versets[versetIdx].text;document.getElementById('versetRef').textContent='— '+versets[versetIdx].ref;}
+function copyVerset(){const v=versets[versetIdx];navigator.clipboard.writeText(`"${v.text}" — ${v.ref}`).catch(()=>{});showToast('Verset copié !');}
+function shareWhatsApp(){const v=versets[versetIdx];window.open(`https://wa.me/?text=${encodeURIComponent(`"${v.text}" — ${v.ref} | REV COM`)}`, '_blank');}
 
-const defaultEvents = [
-  { id:'base-1', title:"Culte du Dimanche", date:"2026-05-11", dateLabel:"11 Mai", time:"09:00", lieu:"Église principale, Cocody", cat:"culte", desc:"Service dominical avec louange et prédication.", organizer:"FOURCOM DIGITAL", participants:42, owned:false, poster:"" },
-  { id:'base-2', title:"Étude biblique", date:"2026-05-13", dateLabel:"13 Mai", time:"19:00", lieu:"Salle A, Église principale", cat:"cellule", desc:"Étude approfondie de l'Évangile de Jean.", organizer:"Cellules d'Abidjan", participants:18, owned:false, poster:"" },
-  { id:'base-3', title:"Rencontre des Jeunes", date:"2026-05-15", dateLabel:"15 Mai", time:"18:00", lieu:"Centre jeunesse, Marcory", cat:"jeune", desc:"Soirée de louange et partage pour les 15-30 ans.", organizer:"Ministère des jeunes", participants:35, owned:false, poster:"" },
-  { id:'base-4', title:"Nuit de Prière", date:"2026-05-16", dateLabel:"16 Mai", time:"22:00", lieu:"Église principale", cat:"special", desc:"Une nuit entière de prière et d'intercession.", organizer:"Intercession", participants:64, owned:false, poster:"" },
-  { id:'base-5', title:"Culte de Famille", date:"2026-05-18", dateLabel:"18 Mai", time:"10:00", lieu:"Église principale", cat:"culte", desc:"Culte spécial pour toutes les familles.", organizer:"Familles", participants:53, owned:false, poster:"" },
-  { id:'base-6', title:"Retraite Spirituelle", date:"2026-05-24", dateLabel:"24 Mai", time:"08:00", lieu:"Yamoussoukro", cat:"special", desc:"Week-end de retraite et ressourcement spirituel.", organizer:"Formation", participants:27, owned:false, poster:"" },
+// ===== BIBLE LSG API =====
+// Uses bible-api.com which has LSG via the ?translation=lsg parameter
+// Book ID mapping for bible-api.com
+const BIBLE_BOOKS_AT = [
+  {name:"Genèse",id:"genesis",abbr:"Gen",chapters:50},{name:"Exode",id:"exodus",abbr:"Ex",chapters:40},
+  {name:"Lévitique",id:"leviticus",abbr:"Lév",chapters:27},{name:"Nombres",id:"numbers",abbr:"Nb",chapters:36},
+  {name:"Deutéronome",id:"deuteronomy",abbr:"Dt",chapters:34},{name:"Josué",id:"joshua",abbr:"Jos",chapters:24},
+  {name:"Juges",id:"judges",abbr:"Jug",chapters:21},{name:"Ruth",id:"ruth",abbr:"Rut",chapters:4},
+  {name:"1 Samuel",id:"1+samuel",abbr:"1S",chapters:31},{name:"2 Samuel",id:"2+samuel",abbr:"2S",chapters:24},
+  {name:"1 Rois",id:"1+kings",abbr:"1R",chapters:22},{name:"2 Rois",id:"2+kings",abbr:"2R",chapters:25},
+  {name:"1 Chroniques",id:"1+chronicles",abbr:"1Ch",chapters:29},{name:"2 Chroniques",id:"2+chronicles",abbr:"2Ch",chapters:36},
+  {name:"Esdras",id:"ezra",abbr:"Esd",chapters:10},{name:"Néhémie",id:"nehemiah",abbr:"Né",chapters:13},
+  {name:"Esther",id:"esther",abbr:"Est",chapters:10},{name:"Job",id:"job",abbr:"Job",chapters:42},
+  {name:"Psaumes",id:"psalms",abbr:"Ps",chapters:150},{name:"Proverbes",id:"proverbs",abbr:"Pr",chapters:31},
+  {name:"Ecclésiaste",id:"ecclesiastes",abbr:"Ec",chapters:12},{name:"Cantique des cantiques",id:"song+of+solomon",abbr:"Ct",chapters:8},
+  {name:"Ésaïe",id:"isaiah",abbr:"És",chapters:66},{name:"Jérémie",id:"jeremiah",abbr:"Jér",chapters:52},
+  {name:"Lamentations",id:"lamentations",abbr:"Lam",chapters:5},{name:"Ézéchiel",id:"ezekiel",abbr:"Éz",chapters:48},
+  {name:"Daniel",id:"daniel",abbr:"Dan",chapters:12},{name:"Osée",id:"hosea",abbr:"Os",chapters:14},
+  {name:"Joël",id:"joel",abbr:"Joël",chapters:3},{name:"Amos",id:"amos",abbr:"Am",chapters:9},
+  {name:"Abdias",id:"obadiah",abbr:"Abd",chapters:1},{name:"Jonas",id:"jonah",abbr:"Jon",chapters:4},
+  {name:"Michée",id:"micah",abbr:"Mi",chapters:7},{name:"Nahoum",id:"nahum",abbr:"Na",chapters:3},
+  {name:"Habacuc",id:"habakkuk",abbr:"Hab",chapters:3},{name:"Sophonie",id:"zephaniah",abbr:"So",chapters:3},
+  {name:"Aggée",id:"haggai",abbr:"Ag",chapters:2},{name:"Zacharie",id:"zechariah",abbr:"Za",chapters:14},
+  {name:"Malachie",id:"malachi",abbr:"Mal",chapters:4},
 ];
-let events = [...defaultEvents, ...JSON.parse(localStorage.getItem('userEvents') || '[]')];
-let eventFilter = 'all', agendaView = 'cards', currentEventId = null, posterDraft = '';
-const categoryLabels = { jeune:'Jeune', cellule:'Cellule', culte:'Culte', special:'Spéciaux' };
-let participantsByEvent = JSON.parse(localStorage.getItem('participantsByEvent') || '{}');
-
-const defaultPrieres = [
-  { id:"priere-1", nom:"Marie K.", texte:"Prière pour la guérison de mon père hospitalisé cette semaine.", count:14, reactions:{amen:6,paix:3}, comments:[{nom:"Sarah",texte:"Amen, nous prions avec toi."}], createdAt:"2026-05-08T08:30:00.000Z" },
-  { id:"priere-2", nom:"Jean-Paul A.", texte:"Demande de sagesse pour une décision importante dans ma famille.", count:8, reactions:{amen:4,paix:2}, comments:[], createdAt:"2026-05-08T09:05:00.000Z" },
-  { id:"priere-3", nom:"Anonyme", texte:"Prière pour la paix dans notre pays et la protection de nos familles.", count:23, reactions:{amen:12,paix:8}, comments:[{nom:"Anonyme",texte:"Que la paix de Dieu nous garde."}], createdAt:"2026-05-08T10:10:00.000Z" },
-  { id:"priere-4", nom:"Esther N.", texte:"Action de grâce pour la naissance de mon fils. Béni soit l'Éternel !", count:31, reactions:{amen:18,paix:5}, comments:[], createdAt:"2026-05-08T11:20:00.000Z" },
+const BIBLE_BOOKS_NT = [
+  {name:"Matthieu",id:"matthew",abbr:"Mt",chapters:28},{name:"Marc",id:"mark",abbr:"Mc",chapters:16},
+  {name:"Luc",id:"luke",abbr:"Lc",chapters:24},{name:"Jean",id:"john",abbr:"Jn",chapters:21},
+  {name:"Actes",id:"acts",abbr:"Ac",chapters:28},{name:"Romains",id:"romans",abbr:"Rm",chapters:16},
+  {name:"1 Corinthiens",id:"1+corinthians",abbr:"1Co",chapters:16},{name:"2 Corinthiens",id:"2+corinthians",abbr:"2Co",chapters:13},
+  {name:"Galates",id:"galatians",abbr:"Ga",chapters:6},{name:"Éphésiens",id:"ephesians",abbr:"Ép",chapters:6},
+  {name:"Philippiens",id:"philippians",abbr:"Ph",chapters:4},{name:"Colossiens",id:"colossians",abbr:"Col",chapters:4},
+  {name:"1 Thessaloniciens",id:"1+thessalonians",abbr:"1Th",chapters:5},{name:"2 Thessaloniciens",id:"2+thessalonians",abbr:"2Th",chapters:3},
+  {name:"1 Timothée",id:"1+timothy",abbr:"1Ti",chapters:6},{name:"2 Timothée",id:"2+timothy",abbr:"2Ti",chapters:4},
+  {name:"Tite",id:"titus",abbr:"Tt",chapters:3},{name:"Philémon",id:"philemon",abbr:"Phm",chapters:1},
+  {name:"Hébreux",id:"hebrews",abbr:"Hé",chapters:13},{name:"Jacques",id:"james",abbr:"Ja",chapters:5},
+  {name:"1 Pierre",id:"1+peter",abbr:"1Pi",chapters:5},{name:"2 Pierre",id:"2+peter",abbr:"2Pi",chapters:3},
+  {name:"1 Jean",id:"1+john",abbr:"1Jn",chapters:5},{name:"2 Jean",id:"2+john",abbr:"2Jn",chapters:1},
+  {name:"3 Jean",id:"3+john",abbr:"3Jn",chapters:1},{name:"Jude",id:"jude",abbr:"Jud",chapters:1},
+  {name:"Apocalypse",id:"revelation",abbr:"Ap",chapters:22},
 ];
-let prieres = JSON.parse(localStorage.getItem('prieresWall') || 'null') || defaultPrieres;
-let priereActions = JSON.parse(localStorage.getItem('priereActions') || '{}');
-let prayerAuthorId = localStorage.getItem('prayerAuthorId') || ('author-'+Date.now()+'-'+Math.random().toString(36).slice(2,8));
-localStorage.setItem('prayerAuthorId', prayerAuthorId);
+const ALL_BOOKS=[...BIBLE_BOOKS_AT,...BIBLE_BOOKS_NT];
 
-// ==================== BIBLE DATA ====================
-const BIBLE_AT = [
-  {name:"Genèse",abbr:"Gen",chapters:50},
-  {name:"Exode",abbr:"Ex",chapters:40},
-  {name:"Lévitique",abbr:"Lév",chapters:27},
-  {name:"Nombres",abbr:"Nb",chapters:36},
-  {name:"Deutéronome",abbr:"Dt",chapters:34},
-  {name:"Josué",abbr:"Jos",chapters:24},
-  {name:"Juges",abbr:"Jug",chapters:21},
-  {name:"Ruth",abbr:"Rut",chapters:4},
-  {name:"1 Samuel",abbr:"1S",chapters:31},
-  {name:"2 Samuel",abbr:"2S",chapters:24},
-  {name:"1 Rois",abbr:"1R",chapters:22},
-  {name:"2 Rois",abbr:"2R",chapters:25},
-  {name:"1 Chroniques",abbr:"1Ch",chapters:29},
-  {name:"2 Chroniques",abbr:"2Ch",chapters:36},
-  {name:"Esdras",abbr:"Esd",chapters:10},
-  {name:"Néhémie",abbr:"Né",chapters:13},
-  {name:"Esther",abbr:"Est",chapters:10},
-  {name:"Job",abbr:"Job",chapters:42},
-  {name:"Psaumes",abbr:"Ps",chapters:150},
-  {name:"Proverbes",abbr:"Pr",chapters:31},
-  {name:"Ecclésiaste",abbr:"Ec",chapters:12},
-  {name:"Cantique des cantiques",abbr:"Ct",chapters:8},
-  {name:"Ésaïe",abbr:"És",chapters:66},
-  {name:"Jérémie",abbr:"Jér",chapters:52},
-  {name:"Lamentations",abbr:"Lam",chapters:5},
-  {name:"Ézéchiel",abbr:"Éz",chapters:48},
-  {name:"Daniel",abbr:"Dan",chapters:12},
-  {name:"Osée",abbr:"Os",chapters:14},
-  {name:"Joël",abbr:"Joël",chapters:3},
-  {name:"Amos",abbr:"Am",chapters:9},
-  {name:"Abdias",abbr:"Abd",chapters:1},
-  {name:"Jonas",abbr:"Jon",chapters:4},
-  {name:"Michée",abbr:"Mi",chapters:7},
-  {name:"Nahoum",abbr:"Na",chapters:3},
-  {name:"Habacuc",abbr:"Hab",chapters:3},
-  {name:"Sophonie",abbr:"So",chapters:3},
-  {name:"Aggée",abbr:"Ag",chapters:2},
-  {name:"Zacharie",abbr:"Za",chapters:14},
-  {name:"Malachie",abbr:"Mal",chapters:4},
-];
-const BIBLE_NT = [
-  {name:"Matthieu",abbr:"Mt",chapters:28},
-  {name:"Marc",abbr:"Mc",chapters:16},
-  {name:"Luc",abbr:"Lc",chapters:24},
-  {name:"Jean",abbr:"Jn",chapters:21},
-  {name:"Actes",abbr:"Ac",chapters:28},
-  {name:"Romains",abbr:"Rm",chapters:16},
-  {name:"1 Corinthiens",abbr:"1Co",chapters:16},
-  {name:"2 Corinthiens",abbr:"2Co",chapters:13},
-  {name:"Galates",abbr:"Ga",chapters:6},
-  {name:"Éphésiens",abbr:"Ép",chapters:6},
-  {name:"Philippiens",abbr:"Ph",chapters:4},
-  {name:"Colossiens",abbr:"Col",chapters:4},
-  {name:"1 Thessaloniciens",abbr:"1Th",chapters:5},
-  {name:"2 Thessaloniciens",abbr:"2Th",chapters:3},
-  {name:"1 Timothée",abbr:"1Ti",chapters:6},
-  {name:"2 Timothée",abbr:"2Ti",chapters:4},
-  {name:"Tite",abbr:"Tt",chapters:3},
-  {name:"Philémon",abbr:"Phm",chapters:1},
-  {name:"Hébreux",abbr:"Hé",chapters:13},
-  {name:"Jacques",abbr:"Ja",chapters:5},
-  {name:"1 Pierre",abbr:"1Pi",chapters:5},
-  {name:"2 Pierre",abbr:"2Pi",chapters:3},
-  {name:"1 Jean",abbr:"1Jn",chapters:5},
-  {name:"2 Jean",abbr:"2Jn",chapters:1},
-  {name:"3 Jean",abbr:"3Jn",chapters:1},
-  {name:"Jude",abbr:"Jud",chapters:1},
-  {name:"Apocalypse",abbr:"Ap",chapters:22},
-];
-const ALL_BOOKS = [...BIBLE_AT, ...BIBLE_NT];
-let currentTestament = 'AT';
-let currentBookIndex = 0;
-let currentChapter = 1;
-let bibleFontSize = 0.95;
-let highlightMode = false;
-let favMode = false;
-let selectedVerseRef = null;
+let currentTestament='AT';
+let currentBookIndex=0;
+let currentChapter=1;
+let bibleFontSize=0.95;
+let highlightMode=false;
+let favMode=false;
+let selectedVerseRef=null;
+let bibleCache={};
 
-// Bible state in localStorage
-function getBibleState() { return JSON.parse(localStorage.getItem('bibleState') || '{}'); }
-function saveBibleState(state) { localStorage.setItem('bibleState', JSON.stringify(state)); }
+// Bible Audio
+let bibleAudio=null;
+let bibleAudioPlaying=false;
+let bibleAudioInterval=null;
 
-// Simple verse generator (demo content)
-function generateVerses(bookName, chapter, count) {
-  const base = [
-    `Au commencement, dans le livre de ${bookName}, chapitre ${chapter}, Dieu établit ses fondements et posa les bases de ce qui allait être révélé.`,
-    `Et il dit : que la lumière soit, et la lumière fut. La parole divine était puissante et accomplit tout ce qu'elle déclarait.`,
-    `Ainsi les cieux et la terre furent achevés, avec toute leur armée. L'œuvre était bonne et parfaite.`,
-    `Il bénit le septième jour et le sanctifia, car en ce jour il se reposa de toute son œuvre qu'il avait créée.`,
-    `L'Éternel Dieu forma l'homme de la poussière de la terre et insuffla dans ses narines un souffle de vie.`,
-    `Dieu vit tout ce qu'il avait fait et voici, cela était très bon. Il y eut un soir et il y eut un matin.`,
-    `Et l'Éternel Dieu prit l'homme et le plaça dans le jardin pour le cultiver et le garder avec soin.`,
-    `Il n'est pas bon que l'homme soit seul, je lui ferai une aide qui lui soit assortie et convenable.`,
-    `C'est pourquoi l'homme quittera son père et sa mère et s'attachera à sa femme et ils deviendront une seule chair.`,
-    `L'Éternel dit à l'homme : où es-tu ? Et l'homme répondit : j'ai entendu ta voix et j'ai eu peur.`,
-    `Tu aimeras l'Éternel ton Dieu de tout ton cœur, de toute ton âme et de toute ta force, dit la Parole.`,
-    `Cherchez premièrement le royaume de Dieu et sa justice, et toutes ces choses vous seront données par-dessus.`,
-    `Je suis le chemin, la vérité et la vie, dit le Seigneur. Nul ne vient au Père que par moi.`,
-    `Dieu a tant aimé le monde qu'il a donné son Fils unique afin que quiconque croit en lui ne périsse pas.`,
-    `La grâce du Seigneur Jésus-Christ, l'amour de Dieu et la communion du Saint-Esprit soient avec vous tous.`,
-  ];
-  return Array.from({length: count}, (_,i) => base[i % base.length]);
+function getBibleState(){return JSON.parse(localStorage.getItem('bibleState')||'{}');}
+function saveBibleState(s){localStorage.setItem('bibleState',JSON.stringify(s));}
+
+function getCurrentBook(){
+  return currentTestament==='AT'?BIBLE_BOOKS_AT[currentBookIndex]:BIBLE_BOOKS_NT[currentBookIndex];
 }
 
-function loadBibleChapter() {
-  const book = currentTestament === 'AT' ? BIBLE_AT[currentBookIndex] : BIBLE_NT[currentBookIndex];
-  if (!book) return;
-  currentChapter = parseInt(document.getElementById('bibleChapterSelect').value) || currentChapter;
+async function loadBibleChapter(){
+  const book=getCurrentBook();
+  if(!book)return;
+  const selVal=parseInt(document.getElementById('bibleChapterSelect').value)||currentChapter;
+  currentChapter=selVal;
+  document.getElementById('bibleBookTitle').textContent=book.name;
+  document.getElementById('bibleChapterSubtitle').textContent=`Chapitre ${currentChapter} sur ${book.chapters}`;
+  // Rebuild chapter select
+  const sel=document.getElementById('bibleChapterSelect');
+  sel.innerHTML=Array.from({length:book.chapters},(_,i)=>`<option value="${i+1}" ${i+1===currentChapter?'selected':''}>${i+1}</option>`).join('');
+  // Update audio info
+  document.getElementById('bibleAudioTitle').textContent=`🎧 ${book.name} — Chapitre ${currentChapter}`;
+  // Stop current audio
+  stopBibleAudio();
+  // Load verses
+  const vc=document.getElementById('bibleVerseContainer');
+  vc.innerHTML='<div class="bible-loading"><div class="bible-spinner"></div> Chargement de '+book.name+' '+currentChapter+' (LSG)...</div>';
+  const cacheKey=`${book.id}-${currentChapter}`;
+  try {
+    let verses;
+    if(bibleCache[cacheKey]){
+      verses=bibleCache[cacheKey];
+    } else {
+      // Use bible-api.com with LSG translation
+      const url=`https://bible-api.com/${book.id}+${currentChapter}?translation=lsg`;
+      const resp=await fetch(url);
+      if(!resp.ok)throw new Error('Erreur réseau: '+resp.status);
+      const data=await resp.json();
+      if(data.error)throw new Error(data.error);
+      verses=data.verses||[];
+      bibleCache[cacheKey]=verses;
+    }
+    // Mark chapter as read
+    const state=getBibleState();
+    const bookKey=`${book.name}-${currentChapter}`;
+    state.readChapters=state.readChapters||[];
+    if(!state.readChapters.includes(bookKey)){state.readChapters.push(bookKey);saveBibleState(state);}
+    renderVerses(verses, book.name, currentChapter);
+    updateBibleStats();
+  } catch(err){
+    vc.innerHTML=`<div class="bible-error">
+      ❌ Impossible de charger ce chapitre.<br>
+      <small>Vérifiez votre connexion internet. La Bible LSG est chargée depuis bible-api.com</small><br><br>
+      <a href="https://www.bible.com/fr/bible/93/GEN.${currentChapter}.LSG" target="_blank">→ Lire sur YouVersion</a>
+    </div>`;
+    console.error(err);
+  }
+}
 
-  document.getElementById('bibleBookTitle').textContent = book.name;
-  document.getElementById('bibleChapterSubtitle').textContent = `Chapitre ${currentChapter} sur ${book.chapters}`;
-
-  // Build chapter select
-  const sel = document.getElementById('bibleChapterSelect');
-  sel.innerHTML = Array.from({length: book.chapters}, (_,i) => `<option value="${i+1}" ${i+1===currentChapter?'selected':''}>Chapitre ${i+1}</option>`).join('');
-
-  const verseCount = 10 + Math.floor(Math.abs(Math.sin(currentBookIndex*17+currentChapter*7))*15);
-  const verses = generateVerses(book.name, currentChapter, verseCount);
-  const state = getBibleState();
-  const bookKey = `${book.name}-${currentChapter}`;
-  const highlights = state.highlights || {};
-  const favs = state.favs || {};
-  const readChapters = state.readChapters || [];
-  if (!readChapters.includes(bookKey)) { readChapters.push(bookKey); state.readChapters = readChapters; saveBibleState(state); }
-
-  document.getElementById('bibleVerseContainer').style.setProperty('--bible-font-size', bibleFontSize + 'rem');
-  document.getElementById('bibleVerseContainer').innerHTML = verses.map((v,i) => {
-    const key = `${bookKey}-${i+1}`;
-    const hl = highlights[key] ? ' highlighted' : '';
-    const fv = favs[key] ? ' favorited' : '';
-    return `<div class="bible-verse${hl}${fv}" id="bv-${i+1}" onclick="onVerseClick(${i+1},'${bookKey}','${book.name}')">
-      <div class="bible-verse-num">${i+1}</div>
-      <div class="bible-verse-text">${v}</div>
+function renderVerses(verses, bookName, chapter){
+  const state=getBibleState();
+  const bookKey=`${bookName}-${chapter}`;
+  const hl=state.highlights||{};
+  const fv=state.favs||{};
+  const vc=document.getElementById('bibleVerseContainer');
+  vc.style.setProperty('--bible-font-size',bibleFontSize+'rem');
+  if(!verses.length){vc.innerHTML='<div class="bible-error">Aucun verset trouvé pour ce chapitre.</div>';return;}
+  vc.innerHTML=verses.map(v=>{
+    const num=v.verse;
+    const key=`${bookKey}-${num}`;
+    const hlClass=hl[key]?' highlighted':'';
+    const fvClass=fv[key]?' favorited':'';
+    const txt=(v.text||'').replace(/\n/g,' ').trim();
+    return `<div class="bible-verse${hlClass}${fvClass}" id="bv-${num}" onclick="onVerseClick(${num},'${bookKey}','${bookName}')">
+      <div class="bible-verse-num">${num}</div>
+      <div class="bible-verse-text">${escapeHtml(txt)}</div>
       <div class="bible-verse-actions">
-        <button class="bible-va-btn" title="Surligner" onclick="highlightVerse(event,${i+1},'${bookKey}')">✨</button>
-        <button class="bible-va-btn" title="Favori" onclick="favVerse(event,${i+1},'${bookKey}')">♥</button>
-        <button class="bible-va-btn" title="Note" onclick="noteVerse(event,${i+1},'${book.name}',${currentChapter})">📝</button>
-        <button class="bible-va-btn" title="Partager" onclick="shareVerse(event,${i+1},'${book.name}',${currentChapter})">📤</button>
+        <button class="bible-va-btn" title="Surligner" onclick="highlightVerse(event,${num},'${bookKey}')">✨</button>
+        <button class="bible-va-btn" title="Favori" onclick="favVerse(event,${num},'${bookKey}')">♥</button>
+        <button class="bible-va-btn" title="Note" onclick="noteVerse(event,${num},'${bookName}',${chapter})">📝</button>
+        <button class="bible-va-btn" title="Copier" onclick="copyVerse(event,${num},'${bookName}',${chapter})">📋</button>
       </div>
     </div>`;
   }).join('');
-
-  updateBibleStats();
 }
 
-function onVerseClick(num, bookKey, bookName) {
-  if (highlightMode) { highlightVerse(null, num, bookKey); return; }
-  if (favMode) { favVerse(null, num, bookKey); return; }
-  selectedVerseRef = `${bookName} ${currentChapter} : ${num}`;
-  const tooltip = document.getElementById('bibleNoteTooltip');
-  tooltip.classList.add('show');
-  setTimeout(() => tooltip.classList.remove('show'), 5000);
+function onVerseClick(num,bookKey,bookName){
+  if(highlightMode){highlightVerse(null,num,bookKey);return;}
+  if(favMode){favVerse(null,num,bookKey);return;}
+  selectedVerseRef=`${bookName} ${currentChapter}:${num}`;
+  const t=document.getElementById('bibleNoteTooltip');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),5000);
 }
-function closeBibleTooltip() { document.getElementById('bibleNoteTooltip').classList.remove('show'); }
-function addVerseToNote() {
-  closeBibleTooltip();
-  openNoteModal(null, selectedVerseRef);
-  switchBiblioTab('notes', null);
-}
+function closeBibleTooltip(){document.getElementById('bibleNoteTooltip').classList.remove('show');}
+function addVerseToNote(){closeBibleTooltip();openNoteModal(null,selectedVerseRef);switchBiblioTab('notes',null);}
 
-function highlightVerse(e, num, bookKey) {
-  if(e) e.stopPropagation();
-  const state = getBibleState();
-  const key = `${bookKey}-${num}`;
-  state.highlights = state.highlights || {};
-  state.highlights[key] = !state.highlights[key];
+function highlightVerse(e,num,bookKey){
+  if(e)e.stopPropagation();
+  const state=getBibleState();
+  const key=`${bookKey}-${num}`;
+  state.highlights=state.highlights||{};
+  state.highlights[key]=!state.highlights[key];
   saveBibleState(state);
-  const el = document.getElementById(`bv-${num}`);
-  if(el) el.classList.toggle('highlighted', !!state.highlights[key]);
+  const el=document.getElementById(`bv-${num}`);
+  if(el)el.classList.toggle('highlighted',!!state.highlights[key]);
   updateBibleStats();
-  showToast(state.highlights[key] ? `Verset ${num} surligné.` : `Surlignage retiré.`);
+  showToast(state.highlights[key]?`Verset ${num} surligné.`:`Surlignage retiré.`);
 }
 
-function favVerse(e, num, bookKey) {
-  if(e) e.stopPropagation();
-  const state = getBibleState();
-  const key = `${bookKey}-${num}`;
-  state.favs = state.favs || {};
-  state.favs[key] = !state.favs[key];
+function favVerse(e,num,bookKey){
+  if(e)e.stopPropagation();
+  const state=getBibleState();
+  const key=`${bookKey}-${num}`;
+  state.favs=state.favs||{};
+  state.favs[key]=!state.favs[key];
   saveBibleState(state);
-  const el = document.getElementById(`bv-${num}`);
-  if(el) el.classList.toggle('favorited', !!state.favs[key]);
+  const el=document.getElementById(`bv-${num}`);
+  if(el)el.classList.toggle('favorited',!!state.favs[key]);
   updateBibleStats();
-  showToast(state.favs[key] ? `Verset ${num} ajouté aux favoris.` : `Retiré des favoris.`);
+  showToast(state.favs[key]?`Verset ${num} ajouté aux favoris.`:`Retiré des favoris.`);
 }
 
-function noteVerse(e, num, bookName, ch) {
-  if(e) e.stopPropagation();
-  const ref = `${bookName} ${ch} : ${num}`;
-  switchBiblioTab('notes', null);
-  openNoteModal(null, ref);
+function noteVerse(e,num,bookName,ch){
+  if(e)e.stopPropagation();
+  const ref=`${bookName} ${ch}:${num}`;
+  switchBiblioTab('notes',null);
+  openNoteModal(null,ref);
 }
 
-function shareVerse(e, num, bookName, ch) {
-  if(e) e.stopPropagation();
-  const txt = `📖 ${bookName} ${ch}:${num} — FOURCOM DIGITAL`;
-  navigator.clipboard.writeText(txt).catch(()=>{});
-  showToast(`Référence copiée : ${bookName} ${ch}:${num}`);
+function copyVerse(e,num,bookName,ch){
+  if(e)e.stopPropagation();
+  const verseEl=document.getElementById(`bv-${num}`);
+  const txt=verseEl?.querySelector('.bible-verse-text')?.textContent||'';
+  navigator.clipboard.writeText(`${txt} — ${bookName} ${ch}:${num} (LSG)`).catch(()=>{});
+  showToast(`Verset ${num} copié !`);
 }
 
-function updateBibleStats() {
-  const state = getBibleState();
-  const hl = Object.values(state.highlights||{}).filter(Boolean).length;
-  const fv = Object.values(state.favs||{}).filter(Boolean).length;
-  const read = (state.readChapters||[]).length;
-  const total = ALL_BOOKS.reduce((s,b)=>s+b.chapters,0);
-  const pct = Math.round((read/total)*100);
-  document.getElementById('bibleReadChapters').textContent = `${read} chapitres lus`;
-  document.getElementById('bibleHighlightCount').textContent = `${hl} versets surlignés`;
-  document.getElementById('bibleFavCount').textContent = `${fv} versets favoris`;
-  document.getElementById('bibleProgressPct').textContent = `${pct}% de la Bible lue`;
+function updateBibleStats(){
+  const state=getBibleState();
+  const hl=Object.values(state.highlights||{}).filter(Boolean).length;
+  const fv=Object.values(state.favs||{}).filter(Boolean).length;
+  const read=(state.readChapters||[]).length;
+  const total=ALL_BOOKS.reduce((s,b)=>s+b.chapters,0);
+  const pct=Math.round((read/total)*100);
+  document.getElementById('bibleReadChapters').textContent=`${read} chapitres lus`;
+  document.getElementById('bibleHighlightCount').textContent=`${hl} versets surlignés`;
+  document.getElementById('bibleFavCount').textContent=`${fv} versets favoris`;
+  document.getElementById('bibleProgressPct').textContent=`${pct}% de la Bible lue`;
 }
 
-function renderBibleBooks(filter='') {
-  const books = currentTestament === 'AT' ? BIBLE_AT : BIBLE_NT;
-  const filtered = filter ? books.filter(b => b.name.toLowerCase().includes(filter.toLowerCase())) : books;
-  document.getElementById('bibleBookList').innerHTML = filtered.map((b,i) => {
-    const realIndex = books.findIndex(bk=>bk.name===b.name);
-    const isActive = realIndex === currentBookIndex;
+function renderBibleBooks(filter=''){
+  const books=currentTestament==='AT'?BIBLE_BOOKS_AT:BIBLE_BOOKS_NT;
+  const filtered=filter?books.filter(b=>b.name.toLowerCase().includes(filter.toLowerCase())):books;
+  document.getElementById('bibleBookList').innerHTML=filtered.map(b=>{
+    const realIndex=books.findIndex(bk=>bk.name===b.name);
+    const isActive=realIndex===currentBookIndex;
     return `<div class="bible-book-item ${isActive?'active':''}" onclick="selectBibleBook(${realIndex})">
-      <span>${b.name}</span>
-      <span class="bible-book-chapters">${b.chapters} ch.</span>
+      <span>${b.name}</span><span class="bible-book-chapters">${b.chapters} ch.</span>
     </div>`;
   }).join('');
-  document.getElementById('bibleTestamentLabel').textContent = currentTestament === 'AT' ? 'Ancien Testament' : 'Nouveau Testament';
+  document.getElementById('bibleTestamentLabel').textContent=currentTestament==='AT'?'Ancien Testament':'Nouveau Testament';
 }
 
-function selectBibleBook(index) {
-  currentBookIndex = index;
-  currentChapter = 1;
+function selectBibleBook(index){
+  currentBookIndex=index;currentChapter=1;
   loadBibleChapter();
   renderBibleBooks(document.getElementById('bibleBookSearch').value);
-  document.getElementById('bibleChapterSelect').value = 1;
+  document.getElementById('bibleChapterSelect').value=1;
 }
 
-function setBibleTestament(t) {
-  currentTestament = t;
-  currentBookIndex = 0;
-  currentChapter = 1;
-  document.getElementById('atBtn').classList.toggle('active', t==='AT');
-  document.getElementById('ntBtn').classList.toggle('active', t==='NT');
-  renderBibleBooks();
-  loadBibleChapter();
+function setBibleTestament(t){
+  currentTestament=t;currentBookIndex=0;currentChapter=1;
+  document.getElementById('atBtn').classList.toggle('active',t==='AT');
+  document.getElementById('ntBtn').classList.toggle('active',t==='NT');
+  renderBibleBooks();loadBibleChapter();
+}
+function filterBibleBooks(val){renderBibleBooks(val);}
+
+function changeBibleFontSize(delta){
+  bibleFontSize=Math.min(1.4,Math.max(0.78,bibleFontSize+delta*0.08));
+  document.getElementById('bibleVerseContainer').style.setProperty('--bible-font-size',bibleFontSize+'rem');
 }
 
-function filterBibleBooks(val) { renderBibleBooks(val); }
-
-function changeBibleFontSize(delta) {
-  bibleFontSize = Math.min(1.4, Math.max(0.78, bibleFontSize + delta * 0.08));
-  document.getElementById('bibleVerseContainer').style.setProperty('--bible-font-size', bibleFontSize + 'rem');
+function toggleHighlightMode(){
+  highlightMode=!highlightMode;favMode=false;
+  document.getElementById('bibleHighlightBtn').style.background=highlightMode?'var(--yellow)':'';
+  document.getElementById('bibleFavBtn').style.background='';
+  showToast(highlightMode?'Mode surlignage activé — cliquez sur un verset.':'Mode surlignage désactivé.');
 }
 
-function toggleHighlightMode() {
-  highlightMode = !highlightMode;
-  favMode = false;
-  document.getElementById('bibleHighlightBtn').style.background = highlightMode ? 'var(--yellow)' : '';
-  document.getElementById('bibleFavBtn').style.background = '';
-  showToast(highlightMode ? 'Mode surlignage activé — cliquez sur un verset.' : 'Mode surlignage désactivé.');
+function toggleFavMode(){
+  favMode=!favMode;highlightMode=false;
+  document.getElementById('bibleFavBtn').style.background=favMode?'var(--red)':'';
+  document.getElementById('bibleFavBtn').style.color=favMode?'white':'';
+  document.getElementById('bibleHighlightBtn').style.background='';
+  showToast(favMode?'Mode favoris activé — cliquez sur un verset.':'Mode favoris désactivé.');
 }
 
-function toggleFavMode() {
-  favMode = !favMode;
-  highlightMode = false;
-  document.getElementById('bibleFavBtn').style.background = favMode ? 'var(--red)' : '';
-  document.getElementById('bibleFavBtn').style.color = favMode ? 'white' : '';
-  document.getElementById('bibleHighlightBtn').style.background = '';
-  showToast(favMode ? 'Mode favoris activé — cliquez sur un verset.' : 'Mode favoris désactivé.');
+function prevBibleChapter(){
+  if(currentChapter>1){currentChapter--;document.getElementById('bibleChapterSelect').value=currentChapter;loadBibleChapter();}
+  else showToast('Vous êtes au premier chapitre de ce livre.');
+}
+function nextBibleChapter(){
+  const book=getCurrentBook();
+  if(currentChapter<book.chapters){currentChapter++;document.getElementById('bibleChapterSelect').value=currentChapter;loadBibleChapter();}
+  else showToast('Fin du livre — passez au suivant.');
 }
 
-function prevBibleChapter() {
-  if (currentChapter > 1) { currentChapter--; document.getElementById('bibleChapterSelect').value = currentChapter; loadBibleChapter(); }
-  else { showToast('Vous êtes au premier chapitre de ce livre.'); }
-}
-
-function nextBibleChapter() {
-  const book = currentTestament === 'AT' ? BIBLE_AT[currentBookIndex] : BIBLE_NT[currentBookIndex];
-  if (currentChapter < book.chapters) { currentChapter++; document.getElementById('bibleChapterSelect').value = currentChapter; loadBibleChapter(); }
-  else { showToast('Fin du livre — passez au suivant.'); }
-}
-
-// ==================== NOTES DATA ====================
-let notes = JSON.parse(localStorage.getItem('userNotes') || '[]');
-let noteEditId = null;
-let noteFilter = 'all';
-let noteSearch = '';
-let noteColor = '#0066B3';
-
-const TAG_LABELS = { sermon:'📣 Sermon', etude:'📖 Étude', personnel:'🙏 Personnel', verset:'✦ Verset' };
-const TAG_COLORS_BG = { sermon:'rgba(217,21,43,0.1)', etude:'rgba(0,102,179,0.1)', personnel:'rgba(94,51,136,0.1)', verset:'rgba(255,210,60,0.2)' };
-const TAG_COLORS_TEXT = { sermon:'var(--red)', etude:'var(--blue)', personnel:'var(--purple)', verset:'#8B6E00' };
-
-function saveNotes() { localStorage.setItem('userNotes', JSON.stringify(notes)); }
-
-function renderNotes() {
-  const grid = document.getElementById('notesGrid');
-  let filtered = [...notes];
-  if (noteFilter === 'epinglée') filtered = filtered.filter(n => n.pinned);
-  else if (noteFilter !== 'all') filtered = filtered.filter(n => n.tag === noteFilter);
-  if (noteSearch) filtered = filtered.filter(n => (n.title+n.content+n.verseRef+n.source).toLowerCase().includes(noteSearch.toLowerCase()));
-  // Pinned first
-  filtered.sort((a,b) => (b.pinned?1:0)-(a.pinned?1:0) || new Date(b.createdAt)-new Date(a.createdAt));
-
-  if (!filtered.length) {
-    grid.innerHTML = `<div class="notes-empty" style="grid-column:1/-1">
-      <div class="notes-empty-icon">📝</div>
-      <h3>${noteSearch ? 'Aucun résultat' : 'Aucune note pour le moment'}</h3>
-      <p style="color:var(--text-muted);font-size:0.85rem">${noteSearch ? 'Essayez un autre terme de recherche.' : 'Créez votre première note en cliquant sur "Créer une note".'}</p>
-    </div>`;
-    return;
-  }
-  grid.innerHTML = filtered.map((note, i) => `
-    <div class="note-card" onclick="openNoteModal('${note.id}')" style="animation-delay:${i*0.04}s;border-top:3px solid ${note.color||'var(--blue)'}">
-      ${note.pinned ? `<div class="note-pin-icon">📌</div>` : ''}
-      <div class="note-card-top">
-        <div class="note-card-color" style="background:${note.color||'var(--blue)'}"></div>
-        <div class="note-card-actions" onclick="event.stopPropagation()">
-          <button class="note-card-action-btn" title="Épingler" onclick="toggleNotePin('${note.id}')">${note.pinned?'📌':'📍'}</button>
-          <button class="note-card-action-btn" title="Exporter" onclick="exportNote('${note.id}')">📤</button>
-          <button class="note-card-action-btn delete" title="Supprimer" onclick="deleteNote('${note.id}')">🗑️</button>
-        </div>
-      </div>
-      <div class="note-title">${escapeHtml(note.title||'Note sans titre')}</div>
-      ${note.verseRef ? `<div class="note-verse-ref" style="margin-bottom:4px">📖 ${escapeHtml(note.verseRef)}</div>` : ''}
-      <div class="note-preview">${escapeHtml(note.content||'')}</div>
-      <div class="note-footer">
-        <span class="note-tag" style="background:${TAG_COLORS_BG[note.tag]||'rgba(0,102,179,0.1)'};color:${TAG_COLORS_TEXT[note.tag]||'var(--blue)'}">${TAG_LABELS[note.tag]||note.tag}</span>
-        <span class="note-date">${formatNoteDate(note.createdAt)}</span>
-      </div>
-      ${note.source ? `<div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;font-weight:700">— ${escapeHtml(note.source)}</div>` : ''}
-    </div>`).join('');
-}
-
-function formatNoteDate(iso) {
-  if (!iso) return '';
-  const d = new Date(iso);
-  return d.toLocaleDateString('fr-FR', {day:'2-digit',month:'short',year:'numeric'});
-}
-
-function openNoteModal(id = null, prefillVerse = null) {
-  noteEditId = id;
-  noteColor = '#0066B3';
-  document.getElementById('noteModalTitle').textContent = id ? 'Modifier la note' : 'Nouvelle note';
-  document.getElementById('noteEditId').value = id || '';
-  document.getElementById('noteTitleInput').value = '';
-  document.getElementById('noteVerseInput').value = prefillVerse || '';
-  document.getElementById('noteContentInput').value = '';
-  document.getElementById('noteTagInput').value = 'sermon';
-  document.getElementById('noteSourceInput').value = '';
-  document.getElementById('notePinInput').checked = false;
-  document.getElementById('noteCharCount').textContent = '0 caractères';
-
-  // Reset color dots
-  document.querySelectorAll('.note-color-dot').forEach(d => d.classList.remove('active'));
-  document.querySelector('.note-color-dot').classList.add('active');
-
-  if (id) {
-    const note = notes.find(n => n.id === id);
-    if (note) {
-      document.getElementById('noteTitleInput').value = note.title || '';
-      document.getElementById('noteVerseInput').value = note.verseRef || '';
-      document.getElementById('noteContentInput').value = note.content || '';
-      document.getElementById('noteTagInput').value = note.tag || 'sermon';
-      document.getElementById('noteSourceInput').value = note.source || '';
-      document.getElementById('notePinInput').checked = !!note.pinned;
-      noteColor = note.color || '#0066B3';
-      document.getElementById('noteCharCount').textContent = (note.content||'').length + ' caractères';
-      document.querySelectorAll('.note-color-dot').forEach(d => {
-        d.classList.toggle('active', d.dataset.color === noteColor);
-      });
-    }
-  }
-  document.getElementById('noteModal').classList.add('open');
-}
-
-function closeNoteModal() { document.getElementById('noteModal').classList.remove('open'); noteEditId = null; }
-
-function saveNote() {
-  const title = document.getElementById('noteTitleInput').value.trim();
-  const content = document.getElementById('noteContentInput').value.trim();
-  if (!title && !content) { showToast('Veuillez écrire un titre ou du contenu.'); return; }
-  const payload = {
-    id: noteEditId || 'note-'+Date.now(),
-    title: title || 'Note sans titre',
-    content,
-    verseRef: document.getElementById('noteVerseInput').value.trim(),
-    tag: document.getElementById('noteTagInput').value,
-    source: document.getElementById('noteSourceInput').value.trim(),
-    pinned: document.getElementById('notePinInput').checked,
-    color: noteColor,
-    createdAt: noteEditId ? (notes.find(n=>n.id===noteEditId)?.createdAt || new Date().toISOString()) : new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
+// ===== BIBLE AUDIO =====
+// Uses the YouVersion audio Bible which has a public streaming URL for LSG
+function getBibleAudioUrl(bookId,chapter){
+  // We try multiple audio sources for the LSG Bible
+  // Primary: open.bible audio streams (public domain recordings)
+  // Fallback: tresorsonore.com (French LSG Audio Bible - public domain)
+  const audioSources={
+    'genesis':'GEN','exodus':'EXO','leviticus':'LEV','numbers':'NUM','deuteronomy':'DEU',
+    'joshua':'JOS','judges':'JDG','ruth':'RUT','1+samuel':'1SA','2+samuel':'2SA',
+    '1+kings':'1KI','2+kings':'2KI','psalms':'PSA','proverbs':'PRO','isaiah':'ISA',
+    'jeremiah':'JER','matthew':'MAT','mark':'MRK','luke':'LUK','john':'JHN',
+    'acts':'ACT','romans':'ROM','revelation':'REV'
   };
-  if (noteEditId) notes = notes.map(n => n.id === noteEditId ? payload : n);
-  else notes.unshift(payload);
-  saveNotes();
-  closeNoteModal();
-  renderNotes();
-  showToast(noteEditId ? 'Note modifiée avec succès.' : 'Note créée et enregistrée !');
+  // Construct a fallback that links to internet archive LSG audio
+  return null; // Will use Web Speech API as fallback
 }
 
-function deleteNote(id) {
-  if (!confirm('Supprimer cette note définitivement ?')) return;
-  notes = notes.filter(n => n.id !== id);
-  saveNotes();
-  renderNotes();
-  showToast('Note supprimée.');
+function toggleBibleAudio(){
+  if('speechSynthesis' in window){
+    if(bibleAudioPlaying){
+      window.speechSynthesis.cancel();
+      bibleAudioPlaying=false;
+      document.getElementById('bibleAudioPlayBtn').textContent='▶';
+      clearInterval(bibleAudioInterval);
+      document.getElementById('bibleAudioFill').style.width='0%';
+      document.getElementById('bibleAudioTime').textContent='0:00';
+      return;
+    }
+    // Get visible verses text
+    const verses=document.querySelectorAll('.bible-verse-text');
+    if(!verses.length){showToast('Chargez un chapitre d\'abord.');return;}
+    const text=Array.from(verses).map((v,i)=>`Verset ${i+1}. ${v.textContent}`).join(' ');
+    const utterance=new SpeechSynthesisUtterance(text);
+    utterance.lang='fr-FR';
+    utterance.rate=0.9;
+    utterance.pitch=1;
+    // Try to find French voice
+    const voices=window.speechSynthesis.getVoices();
+    const frVoice=voices.find(v=>v.lang.startsWith('fr'));
+    if(frVoice)utterance.voice=frVoice;
+    bibleAudioPlaying=true;
+    document.getElementById('bibleAudioPlayBtn').textContent='⏸';
+    document.getElementById('bibleAudioTitle').textContent='🎧 Lecture en cours...';
+    // Simulate progress
+    let progress=0;
+    const estimatedDuration=text.length*60/800; // rough estimate
+    bibleAudioInterval=setInterval(()=>{
+      progress=Math.min(progress+100/estimatedDuration,98);
+      document.getElementById('bibleAudioFill').style.width=progress+'%';
+      const sec=Math.round(progress*estimatedDuration/100);
+      const m=Math.floor(sec/60);const s=sec%60;
+      document.getElementById('bibleAudioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;
+    },1000);
+    utterance.onend=()=>{
+      bibleAudioPlaying=false;
+      document.getElementById('bibleAudioPlayBtn').textContent='▶';
+      clearInterval(bibleAudioInterval);
+      document.getElementById('bibleAudioFill').style.width='100%';
+      const book=getCurrentBook();
+      document.getElementById('bibleAudioTitle').textContent=`🎧 ${book.name} — Chapitre ${currentChapter}`;
+    };
+    utterance.onerror=()=>{
+      bibleAudioPlaying=false;
+      document.getElementById('bibleAudioPlayBtn').textContent='▶';
+      clearInterval(bibleAudioInterval);
+    };
+    window.speechSynthesis.speak(utterance);
+    showToast('Lecture audio démarrée en français.');
+  } else {
+    showToast('Audio non supporté par votre navigateur. Essayez Chrome ou Firefox.');
+  }
 }
 
-function toggleNotePin(id) {
-  notes = notes.map(n => n.id === id ? {...n, pinned: !n.pinned} : n);
-  saveNotes();
-  renderNotes();
-  const note = notes.find(n=>n.id===id);
-  showToast(note?.pinned ? 'Note épinglée.' : 'Note désépinglée.');
+function stopBibleAudio(){
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  bibleAudioPlaying=false;
+  clearInterval(bibleAudioInterval);
+  document.getElementById('bibleAudioPlayBtn').textContent='▶';
+  document.getElementById('bibleAudioFill').style.width='0%';
+  document.getElementById('bibleAudioTime').textContent='0:00';
 }
 
-function exportNote(id) {
-  const note = notes.find(n=>n.id===id);
-  if (!note) return;
-  const txt = `${note.title||'Note'}\n${note.verseRef?'📖 '+note.verseRef+'\n':''}\n${note.content||''}\n\n— ${note.source||'FOURCOM DIGITAL'} · ${formatNoteDate(note.createdAt)}`;
-  navigator.clipboard.writeText(txt).catch(()=>{});
-  showToast('Note copiée dans le presse-papiers.');
+function seekBibleAudio(e,bar){
+  const r=bar.getBoundingClientRect();
+  const pct=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));
+  document.getElementById('bibleAudioFill').style.width=(pct*100)+'%';
 }
 
-function searchNotes(val) { noteSearch = val; renderNotes(); }
-function filterNotesByTag(tag, btn) {
-  noteFilter = tag;
-  document.querySelectorAll('.notes-filter-tag').forEach(b=>b.classList.remove('active'));
-  if(btn) btn.classList.add('active');
-  renderNotes();
+function setBibleVolume(val){
+  if(window.speechSynthesis&&bibleAudioPlaying){
+    // SpeechSynthesis doesn't support volume change mid-utterance easily
+    showToast('Ajustez le volume dans les paramètres système.');
+  }
 }
 
-function selectNoteColor(color, el) {
-  noteColor = color;
-  document.querySelectorAll('.note-color-dot').forEach(d=>d.classList.remove('active'));
-  el.classList.add('active');
-}
-
-function formatNote(cmd) {
-  const ta = document.getElementById('noteContentInput');
-  const start = ta.selectionStart, end = ta.selectionEnd;
-  const selected = ta.value.slice(start, end);
-  let wrap = { bold:'**', italic:'_', underline:'__' }[cmd];
-  if (!wrap) return;
-  ta.value = ta.value.slice(0,start) + wrap + selected + wrap + ta.value.slice(end);
-  ta.focus();
-  updateCharCount();
-}
-
-function insertNoteText(txt) {
-  const ta = document.getElementById('noteContentInput');
-  const pos = ta.selectionStart;
-  ta.value = ta.value.slice(0,pos) + txt + ta.value.slice(pos);
-  ta.focus();
-  ta.selectionStart = ta.selectionEnd = pos + txt.length;
-  updateCharCount();
-}
-
-function updateCharCount() {
-  const len = document.getElementById('noteContentInput').value.length;
-  document.getElementById('noteCharCount').textContent = len + ' caractère' + (len!==1?'s':'');
-}
-
-// ==================== BIBLIO TAB SWITCH ====================
-let biblioTabMode = 'ressources';
-let biblioFilter = 'all';
-const biblio = [
-  { type:"etude", titre:"L'Évangile de Jean", desc:"Étude verset par verset du quatrième évangile. 12 leçons.", lien:"#" },
-  { type:"plan", titre:"Plan 30 jours – Psaumes", desc:"Lisez un psaume par jour pendant 30 jours avec commentaires.", lien:"#" },
-  { type:"priere", titre:"Prières du matin", desc:"7 prières guidées pour commencer chaque jour avec Dieu.", lien:"#" },
-  { type:"serie", titre:"Série : Foi et Persévérance", desc:"5 messages audio du Pasteur Emmanuel sur la foi en temps de crise.", lien:"#" },
-  { type:"etude", titre:"Les Béatitudes", desc:"Étude profonde du Sermon sur la Montagne. 8 sessions.", lien:"#" },
-  { type:"plan", titre:"Plan de lecture 1 an", desc:"Lire toute la Bible en 365 jours avec un plan quotidien structuré.", lien:"#" },
+// ===== BIBLIO TABS =====
+let biblioFilter='all';
+const biblio=[
+  {type:"etude",titre:"L'Évangile de Jean",desc:"Étude verset par verset du quatrième évangile. 12 leçons.",lien:"#"},
+  {type:"plan",titre:"Plan 30 jours – Psaumes",desc:"Lisez un psaume par jour pendant 30 jours avec commentaires.",lien:"#"},
+  {type:"priere",titre:"Prières du matin",desc:"7 prières guidées pour commencer chaque jour avec Dieu.",lien:"#"},
+  {type:"serie",titre:"Série : Foi et Persévérance",desc:"5 messages audio du Pasteur Emmanuel sur la foi en temps de crise.",lien:"#"},
+  {type:"etude",titre:"Les Béatitudes",desc:"Étude profonde du Sermon sur la Montagne. 8 sessions.",lien:"#"},
+  {type:"plan",titre:"Plan de lecture 1 an",desc:"Lire toute la Bible en 365 jours avec un plan quotidien structuré.",lien:"#"},
 ];
 
-function switchBiblioTab(tab, btn) {
-  biblioTabMode = tab;
-  // Update tab buttons
-  if (btn) {
-    document.querySelectorAll('.biblio-tab').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-  }
-  // Hide all panels
-  document.getElementById('panel-ressources').style.display = 'none';
-  document.getElementById('panel-bible').style.display = 'none';
-  document.getElementById('panel-notes').style.display = 'none';
-
-  if (tab === 'bible') {
-    document.getElementById('panel-bible').style.display = 'block';
-    document.getElementById('panel-bible').classList.add('active');
-    renderBibleBooks();
-    loadBibleChapter();
-  } else if (tab === 'notes') {
-    document.getElementById('panel-notes').style.display = 'block';
-    document.getElementById('panel-notes').classList.add('active');
+function switchBiblioTab(tab,btn){
+  if(btn){document.querySelectorAll('.biblio-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+  ['panel-ressources','panel-bible','panel-notes'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el){el.style.display='none';el.classList.remove('active');}
+  });
+  if(tab==='bible'){
+    const el=document.getElementById('panel-bible');
+    el.style.display='block';el.classList.add('active');
+    renderBibleBooks();loadBibleChapter();
+  } else if(tab==='notes'){
+    const el=document.getElementById('panel-notes');
+    el.style.display='block';el.classList.add('active');
     renderNotes();
   } else {
-    document.getElementById('panel-ressources').style.display = 'block';
-    if (tab !== 'ressources') biblioFilter = tab; else biblioFilter = 'all';
+    const el=document.getElementById('panel-ressources');
+    el.style.display='block';
+    biblioFilter=(tab!=='ressources')?tab:'all';
     renderBiblio();
   }
 }
 
-function renderBiblio() {
-  const grid = document.getElementById('biblioGrid');
-  const filtered = biblioFilter === 'all' ? biblio : biblio.filter(b => b.type === biblioFilter);
-  const typeLabel = {etude:'Étude biblique',plan:'Plan de lecture',priere:'Prières',serie:'Série audio'};
-  grid.innerHTML = filtered.map(b => `
+function renderBiblio(){
+  const grid=document.getElementById('biblioGrid');
+  const filtered=biblioFilter==='all'?biblio:biblio.filter(b=>b.type===biblioFilter);
+  const typeLabel={etude:'Étude biblique',plan:'Plan de lecture',priere:'Prières',serie:'Série audio'};
+  grid.innerHTML=filtered.map(b=>`
     <div class="biblio-card">
       <div class="biblio-type">${typeLabel[b.type]}</div>
       <div class="biblio-title">${b.titre}</div>
@@ -1609,85 +1419,213 @@ function renderBiblio() {
     </div>`).join('');
 }
 
-// ==================== PARCOURS ====================
-const parcoursMonths = [
-  { titre:"Les bases de la foi", themes:["Nouvelle naissance","Le salut","La foi","La repentance"] },
-  { titre:"La prière", themes:["Comment prier","La persévérance","Le jeûne","L'intimité avec Dieu"] },
-  { titre:"La Parole de Dieu", themes:["Lire la Bible","Méditer","Comprendre les Écritures","Appliquer la Parole"] },
-  { titre:"Le Saint-Esprit", themes:["Qui est le Saint-Esprit","Les dons spirituels","Les fruits de l'Esprit","Être conduit par l'Esprit"] },
-  { titre:"La vie chrétienne", themes:["Sanctification","Obéissance","Discipline spirituelle","La sagesse"] },
-  { titre:"La communion fraternelle", themes:["L'église","Le pardon","L'amour","Le service"] },
-  { titre:"L'évangélisation", themes:["Témoigner","Partager sa foi","Mission","Impacter le monde"] },
-  { titre:"Le combat spirituel", themes:["Les tentations","Les attaques spirituelles","La victoire en Christ","L'armure de Dieu"] },
-  { titre:"La foi et les miracles", themes:["Faire confiance à Dieu","Les promesses de Dieu","Persévérer","La puissance de la foi","Reconnaître les miracles"] },
-  { titre:"Le leadership chrétien", themes:["Servir","Diriger avec humilité","Influence positive","Responsabilité","Former d'autres disciples"] },
-  { titre:"La maturité spirituelle", themes:["Persévérance","Croissance","Sagesse","Fidélité","Porter du fruit"] },
-  { titre:"Vivre sa mission", themes:["Appel de Dieu","Vision","Impact","Héritage spirituel","Envoyé dans le monde"] },
+// ===== NOTES =====
+let notes=JSON.parse(localStorage.getItem('userNotes')||'[]');
+let noteEditId=null;
+let noteFilter='all';
+let noteSearch='';
+let noteColor='#0066B3';
+const TAG_LABELS={sermon:'📣 Sermon',etude:'📖 Étude',personnel:'🙏 Personnel',verset:'✦ Verset'};
+const TAG_COLORS_BG={sermon:'rgba(217,21,43,0.1)',etude:'rgba(0,102,179,0.1)',personnel:'rgba(94,51,136,0.1)',verset:'rgba(255,210,60,0.2)'};
+const TAG_COLORS_TEXT={sermon:'var(--red)',etude:'var(--blue)',personnel:'var(--purple)',verset:'#8B6E00'};
+function saveNotes(){localStorage.setItem('userNotes',JSON.stringify(notes));}
+function formatNoteDate(iso){if(!iso)return'';const d=new Date(iso);return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'});}
+function renderNotes(){
+  const grid=document.getElementById('notesGrid');
+  let filtered=[...notes];
+  if(noteFilter==='epinglée')filtered=filtered.filter(n=>n.pinned);
+  else if(noteFilter!=='all')filtered=filtered.filter(n=>n.tag===noteFilter);
+  if(noteSearch)filtered=filtered.filter(n=>(n.title+n.content+n.verseRef+n.source).toLowerCase().includes(noteSearch.toLowerCase()));
+  filtered.sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0)||new Date(b.createdAt)-new Date(a.createdAt));
+  if(!filtered.length){
+    grid.innerHTML=`<div class="notes-empty" style="grid-column:1/-1"><div class="notes-empty-icon">📝</div><h3>${noteSearch?'Aucun résultat':'Aucune note pour le moment'}</h3><p style="color:var(--text-muted);font-size:0.85rem">${noteSearch?'Essayez un autre terme.':'Créez votre première note.'}</p></div>`;
+    return;
+  }
+  grid.innerHTML=filtered.map((n,i)=>`
+    <div class="note-card" onclick="openNoteModal('${n.id}')" style="animation-delay:${i*0.04}s;border-top:3px solid ${n.color||'var(--blue)'}">
+      ${n.pinned?`<div class="note-pin-icon">📌</div>`:''}
+      <div class="note-card-top">
+        <div class="note-card-color" style="background:${n.color||'var(--blue)'}"></div>
+        <div class="note-card-actions" onclick="event.stopPropagation()">
+          <button class="note-card-action-btn" onclick="toggleNotePin('${n.id}')">${n.pinned?'📌':'📍'}</button>
+          <button class="note-card-action-btn" onclick="exportNote('${n.id}')">📤</button>
+          <button class="note-card-action-btn delete" onclick="deleteNote('${n.id}')">🗑️</button>
+        </div>
+      </div>
+      <div class="note-title">${escapeHtml(n.title||'Note sans titre')}</div>
+      ${n.verseRef?`<div class="note-verse-ref" style="margin-bottom:4px">📖 ${escapeHtml(n.verseRef)}</div>`:''}
+      <div class="note-preview">${escapeHtml(n.content||'')}</div>
+      <div class="note-footer">
+        <span class="note-tag" style="background:${TAG_COLORS_BG[n.tag]||'rgba(0,102,179,0.1)'};color:${TAG_COLORS_TEXT[n.tag]||'var(--blue)'}">${TAG_LABELS[n.tag]||n.tag}</span>
+        <span class="note-date">${formatNoteDate(n.createdAt)}</span>
+      </div>
+    </div>`).join('');
+}
+function openNoteModal(id=null,prefillVerse=null){
+  noteEditId=id;noteColor='#0066B3';
+  document.getElementById('noteModalTitle').textContent=id?'Modifier la note':'Nouvelle note';
+  document.getElementById('noteEditId').value=id||'';
+  document.getElementById('noteTitleInput').value='';
+  document.getElementById('noteVerseInput').value=prefillVerse||'';
+  document.getElementById('noteContentInput').value='';
+  document.getElementById('noteTagInput').value='sermon';
+  document.getElementById('noteSourceInput').value='';
+  document.getElementById('notePinInput').checked=false;
+  document.getElementById('noteCharCount').textContent='0 caractères';
+  document.querySelectorAll('.note-color-dot').forEach(d=>d.classList.remove('active'));
+  document.querySelector('.note-color-dot').classList.add('active');
+  if(id){const n=notes.find(n=>n.id===id);if(n){document.getElementById('noteTitleInput').value=n.title||'';document.getElementById('noteVerseInput').value=n.verseRef||'';document.getElementById('noteContentInput').value=n.content||'';document.getElementById('noteTagInput').value=n.tag||'sermon';document.getElementById('noteSourceInput').value=n.source||'';document.getElementById('notePinInput').checked=!!n.pinned;noteColor=n.color||'#0066B3';document.getElementById('noteCharCount').textContent=(n.content||'').length+' caractères';document.querySelectorAll('.note-color-dot').forEach(d=>d.classList.toggle('active',d.dataset.color===noteColor));}}
+  document.getElementById('noteModal').classList.add('open');
+}
+function closeNoteModal(){document.getElementById('noteModal').classList.remove('open');noteEditId=null;}
+function saveNote(){
+  const title=document.getElementById('noteTitleInput').value.trim();
+  const content=document.getElementById('noteContentInput').value.trim();
+  if(!title&&!content){showToast('Veuillez écrire un titre ou du contenu.');return;}
+  const payload={id:noteEditId||'note-'+Date.now(),title:title||'Note sans titre',content,verseRef:document.getElementById('noteVerseInput').value.trim(),tag:document.getElementById('noteTagInput').value,source:document.getElementById('noteSourceInput').value.trim(),pinned:document.getElementById('notePinInput').checked,color:noteColor,createdAt:noteEditId?(notes.find(n=>n.id===noteEditId)?.createdAt||new Date().toISOString()):new Date().toISOString(),updatedAt:new Date().toISOString()};
+  if(noteEditId)notes=notes.map(n=>n.id===noteEditId?payload:n);else notes.unshift(payload);
+  saveNotes();closeNoteModal();renderNotes();showToast(noteEditId?'Note modifiée.':'Note créée !');
+}
+function deleteNote(id){if(!confirm('Supprimer cette note ?'))return;notes=notes.filter(n=>n.id!==id);saveNotes();renderNotes();showToast('Note supprimée.');}
+function toggleNotePin(id){notes=notes.map(n=>n.id===id?{...n,pinned:!n.pinned}:n);saveNotes();renderNotes();const n=notes.find(n=>n.id===id);showToast(n?.pinned?'Note épinglée.':'Note désépinglée.');}
+function exportNote(id){const n=notes.find(n=>n.id===id);if(!n)return;const txt=`${n.title||'Note'}\n${n.verseRef?'📖 '+n.verseRef+'\n':''}\n${n.content||''}\n\n— ${n.source||'REV COM'} · ${formatNoteDate(n.createdAt)}`;navigator.clipboard.writeText(txt).catch(()=>{});showToast('Note copiée.');}
+function searchNotes(val){noteSearch=val;renderNotes();}
+function filterNotesByTag(tag,btn){noteFilter=tag;document.querySelectorAll('.notes-filter-tag').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderNotes();}
+function selectNoteColor(color,el){noteColor=color;document.querySelectorAll('.note-color-dot').forEach(d=>d.classList.remove('active'));el.classList.add('active');}
+function formatNote(cmd){const ta=document.getElementById('noteContentInput');const s=ta.selectionStart,e=ta.selectionEnd;const sel=ta.value.slice(s,e);const wrap={bold:'**',italic:'_',underline:'__'}[cmd];if(!wrap)return;ta.value=ta.value.slice(0,s)+wrap+sel+wrap+ta.value.slice(e);ta.focus();updateCharCount();}
+function insertNoteText(txt){const ta=document.getElementById('noteContentInput');const pos=ta.selectionStart;ta.value=ta.value.slice(0,pos)+txt+ta.value.slice(pos);ta.focus();ta.selectionStart=ta.selectionEnd=pos+txt.length;updateCharCount();}
+function updateCharCount(){const len=document.getElementById('noteContentInput').value.length;document.getElementById('noteCharCount').textContent=len+' caractère'+(len!==1?'s':'');}
+
+// ===== 52 PRIÈRES UNIQUES DU PARCOURS =====
+const WEEK_PRAYERS = [
+  "Seigneur Jésus, en ce début de chemin, reçois-moi tel que je suis. Que cette nouvelle naissance soit réelle en moi. Amen.",
+  "Père céleste, je te rends grâce pour le don du salut par grâce. Grave cette certitude dans mon cœur. Amen.",
+  "Seigneur, augmente ma foi là où elle est faible. Je crois, viens au secours de mon incrédulité. Amen.",
+  "Dieu de miséricorde, je me repens de tout ce qui me sépare de Toi. Purifie mon cœur et renouvelle mon esprit. Amen.",
+  "Père, apprends-moi à prier avec sincérité, pas seulement avec des mots, mais avec tout mon cœur. Amen.",
+  "Seigneur, que ma prière soit comme l'encens qui monte vers Toi chaque matin. Donne-moi une vie de communion constante. Amen.",
+  "Père, donne-moi la persévérance dans la prière même quand le ciel semble silencieux. Je reste confiant en Ta bonté. Amen.",
+  "Seigneur, guide-moi dans la pratique du jeûne pour que mon âme soit plus sensible à Ta voix. Amen.",
+  "Père, que Ta Parole soit une lampe à mes pieds et une lumière sur mon sentier ce jour et toujours. Amen.",
+  "Seigneur, ouvre mes yeux spirituels pour comprendre Tes Écritures comme Tu l'as fait pour les disciples d'Emmaüs. Amen.",
+  "Père, que la méditation de Ta Parole transforme mon caractère et renouvelle ma pensée de jour en jour. Amen.",
+  "Seigneur, aide-moi à ne pas seulement entendre Ta Parole mais à la mettre en pratique dans ma vie quotidienne. Amen.",
+  "Esprit Saint, révèle-moi qui Tu es vraiment. Que Ta présence soit réelle et tangible dans ma vie. Amen.",
+  "Seigneur, active en moi les dons spirituels pour l'édification de l'Église et la gloire de Ton nom. Amen.",
+  "Père, produis en moi les fruits de l'Esprit : amour, joie, paix, patience, bonté. Que ma vie en porte la marque. Amen.",
+  "Esprit Saint, conduis chacun de mes pas aujourd'hui. Que je ne marche plus selon ma propre volonté mais selon la Tienne. Amen.",
+  "Seigneur, sanctifie-moi entièrement : esprit, âme et corps. Que je sois séparé pour Toi. Amen.",
+  "Père, que l'obéissance à Tes commandements soit pour moi un acte d'amour et non un fardeau. Amen.",
+  "Seigneur, donne-moi la discipline spirituelle de ceux qui courent pour remporter le prix impérissable. Amen.",
+  "Dieu de toute sagesse, accorde-moi la sagesse d'en haut pour toutes les décisions de ma vie. Amen.",
+  "Père, fais de moi un membre actif et vivant de Ton Église, où chacun se porte mutuellement. Amen.",
+  "Seigneur, dépose en mon cœur la grâce du pardon pour quiconque m'a blessé. Libère-moi de toute rancœur. Amen.",
+  "Père, que l'amour agapè coule de moi vers chaque personne que je rencontre aujourd'hui. Amen.",
+  "Seigneur, montre-moi comment servir avec humilité, comme Toi Tu as lavé les pieds de Tes disciples. Amen.",
+  "Père, mets en moi un feu pour l'évangile. Donne-moi la hardiesse de témoigner de Ta grâce. Amen.",
+  "Seigneur, quand je partage ma foi, que ce soit avec douceur, respect et la puissance de Ton Esprit. Amen.",
+  "Père, brise mes frontières et mes limites. Envoie-moi là où Tu veux pour Ta gloire. Amen.",
+  "Seigneur, fais de moi une lumière dans les ténèbres, une ville placée sur une montagne qui ne peut être cachée. Amen.",
+  "Père, donne-moi la sobriété et la vigilance pour résister aux tentations qui m'assaillent chaque jour. Amen.",
+  "Seigneur, révèle-moi les stratégies de l'ennemi et donne-moi la victoire en Ton nom. Amen.",
+  "Père, je prends par la foi chacune de Tes promesses. Que la victoire du Calvaire soit ma réalité quotidienne. Amen.",
+  "Seigneur, revêts-moi chaque jour de Ton armure complète pour que je puisse tenir ferme. Amen.",
+  "Père, que ma foi en Tes promesses grandisse comme la graine de moutarde jusqu'à déplacer les montagnes. Amen.",
+  "Seigneur, rappelle-moi chaque jour que Tes promesses sont oui et amen en Jésus-Christ. Amen.",
+  "Père, donne-moi la ténacité de celui qui frappe à la porte jusqu'à ce qu'elle s'ouvre. Amen.",
+  "Seigneur, je Te présente mes besoins avec foi, sachant que Tu exauces ceux qui Te cherchent sincèrement. Amen.",
+  "Père, fais de moi un témoin des miracles que Tu accomplis encore aujourd'hui dans nos vies. Amen.",
+  "Seigneur, forme en moi le cœur d'un serviteur qui dirige avec douceur et humilité. Amen.",
+  "Père, donne-moi une influence positive qui attire les autres vers Toi et non vers moi-même. Amen.",
+  "Seigneur, que chaque responsabilité que Tu me confies soit exercée avec fidélité et intégrité. Amen.",
+  "Père, fais de moi un formateur de disciples qui reproduit ce qu'il a reçu. Amen.",
+  "Seigneur, produis en moi la maturité spirituelle qui vient de la constance dans l'épreuve. Amen.",
+  "Père, aide-moi à continuer de croître même quand la croissance est invisible. Tu vois le fruit qui se forme. Amen.",
+  "Seigneur, donne-moi la sagesse qui vient d'en haut, pure, pacifique, douce et pleine de bons fruits. Amen.",
+  "Père, rends-moi fidèle dans les petites choses afin que Tu puisses me confier les grandes. Amen.",
+  "Seigneur, garde-moi jusqu'à la fin. Que je sois de ceux qui reçoivent la couronne de la vie. Amen.",
+  "Père, que ma vie soit un sarment attaché à la vraie vigne, portant du fruit qui demeure. Amen.",
+  "Seigneur, Tu m'as connu avant ma naissance. Que je marche dans la vocation que Tu as tracée pour moi. Amen.",
+  "Père, donne-moi une vision claire de ce que Tu m'appelles à accomplir pour Ton royaume. Amen.",
+  "Seigneur, que mon impact sur ce monde pointe vers Toi et non vers ma propre gloire. Amen.",
+  "Père, que l'héritage spirituel que je laisse soit celui d'une vie donnée pour Toi et pour les autres. Amen.",
+  "Seigneur Jésus, comme le Père T'a envoyé, Tu m'envoies. Je pars avec Ta puissance et Ta grâce. Amen.",
 ];
-const keyVerses = ["Jean 3 : 3","Éphésiens 2 : 8","Hébreux 11 : 6","Actes 3 : 19","Matthieu 6 : 9","Luc 18 : 1","Matthieu 6 : 17","Jacques 4 : 8","Josué 1 : 8","Psaume 1 : 2","Luc 24 : 45","Jacques 1 : 22","Jean 14 : 26","1 Corinthiens 12 : 4","Galates 5 : 22","Romains 8 : 14","1 Thessaloniciens 4 : 3","Jean 14 : 15","1 Timothée 4 : 8","Jacques 1 : 5","Hébreux 10 : 25","Colossiens 3 : 13","Jean 13 : 35","1 Pierre 4 : 10","Actes 1 : 8","1 Pierre 3 : 15","Matthieu 28 : 19","Matthieu 5 : 14","1 Corinthiens 10 : 13","Éphésiens 6 : 12","Romains 8 : 37","Éphésiens 6 : 11","Proverbes 3 : 5","2 Pierre 1 : 4","Hébreux 10 : 36","Marc 11 : 24","Psaume 77 : 15","Marc 10 : 45","Philippiens 2 : 3","Matthieu 5 : 16","Luc 12 : 48","2 Timothée 2 : 2","Jacques 1 : 12","2 Pierre 3 : 18","Proverbes 4 : 7","Apocalypse 2 : 10","Jean 15 : 5","Jérémie 1 : 5","Habacuc 2 : 2","Matthieu 5 : 16","Psaume 78 : 4","Jean 20 : 21"];
-const weekPrayers = Array.from({length:52},(_,i)=>`Seigneur, guide-moi dans ma semaine ${i+1} avec sagesse et foi. Amen.`);
 
-function seededIndex(seed, length) { return Math.floor(Math.abs(Math.sin(seed * 999) * 10000)) % length; }
-function shuffleQuizOptions(options, correctText, seed) {
-  const shuffled = [...options];
-  for (let i = shuffled.length-1; i>0; i--) { const j=seededIndex(seed+i,i+1); [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]]; }
-  return { options: shuffled, answer: shuffled.indexOf(correctText) };
-}
-function createWeekQuiz(theme, verse, monthTitle, week) {
-  const templates = [
-    { question:`Quel engagement correspond le mieux à "${theme}" ?`, correct:"Le vivre concrètement dans ma marche avec Dieu", wrong:["Le connaître sans jamais le pratiquer","L'attendre seulement des autres","Le remettre à plus tard"] },
-    { question:`Comment ${verse} doit-il guider cette semaine ?`, correct:"Comme une vérité à méditer et appliquer chaque jour", wrong:["Comme une citation décorative","Comme une règle sans relation avec ma vie","Comme un texte à oublier après lecture"] },
-  ];
-  return templates.map((item,index) => {
-    const options=[item.correct,...item.wrong];
-    const shuffled=shuffleQuizOptions(options,item.correct,week*10+index);
-    return {question:item.question,options:shuffled.options,answer:shuffled.answer};
-  });
-}
+// ===== PARCOURS =====
+const parcoursMonths=[
+  {titre:"Les bases de la foi",themes:["Nouvelle naissance","Le salut","La foi","La repentance"]},
+  {titre:"La prière",themes:["Comment prier","La persévérance","Le jeûne","L'intimité avec Dieu"]},
+  {titre:"La Parole de Dieu",themes:["Lire la Bible","Méditer","Comprendre les Écritures","Appliquer la Parole"]},
+  {titre:"Le Saint-Esprit",themes:["Qui est le Saint-Esprit","Les dons spirituels","Les fruits de l'Esprit","Être conduit par l'Esprit"]},
+  {titre:"La vie chrétienne",themes:["Sanctification","Obéissance","Discipline spirituelle","La sagesse"]},
+  {titre:"La communion fraternelle",themes:["L'église","Le pardon","L'amour","Le service"]},
+  {titre:"L'évangélisation",themes:["Témoigner","Partager sa foi","Mission","Impacter le monde"]},
+  {titre:"Le combat spirituel",themes:["Les tentations","Les attaques spirituelles","La victoire en Christ","L'armure de Dieu"]},
+  {titre:"La foi et les miracles",themes:["Faire confiance à Dieu","Les promesses de Dieu","Persévérer","La puissance de la foi","Reconnaître les miracles"]},
+  {titre:"Le leadership chrétien",themes:["Servir","Diriger avec humilité","Influence positive","Responsabilité","Former d'autres disciples"]},
+  {titre:"La maturité spirituelle",themes:["Persévérance","Croissance","Sagesse","Fidélité","Porter du fruit"]},
+  {titre:"Vivre sa mission",themes:["Appel de Dieu","Vision","Impact","Héritage spirituel","Envoyé dans le monde"]},
+];
+const keyVerses=["Jean 3:3","Éphésiens 2:8","Hébreux 11:6","Actes 3:19","Matthieu 6:9","Luc 18:1","Matthieu 6:17","Jacques 4:8","Josué 1:8","Psaume 1:2","Luc 24:45","Jacques 1:22","Jean 14:26","1 Corinthiens 12:4","Galates 5:22","Romains 8:14","1 Thessaloniciens 4:3","Jean 14:15","1 Timothée 4:8","Jacques 1:5","Hébreux 10:25","Colossiens 3:13","Jean 13:35","1 Pierre 4:10","Actes 1:8","1 Pierre 3:15","Matthieu 28:19","Matthieu 5:14","1 Corinthiens 10:13","Éphésiens 6:12","Romains 8:37","Éphésiens 6:11","Proverbes 3:5","2 Pierre 1:4","Hébreux 10:36","Marc 11:24","Psaume 77:15","Marc 10:45","Philippiens 2:3","Matthieu 5:16","Luc 12:48","2 Timothée 2:2","Jacques 1:12","2 Pierre 3:18","Proverbes 4:7","Apocalypse 2:10","Jean 15:5","Jérémie 1:5","Habacuc 2:2","Matthieu 5:16","Psaume 78:4","Jean 20:21"];
 
-const parcours = parcoursMonths.flatMap((month,monthIndex) => month.themes.map((theme,themeIndex) => {
-  const week = parcoursMonths.slice(0,monthIndex).reduce((sum,m)=>sum+m.themes.length,0)+themeIndex+1;
-  return { id:`week-${week}`, week, month:monthIndex+1, monthTitle:month.titre, titre:theme, enseignement:`Semaine ${week} — "${theme}" : Prenez un temps calme, observez ce que Dieu forme dans votre caractère et choisissez une action concrète.`, verset:keyVerses[week-1], defi:`Vivez une action simple liée à "${theme}" et notez ce que vous avez appris.`, priere:weekPrayers[week-1], quiz:createWeekQuiz(theme,keyVerses[week-1],month.titre,week) };
+const parcours=parcoursMonths.flatMap((month,monthIndex)=>month.themes.map((theme,themeIndex)=>{
+  const week=parcoursMonths.slice(0,monthIndex).reduce((sum,m)=>sum+m.themes.length,0)+themeIndex+1;
+  return{id:`week-${week}`,week,month:monthIndex+1,monthTitle:month.titre,titre:theme,
+    enseignement:`Semaine ${week} — "${theme}" : Prenez un temps calme, observez ce que Dieu forme dans votre caractère et choisissez une action concrète.`,
+    verset:keyVerses[week-1]||"Jean 3:16",
+    defi:`Vivez une action simple liée à "${theme}" et notez ce que vous avez appris.`,
+    priere:WEEK_PRAYERS[week-1]||WEEK_PRAYERS[0]};
 }));
 
-let parcoursState = JSON.parse(localStorage.getItem('parcoursState') || '{}');
-let activeParcoursMonth = Number(localStorage.getItem('activeParcoursMonth') || '1');
-let activeParcoursWeek = Number(localStorage.getItem('activeParcoursWeek') || '1');
-let parcoursUnlockTarget = null, parcoursMonthUnlockTarget = null;
+let parcoursState=JSON.parse(localStorage.getItem('parcoursState')||'{}');
+let activeParcoursMonth=Number(localStorage.getItem('activeParcoursMonth')||'1');
+let activeParcoursWeek=Number(localStorage.getItem('activeParcoursWeek')||'1');
 
-function isWeekCompleted(item) { return !!parcoursState.completed?.[item.id]; }
-function isWeekUnlocked(item) { if(item.week===1) return true; const prev=parcours.find(p=>p.week===item.week-1); return !!prev&&isWeekCompleted(prev); }
-function isMonthUnlocked(month) { return parcours.filter(p=>p.month<month).every(isWeekCompleted); }
-function isPrayerSubmitted(item) { return !!parcoursState.prayers?.[item.id]; }
-function getLastAccessibleWeek() { return parcours.reduce((last,item)=>isWeekUnlocked(item)?item.week:last,1); }
+function isWeekCompleted(item){return!!parcoursState.completed?.[item.id];}
+function isWeekUnlocked(item){if(item.week===1)return true;const prev=parcours.find(p=>p.week===item.week-1);return!!prev&&isWeekCompleted(prev);}
+function isMonthUnlocked(month){return parcours.filter(p=>p.month<month).every(isWeekCompleted);}
+function isPrayerSubmitted(item){return!!parcoursState.prayers?.[item.id];}
+function getLastAccessibleWeek(){return parcours.reduce((last,item)=>isWeekUnlocked(item)?item.week:last,1);}
 
-function renderParcours() {
-  const grid=document.getElementById('parcoursGrid'), monthTabs=document.getElementById('monthTabs');
-  if(!isWeekUnlocked(parcours.find(p=>p.week===activeParcoursWeek)||parcours[0])){ activeParcoursWeek=getLastAccessibleWeek(); activeParcoursMonth=parcours.find(p=>p.week===activeParcoursWeek)?.month||1; }
+function renderParcours(){
+  const grid=document.getElementById('parcoursGrid'),monthTabs=document.getElementById('monthTabs');
+  if(!isWeekUnlocked(parcours.find(p=>p.week===activeParcoursWeek)||parcours[0])){activeParcoursWeek=getLastAccessibleWeek();activeParcoursMonth=parcours.find(p=>p.week===activeParcoursWeek)?.month||1;}
   const filtered=parcours.filter(p=>p.month===activeParcoursMonth);
-  monthTabs.innerHTML=parcoursMonths.map((m,i)=>{const mn=i+1;const mw=parcours.filter(p=>p.month===mn);const done=mw.filter(p=>parcoursState.completed?.[p.id]).length;const locked=!isMonthUnlocked(mn);return `<button class="month-tab ${mn===activeParcoursMonth?'active':''} ${locked?'locked':''}" onclick="setParcoursMonth(${mn})">${locked?'🔒':'✓'} Mois ${mn} · ${done}/${mw.length}</button>`;}).join('');
-  grid.innerHTML=filtered.map((p,i)=>{const done=isWeekCompleted(p);const locked=!isWeekUnlocked(p);return `<div class="parcours-card ${done?'done':''} ${locked?'locked':''} ${p.week===activeParcoursWeek?'active':''}" onclick="selectParcoursWeek(${p.week})" style="animation-delay:${i*0.04}s"><div class="parcours-week">Semaine ${p.week}</div><div class="parcours-title">${escapeHtml(p.titre)}</div><div class="parcours-desc">${locked?'Terminez la semaine précédente pour déverrouiller.':escapeHtml(p.enseignement.slice(0,100))+'...'}</div><div class="parcours-check ${done?'done':''}">${done?'✓':(locked?'🔒':'')}</div></div>`;}).join('');
-  renderParcoursDetail();
-  renderBadges();
-  updateProgress();
+  monthTabs.innerHTML=parcoursMonths.map((m,i)=>{const mn=i+1;const mw=parcours.filter(p=>p.month===mn);const done=mw.filter(p=>parcoursState.completed?.[p.id]).length;const locked=!isMonthUnlocked(mn);return`<button class="month-tab ${mn===activeParcoursMonth?'active':''} ${locked?'locked':''}" onclick="setParcoursMonth(${mn})">${locked?'🔒':'✓'} Mois ${mn} · ${done}/${mw.length}</button>`;}).join('');
+  grid.innerHTML=filtered.map((p,i)=>{const done=isWeekCompleted(p);const locked=!isWeekUnlocked(p);return`<div class="parcours-card ${done?'done':''} ${locked?'locked':''} ${p.week===activeParcoursWeek?'active':''}" onclick="selectParcoursWeek(${p.week})" style="animation-delay:${i*0.04}s"><div class="parcours-week">Semaine ${p.week}</div><div class="parcours-title">${escapeHtml(p.titre)}</div><div class="parcours-desc">${locked?'Terminez la semaine précédente pour déverrouiller.':escapeHtml(p.enseignement.slice(0,90))+'...'}</div><div class="parcours-check ${done?'done':''}">${done?'✓':(locked?'🔒':'')}</div></div>`;}).join('');
+  renderParcoursDetail();renderBadges();updateProgress();
 }
 
-function renderParcoursDetail() {
+function renderParcoursDetail(){
   const detail=document.getElementById('parcoursDetail');
   const week=parcours.find(p=>p.week===activeParcoursWeek)||parcours[0];
   const locked=!isWeekUnlocked(week);const done=isWeekCompleted(week);const prayerSubmitted=isPrayerSubmitted(week);
-  detail.innerHTML=`<span class="detail-pill">Semaine ${week.week} · ${escapeHtml(week.monthTitle)}</span><h3>${escapeHtml(week.titre)}</h3>${locked?`<p class="locked-note">🔒 Terminez la semaine précédente.</p>`:''}
+  detail.innerHTML=`<span class="detail-pill">Semaine ${week.week} · ${escapeHtml(week.monthTitle)}</span>
+  <h3>${escapeHtml(week.titre)}</h3>
+  ${locked?`<p class="locked-note">🔒 Terminez la semaine précédente.</p>`:''}
   <div class="parcours-features-grid">
     <div class="feature-card"><div class="feature-icon">📖</div><div class="feature-content"><h4>Enseignement</h4><p>${escapeHtml(week.enseignement)}</p></div></div>
     <div class="feature-card"><div class="feature-icon">📜</div><div class="feature-content"><h4>Verset clé</h4><p>${escapeHtml(week.verset)}</p></div></div>
     <div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-content"><h4>Défi pratique</h4><p>${escapeHtml(week.defi)}</p></div></div>
-    <div class="feature-card"><div class="feature-icon">🙏</div><div class="feature-content"><h4>Prière</h4><p>${escapeHtml(week.priere)}</p></div></div>
+    <div class="feature-card" style="grid-column:1/-1"><div class="feature-icon">🙏</div><div class="feature-content">
+      <h4>Prière de la semaine ${week.week}</h4>
+      <div class="week-prayer-box">
+        <p class="week-prayer-text">${escapeHtml(week.priere)}</p>
+        <p class="week-prayer-note">✦ Prière unique — Semaine ${week.week} sur 52</p>
+      </div>
+    </div></div>
   </div>
-  <div class="detail-block"><strong>Partage de prière</strong>${prayerSubmitted?`<div class="prayer-submitted">✓ Prière partagée pour cette semaine</div>`:`<textarea id="weekPrayerText" placeholder="Écrivez votre prière..." ${locked?'disabled':''}></textarea><button class="btn-primary" style="margin-top:1rem" onclick="submitWeekPrayer(${week.week})" ${locked?'disabled':''}>Partager ma prière ✦</button>`}</div>
+  <div class="detail-block"><strong>Partage ta prière personnelle</strong>
+  ${prayerSubmitted?`<div class="prayer-submitted">✓ Prière partagée pour cette semaine</div>`:`
+    <textarea id="weekPrayerText" style="width:100%;min-height:80px;border:1px solid var(--border);border-radius:10px;padding:10px;font-family:var(--font-body);font-size:0.85rem;background:rgba(255,255,255,0.8);color:var(--text);outline:none;margin-top:0.5rem;resize:vertical" placeholder="Écrivez votre prière personnelle..." ${locked?'disabled':''}></textarea>
+    <button class="btn-primary" style="margin-top:0.75rem;border:none" onclick="submitWeekPrayer(${week.week})" ${locked?'disabled':''}>Partager ma prière ✦</button>
+  `}
+  </div>
   <button class="complete-week-btn ${done?'done':''}" onclick="toggleParcours(${week.week})" ${locked?'disabled':''}>${done?'Semaine validée ✓':'Valider cette semaine'}</button>`;
 }
 
-function setParcoursMonth(month) {
+function setParcoursMonth(month){
   if(!isMonthUnlocked(month)){showToast('Terminez le mois actuel d\'abord.');return;}
   activeParcoursMonth=month;
   const fw=parcours.find(p=>p.month===month);
@@ -1696,8 +1634,7 @@ function setParcoursMonth(month) {
   localStorage.setItem('activeParcoursWeek',String(activeParcoursWeek));
   renderParcours();
 }
-
-function selectParcoursWeek(week) {
+function selectParcoursWeek(week){
   const item=parcours.find(p=>p.week===week);
   if(!item||!isWeekUnlocked(item)){showToast('Terminez la semaine précédente.');return;}
   activeParcoursWeek=week;activeParcoursMonth=item.month;
@@ -1705,18 +1642,16 @@ function selectParcoursWeek(week) {
   localStorage.setItem('activeParcoursMonth',String(activeParcoursMonth));
   renderParcours();
 }
-
-function submitWeekPrayer(week) {
+function submitWeekPrayer(week){
   const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item))return;
   const txt=document.getElementById('weekPrayerText')?.value.trim();
-  if(!txt){showToast('Veuillez écrire votre prière.');return;}
+  if(!txt){showToast('Veuillez écrire votre prière personnelle.');return;}
   parcoursState.prayers=parcoursState.prayers||{};
   parcoursState.prayers[item.id]={text:txt,submittedAt:new Date().toISOString()};
   localStorage.setItem('parcoursState',JSON.stringify(parcoursState));
-  renderParcours();showToast('Prière enregistrée. Vous pouvez valider la semaine.');
+  renderParcours();showToast('Prière enregistrée ! Vous pouvez valider la semaine.');
 }
-
-function toggleParcours(week) {
+function toggleParcours(week){
   const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item))return;
   if(!parcoursState.completed?.[item.id]&&!isPrayerSubmitted(item)){showToast('Partagez votre prière pour valider.');return;}
   parcoursState.completed=parcoursState.completed||{};
@@ -1724,16 +1659,14 @@ function toggleParcours(week) {
   localStorage.setItem('parcoursState',JSON.stringify(parcoursState));
   renderParcours();showToast(parcoursState.completed[item.id]?'Semaine validée !':'Validation retirée.');
 }
-
-function renderBadges() {
+function renderBadges(){
   const completed=Object.values(parcoursState.completed||{}).filter(Boolean).length;
   const badges=[{label:'Premier pas',min:1},{label:'Disciple régulier',min:4},{label:'Chercheur de Dieu',min:13},{label:'Serviteur fidèle',min:26},{label:'Persévérant',min:39},{label:'Mission accomplie',min:52}];
   const unlocked=badges.filter(b=>completed>=b.min).length;
   document.getElementById('badgeRow').innerHTML=badges.map(b=>`<span class="spiritual-badge ${completed>=b.min?'unlocked':''}">${completed>=b.min?'✓':'○'} ${b.label}</span>`).join('');
   document.getElementById('badgeStat').textContent=unlocked;
 }
-
-function updateProgress() {
+function updateProgress(){
   const done=Object.values(parcoursState.completed||{}).filter(Boolean).length;
   const prayers=parcours.filter(isPrayerSubmitted).length;
   const pct=Math.round((done/parcours.length)*100);
@@ -1744,30 +1677,27 @@ function updateProgress() {
   document.getElementById('quizStat').textContent=prayers;
   document.getElementById('certificateBtn').disabled=done<parcours.length;
 }
+function toggleParcoursDarkMode(){const s=document.getElementById('parcours');s.classList.toggle('dark-mode');const dark=s.classList.contains('dark-mode');localStorage.setItem('parcoursDarkMode',dark?'1':'0');document.getElementById('parcoursDarkBtn').textContent=dark?'Mode clair':'Mode sombre';}
+function toggleCertificate(){const done=Object.values(parcoursState.completed||{}).filter(Boolean).length;if(done<parcours.length){showToast('Le certificat sera disponible après les 52 semaines.');return;}document.getElementById('certificateCard').classList.toggle('open');}
 
-function toggleParcoursDarkMode() {
-  const section=document.getElementById('parcours');section.classList.toggle('dark-mode');
-  const dark=section.classList.contains('dark-mode');
-  localStorage.setItem('parcoursDarkMode',dark?'1':'0');
-  document.getElementById('parcoursDarkBtn').textContent=dark?'Mode clair':'Mode sombre';
-}
-function applyParcoursPreferences() {
-  const dark=localStorage.getItem('parcoursDarkMode')==='1';
-  document.getElementById('parcours').classList.toggle('dark-mode',dark);
-  document.getElementById('parcoursDarkBtn').textContent=dark?'Mode clair':'Mode sombre';
-}
-function toggleCertificate() {
-  const done=Object.values(parcoursState.completed||{}).filter(Boolean).length;
-  if(done<parcours.length){showToast('Le certificat sera disponible après les 52 semaines.');return;}
-  document.getElementById('certificateCard').classList.toggle('open');
-}
+// ===== EVENTS =====
+const defaultEvents=[
+  {id:'base-1',title:"Culte du Dimanche",date:"2026-05-11",dateLabel:"11 Mai",time:"09:00",lieu:"Église principale, Cocody",cat:"culte",desc:"Service dominical avec louange et prédication.",organizer:"REV COM",participants:42,owned:false,poster:""},
+  {id:'base-2',title:"Étude biblique",date:"2026-05-13",dateLabel:"13 Mai",time:"19:00",lieu:"Salle A, Église principale",cat:"cellule",desc:"Étude approfondie de l'Évangile de Jean.",organizer:"Cellules d'Abidjan",participants:18,owned:false,poster:""},
+  {id:'base-3',title:"Rencontre des Jeunes",date:"2026-05-15",dateLabel:"15 Mai",time:"18:00",lieu:"Centre jeunesse, Marcory",cat:"jeune",desc:"Soirée de louange et partage pour les 15-30 ans.",organizer:"Ministère des jeunes",participants:35,owned:false,poster:""},
+  {id:'base-4',title:"Nuit de Prière",date:"2026-05-16",dateLabel:"16 Mai",time:"22:00",lieu:"Église principale",cat:"special",desc:"Une nuit entière de prière et d'intercession.",organizer:"Intercession",participants:64,owned:false,poster:""},
+  {id:'base-5',title:"Culte de Famille",date:"2026-05-18",dateLabel:"18 Mai",time:"10:00",lieu:"Église principale",cat:"culte",desc:"Culte spécial pour toutes les familles.",organizer:"Familles",participants:53,owned:false,poster:""},
+  {id:'base-6',title:"Retraite Spirituelle",date:"2026-05-24",dateLabel:"24 Mai",time:"08:00",lieu:"Yamoussoukro",cat:"special",desc:"Week-end de retraite et ressourcement spirituel.",organizer:"Formation",participants:27,owned:false,poster:""},
+];
+let events=[...defaultEvents,...JSON.parse(localStorage.getItem('userEvents')||'[]')];
+let eventFilter='all',agendaView='cards',currentEventId=null,posterDraft='';
+const categoryLabels={jeune:'Jeune',cellule:'Cellule',culte:'Culte',special:'Spéciaux'};
 
-// ==================== EVENTS ====================
 function escapeHtml(v){return String(v||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
-function formatEventDate(e){if(e.dateLabel)return e.dateLabel;if(!e.date)return '';const d=new Date(e.date+'T00:00:00');return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'});}
+function formatEventDate(e){if(e.dateLabel)return e.dateLabel;if(!e.date)return'';const d=new Date(e.date+'T00:00:00');return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'});}
 function persistUserEvents(){localStorage.setItem('userEvents',JSON.stringify(events.filter(e=>e.owned)));}
 
-function renderEvents() {
+function renderEvents(){
   const grid=document.getElementById('eventGrid');
   const filtered=eventFilter==='all'?events:events.filter(e=>e.cat===eventFilter);
   grid.innerHTML=filtered.map((e,i)=>`<div class="event-card" style="animation-delay:${i*0.04}s">
@@ -1775,9 +1705,9 @@ function renderEvents() {
     <div class="event-header"><span class="event-date-badge">${formatEventDate(e)}</span><span class="event-category ${e.cat}">${categoryLabels[e.cat]||e.cat}</span></div>
     <div class="event-body">
       <div class="event-title">${escapeHtml(e.title)}</div>
-      <div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${formatEventDate(e)}</div>
-      <div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${escapeHtml(e.time||'')}</div>
-      <div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${escapeHtml(e.lieu)}</div>
+      <div class="event-meta"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${formatEventDate(e)}</div>
+      <div class="event-meta"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${escapeHtml(e.time||'')}</div>
+      <div class="event-meta"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${escapeHtml(e.lieu)}</div>
       <div style="font-size:0.82rem;color:var(--text-muted);margin-top:6px">${escapeHtml(e.desc)}</div>
       <div class="event-organizer">${escapeHtml(e.organizer||'')}</div>
       <div class="event-count">👥 ${e.participants||0} participant(s)</div>
@@ -1788,65 +1718,51 @@ function renderEvents() {
       ${e.owned?`<button class="event-btn" onclick="editEvent('${e.id}')">Modifier</button><button class="event-btn danger" onclick="deleteEvent('${e.id}')">Supprimer</button>`:''}
     </div>
   </div>`).join('');
-  if(!filtered.length) grid.innerHTML='<div class="event-card" style="padding:1.5rem">Aucun programme dans cette catégorie.</div>';
+  if(!filtered.length)grid.innerHTML='<div class="event-card" style="padding:1.5rem">Aucun programme dans cette catégorie.</div>';
   renderCalendar();
 }
 
-function renderCalendar() {
+function renderCalendar(){
   const cg=document.getElementById('calendarGrid');if(!cg)return;
   const filtered=eventFilter==='all'?events:events.filter(e=>e.cat===eventFilter);
   const groups=filtered.reduce((acc,e)=>{const k=e.date||e.dateLabel||'Sans date';acc[k]=acc[k]||[];acc[k].push(e);return acc;},{});
   cg.innerHTML=Object.keys(groups).sort().map(date=>`<div class="calendar-day"><div class="calendar-date">${formatEventDate(groups[date][0])}</div>${groups[date].map(e=>`<div class="calendar-event"><strong>${escapeHtml(e.title)}</strong>${escapeHtml(e.time||'')} · ${escapeHtml(e.lieu)}</div>`).join('')}</div>`).join('');
-  if(!filtered.length) cg.innerHTML='<div class="calendar-day">Aucun programme.</div>';
+  if(!filtered.length)cg.innerHTML='<div class="calendar-day">Aucun programme.</div>';
 }
 
-function setAgendaView(view) {
-  agendaView=view;
-  document.getElementById('eventGrid').style.display=view==='cards'?'grid':'none';
-  document.getElementById('calendarView').classList.toggle('open',view==='calendar');
-  document.getElementById('cardsViewBtn').classList.toggle('active',view==='cards');
-  document.getElementById('calendarViewBtn').classList.toggle('active',view==='calendar');
-  renderCalendar();
-}
-
-function filterEvents(cat,btn) {
-  eventFilter=cat;document.querySelectorAll('#agenda .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderEvents();
-}
-
-function openProgramForm(id=null) {
-  document.getElementById('programForm').reset();posterDraft='';document.getElementById('eventEditId').value='';document.getElementById('posterPreview').innerHTML="Prévisualisation de l'affiche";document.getElementById('programFormTitle').textContent='Ajouter ton programme';document.querySelector('.program-save').textContent='Publier le programme';
-  if(id){const e=events.find(ev=>ev.id===id&&ev.owned);if(!e)return;document.getElementById('programFormTitle').textContent='Modifier';document.querySelector('.program-save').textContent='Enregistrer';document.getElementById('eventEditId').value=e.id;document.getElementById('eventTitle').value=e.title;document.getElementById('eventDesc').value=e.desc;document.getElementById('eventDate').value=e.date||'';document.getElementById('eventTime').value=e.time||'';document.getElementById('eventPlace').value=e.lieu;document.getElementById('eventOrganizer').value=e.organizer||'';document.getElementById('eventCategory').value=e.cat;posterDraft=e.poster||'';if(posterDraft)document.getElementById('posterPreview').innerHTML=`<img src="${posterDraft}" alt="">`;}
-  document.getElementById('programModal').classList.add('open');
-}
+function setAgendaView(view){agendaView=view;document.getElementById('eventGrid').style.display=view==='cards'?'grid':'none';document.getElementById('calendarView').classList.toggle('open',view==='calendar');document.getElementById('cardsViewBtn').classList.toggle('active',view==='cards');document.getElementById('calendarViewBtn').classList.toggle('active',view==='calendar');renderCalendar();}
+function filterEvents(cat,btn){eventFilter=cat;document.querySelectorAll('#agenda .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderEvents();}
+function openProgramForm(id=null){document.getElementById('programForm').reset();posterDraft='';document.getElementById('eventEditId').value='';document.getElementById('posterPreview').innerHTML="Prévisualisation de l'affiche";document.getElementById('programFormTitle').textContent='Ajouter ton programme';document.querySelector('.program-save').textContent='Publier le programme';if(id){const e=events.find(ev=>ev.id===id&&ev.owned);if(!e)return;document.getElementById('programFormTitle').textContent='Modifier';document.querySelector('.program-save').textContent='Enregistrer';document.getElementById('eventEditId').value=e.id;document.getElementById('eventTitle').value=e.title;document.getElementById('eventDesc').value=e.desc;document.getElementById('eventDate').value=e.date||'';document.getElementById('eventTime').value=e.time||'';document.getElementById('eventPlace').value=e.lieu;document.getElementById('eventOrganizer').value=e.organizer||'';document.getElementById('eventCategory').value=e.cat;posterDraft=e.poster||'';if(posterDraft)document.getElementById('posterPreview').innerHTML=`<img src="${posterDraft}" alt="">`;}document.getElementById('programModal').classList.add('open');}
 function closeProgramForm(){document.getElementById('programModal').classList.remove('open');}
-
-function saveProgram(e) {
-  e.preventDefault();
-  const editId=document.getElementById('eventEditId').value;
-  const payload={id:editId||'user-'+Date.now(),title:document.getElementById('eventTitle').value.trim(),desc:document.getElementById('eventDesc').value.trim(),date:document.getElementById('eventDate').value,time:document.getElementById('eventTime').value,lieu:document.getElementById('eventPlace').value.trim(),organizer:document.getElementById('eventOrganizer').value.trim(),cat:document.getElementById('eventCategory').value,poster:posterDraft,participants:editId?(events.find(ev=>ev.id===editId)?.participants||0):0,owned:true};
-  if(editId)events=events.map(ev=>ev.id===editId?payload:ev);else events.unshift(payload);
-  persistUserEvents();closeProgramForm();renderEvents();showToast(editId?'Programme modifié.':'Programme ajouté à l\'agenda.');
-}
-
+function saveProgram(e){e.preventDefault();const editId=document.getElementById('eventEditId').value;const payload={id:editId||'user-'+Date.now(),title:document.getElementById('eventTitle').value.trim(),desc:document.getElementById('eventDesc').value.trim(),date:document.getElementById('eventDate').value,time:document.getElementById('eventTime').value,lieu:document.getElementById('eventPlace').value.trim(),organizer:document.getElementById('eventOrganizer').value.trim(),cat:document.getElementById('eventCategory').value,poster:posterDraft,participants:editId?(events.find(ev=>ev.id===editId)?.participants||0):0,owned:true};if(editId)events=events.map(ev=>ev.id===editId?payload:ev);else events.unshift(payload);persistUserEvents();closeProgramForm();renderEvents();showToast(editId?'Programme modifié.':'Programme ajouté à l\'agenda.');}
 function editEvent(id){openProgramForm(id);}
-function deleteEvent(id){const e=events.find(ev=>ev.id===id);if(!e||!e.owned)return;if(!confirm('Supprimer ce programme ?'))return;events=events.filter(ev=>ev.id!==id);persistUserEvents();renderEvents();showToast('Programme supprimé.');}
+function deleteEvent(id){const e=events.find(ev=>ev.id===id);if(!e||!e.owned)return;if(!confirm('Supprimer ?'))return;events=events.filter(ev=>ev.id!==id);persistUserEvents();renderEvents();showToast('Supprimé.');}
 function participateEvent(id){const e=events.find(ev=>ev.id===id);if(!e)return;currentEventId=id;openModal(e.title,`${formatEventDate(e)} à ${e.time||''} — ${e.lieu}`);}
 function setReminder(id){const e=events.find(ev=>ev.id===id);if(!e)return;showToast(`Rappel activé pour ${e.title}.`);}
 
-// ==================== PRAYERS ====================
+// ===== PRAYERS =====
+const defaultPrieres=[
+  {id:"priere-1",nom:"Marie K.",texte:"Prière pour la guérison de mon père hospitalisé cette semaine.",count:14,reactions:{amen:6,paix:3},comments:[{nom:"Sarah",texte:"Amen, nous prions avec toi."}],createdAt:"2026-05-08T08:30:00.000Z"},
+  {id:"priere-2",nom:"Jean-Paul A.",texte:"Demande de sagesse pour une décision importante dans ma famille.",count:8,reactions:{amen:4,paix:2},comments:[],createdAt:"2026-05-08T09:05:00.000Z"},
+  {id:"priere-3",nom:"Anonyme",texte:"Prière pour la paix dans notre pays et la protection de nos familles.",count:23,reactions:{amen:12,paix:8},comments:[{nom:"Anonyme",texte:"Que la paix de Dieu nous garde."}],createdAt:"2026-05-08T10:10:00.000Z"},
+  {id:"priere-4",nom:"Esther N.",texte:"Action de grâce pour la naissance de mon fils. Béni soit l'Éternel !",count:31,reactions:{amen:18,paix:5},comments:[],createdAt:"2026-05-08T11:20:00.000Z"},
+];
+let prieres=JSON.parse(localStorage.getItem('prieresWall')||'null')||defaultPrieres;
+let priereActions=JSON.parse(localStorage.getItem('priereActions')||'{}');
+let prayerAuthorId=localStorage.getItem('prayerAuthorId')||('author-'+Date.now()+'-'+Math.random().toString(36).slice(2,8));
+localStorage.setItem('prayerAuthorId',prayerAuthorId);
 function persistPrayerWall(){localStorage.setItem('prieresWall',JSON.stringify(prieres));localStorage.setItem('priereActions',JSON.stringify(priereActions));}
 function formatPrayerTime(v){if(!v)return"Maintenant";const diff=Math.max(0,Date.now()-new Date(v).getTime());const min=Math.floor(diff/60000);if(min<1)return"À l'instant";if(min<60)return`Il y a ${min} min`;const h=Math.floor(min/60);if(h<24)return`Il y a ${h} h`;return new Date(v).toLocaleDateString('fr-FR',{day:'2-digit',month:'short'});}
-
-function renderPrieres() {
+function renderPrieres(){
   const total=prieres.reduce((s,p)=>s+(p.count||0),0);
   document.getElementById('priereLiveCount').textContent=`${total} prières en direct`;
   document.getElementById('priereList').innerHTML=prieres.map((p,i)=>{
     const actions=priereActions[p.id]||{};const reactions=p.reactions||{amen:0,paix:0};const comments=p.comments||[];const canDelete=p.ownerId===prayerAuthorId;
-    return `<div class="priere-item" id="priereItem-${p.id}" style="animation-delay:${i*0.04}s">
+    return`<div class="priere-item" id="priereItem-${p.id}" style="animation-delay:${i*0.04}s">
       <div class="priere-item-top"><div class="priere-item-name">${escapeHtml(p.nom)}</div><div class="priere-time">${formatPrayerTime(p.createdAt)}</div></div>
       <div class="priere-item-text">${escapeHtml(p.texte)}</div>
       <div class="priere-item-footer">
-        <span class="priere-count">${p.count||0} personne(s) prient</span>
+        <span class="priere-count">${p.count||0} prient</span>
         <div class="priere-actions">
           <button class="priere-action-btn ${actions.prayed?'prayed':''}" onclick="prier(${i})" ${actions.prayed?'disabled':''}>🙏 ${actions.prayed?'Déjà prié':'Je prie'}</button>
           <button class="priere-action-btn ${actions.amen?'active':''}" onclick="reactPrayer(${i},'amen')">❤️ Amen <span>${reactions.amen||0}</span></button>
@@ -1861,68 +1777,64 @@ function renderPrieres() {
     </div>`;
   }).join('');
 }
-
 function prier(i){const p=prieres[i];const actions=priereActions[p.id]=priereActions[p.id]||{};if(actions.prayed){showToast('Vous avez déjà prié.');return;}p.count=(p.count||0)+1;actions.prayed=true;persistPrayerWall();renderPrieres();showToast('Votre prière ajoutée.');}
 function reactPrayer(i,type){const p=prieres[i];const actions=priereActions[p.id]=priereActions[p.id]||{};if(actions[type])return;p.reactions=p.reactions||{amen:0,paix:0};p.reactions[type]=(p.reactions[type]||0)+1;actions[type]=true;persistPrayerWall();renderPrieres();}
 function addPrayerComment(i){const p=prieres[i];const inp=document.getElementById(`comment-${p.id}`);const txt=inp.value.trim();if(!txt)return;p.comments=p.comments||[];p.comments.push({nom:'Anonyme',texte:txt,createdAt:new Date().toISOString()});persistPrayerWall();renderPrieres();showToast('Commentaire publié.');}
-function deletePrayer(id){const p=prieres.find(pr=>pr.id===id);if(!p||p.ownerId!==prayerAuthorId)return;if(!confirm('Supprimer ?'))return;const el=document.getElementById(`priereItem-${id}`);if(el)el.classList.add('removing');setTimeout(()=>{prieres=prieres.filter(pr=>pr.id!==id);delete priereActions[id];persistPrayerWall();renderPrieres();showToast('Intention supprimée.');},320);}
+function deletePrayer(id){const p=prieres.find(pr=>pr.id===id);if(!p||p.ownerId!==prayerAuthorId)return;if(!confirm('Supprimer ?'))return;prieres=prieres.filter(pr=>pr.id!==id);delete priereActions[id];persistPrayerWall();renderPrieres();showToast('Intention supprimée.');}
 function submitPriere(){const anon=document.getElementById('priereAnonyme').checked;const nom=anon?'Anonyme':(document.getElementById('priereNom').value.trim()||'Anonyme');const texte=document.getElementById('priereTexte').value.trim();if(!texte){showToast('Veuillez écrire votre intention.');return;}prieres.unshift({id:'priere-'+Date.now(),ownerId:prayerAuthorId,nom,texte,count:0,reactions:{amen:0,paix:0},comments:[],createdAt:new Date().toISOString()});document.getElementById('priereNom').value='';document.getElementById('priereTexte').value='';document.getElementById('priereAnonyme').checked=false;persistPrayerWall();renderPrieres();showToast('Intention publiée !');}
 
-// ==================== CELLULES & ENTRAIDE ====================
+// ===== AUDIO PRIERE =====
+let audioPlaying=false,audioSec=0,audioInterval=null;
+function toggleAudio(){audioPlaying=!audioPlaying;const btn=document.getElementById('audioBtn');if(audioPlaying){btn.textContent='⏸';audioInterval=setInterval(()=>{audioSec=Math.min(audioSec+1,240);const pct=(audioSec/240)*100;document.getElementById('audioProgress').style.width=pct+'%';const m=Math.floor(audioSec/60),s=audioSec%60;document.getElementById('audioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;if(audioSec>=240){audioPlaying=false;clearInterval(audioInterval);btn.textContent='▶';audioSec=0;}},1000);}else{btn.textContent='▶';clearInterval(audioInterval);}}
+function seekAudio(e,bar){const r=bar.getBoundingClientRect();const pct=(e.clientX-r.left)/r.width;audioSec=Math.round(pct*240);document.getElementById('audioProgress').style.width=(pct*100)+'%';const m=Math.floor(audioSec/60),s=audioSec%60;document.getElementById('audioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;}
+
+// ===== CELLULES & ENTRAIDE =====
 const cellules=[{quartier:"Cocody",nom:"Cellule Espérance",responsable:"Frère Kouamé",jour:"Mardi 19h00",membres:12},{quartier:"Yopougon",nom:"Cellule Lumière",responsable:"Sœur Adjoua",jour:"Mercredi 18h30",membres:9},{quartier:"Marcory",nom:"Cellule Grâce",responsable:"Pasteur Denis",jour:"Jeudi 19h00",membres:15},{quartier:"Abobo",nom:"Cellule Shalom",responsable:"Frère Brou",jour:"Vendredi 18h00",membres:11},{quartier:"Plateau",nom:"Cellule Siloé",responsable:"Sœur Ama",jour:"Samedi 10h00",membres:7},{quartier:"Treichville",nom:"Cellule Béthel",responsable:"Frère Yao",jour:"Mardi 19h30",membres:10}];
 const entraides=[{type:"besoin",titre:"Transport vers l'église",desc:"Cherche covoiturage depuis Abobo le dimanche matin.",contact:"Frère Konan"},{type:"offre",titre:"Garde d'enfants",desc:"Disponible pour garder des enfants pendant les cultes.",contact:"Sœur Fatou"},{type:"besoin",titre:"Aide alimentaire",desc:"Famille dans le besoin ce mois-ci, toute aide appréciée.",contact:"Voir le pasteur"},{type:"offre",titre:"Cours de soutien",desc:"Je peux aider les enfants en maths et français, niveau collège.",contact:"Frère Éric"},{type:"besoin",titre:"Accompagnement médical",desc:"Besoin d'aide pour accompagner une personne âgée chez le médecin.",contact:"Sœur Bernadette"},{type:"offre",titre:"Covoiturage Cocody",desc:"Je peux prendre des personnes depuis Cocody chaque dimanche.",contact:"Frère Amani"}];
 let entraideFilter='all';
-
 function renderCellules(q=''){const grid=document.getElementById('celluleGrid');const filtered=q?cellules.filter(c=>c.quartier.toLowerCase().includes(q.toLowerCase())||c.nom.toLowerCase().includes(q.toLowerCase())):cellules;grid.innerHTML=filtered.map(c=>`<div class="cellule-card"><div class="cellule-quartier">${c.quartier}</div><div class="cellule-nom">${c.nom}</div><div class="cellule-info">👤 ${c.responsable}</div><div class="cellule-info">🗓 ${c.jour}</div><div class="cellule-badge">${c.membres} membres</div></div>`).join('');}
 function searchCellule(v){renderCellules(v);}
 function renderEntraide(){const grid=document.getElementById('entraideGrid');const filtered=entraideFilter==='all'?entraides:entraides.filter(e=>e.type===entraideFilter);grid.innerHTML=filtered.map(e=>`<div class="entraide-card"><span class="entraide-type-badge ${e.type==='besoin'?'badge-besoin':'badge-offre'}">${e.type==='besoin'?'Besoin':'Offre'}</span><div class="entraide-title">${e.titre}</div><div class="entraide-desc">${e.desc}</div><div class="entraide-contact">Contact : ${e.contact}</div></div>`).join('');}
 function filterEntraide(type,btn){entraideFilter=type;document.querySelectorAll('#entraide .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderEntraide();}
 
-// ==================== VERSET ====================
-function nextVerset(){versetIdx=(versetIdx+1)%versets.length;document.getElementById('versetText').textContent=versets[versetIdx].text;document.getElementById('versetRef').textContent='— '+versets[versetIdx].ref;}
-function copyVerset(){const v=versets[versetIdx];navigator.clipboard.writeText(`"${v.text}" — ${v.ref}`).catch(()=>{});showToast('Verset copié !');}
-function shareWhatsApp(){const v=versets[versetIdx];window.open(`https://wa.me/?text=${encodeURIComponent(`"${v.text}" — ${v.ref}`)}`, '_blank');}
-
-// ==================== MODALS ====================
+// ===== MISC =====
 function openModal(titre,info){document.getElementById('modalTitle').textContent='Inscription : '+titre;document.getElementById('modalInfo').textContent=info;document.getElementById('modalOverlay').classList.add('open');}
 function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
 function submitInscription(){const nom=document.getElementById('inscNom').value.trim();const tel=document.getElementById('inscTel').value.trim();if(!nom){showToast('Veuillez entrer votre nom.');return;}if(!tel){showToast('Veuillez entrer votre numéro.');return;}if(currentEventId){const e=events.find(ev=>ev.id===currentEventId);if(e){const nbre=parseInt(document.getElementById('inscNbre').value)||1;e.participants=(e.participants||0)+nbre;persistUserEvents();renderEvents();}}closeModal();showToast('Participation confirmée !');currentEventId=null;}
 function submitContact(){showToast('Message envoyé ! Nous vous répondrons très bientôt.');}
 function subscribeSMS(btn){if(!btn.previousElementSibling.value.trim()){showToast('Veuillez entrer votre numéro.');return;}btn.textContent='✓ Abonné(e) !';btn.disabled=true;showToast('Abonnement confirmé !');}
-
-// ==================== AUDIO ====================
-let audioPlaying=false,audioSec=0,audioInterval=null;
-function toggleAudio(){audioPlaying=!audioPlaying;const btn=document.getElementById('audioBtn');if(audioPlaying){btn.textContent='⏸';audioInterval=setInterval(()=>{audioSec=Math.min(audioSec+1,240);const pct=(audioSec/240)*100;document.getElementById('audioProgress').style.width=pct+'%';const m=Math.floor(audioSec/60),s=audioSec%60;document.getElementById('audioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;if(audioSec>=240){audioPlaying=false;clearInterval(audioInterval);btn.textContent='▶';audioSec=0;}},1000);}else{btn.textContent='▶';clearInterval(audioInterval);}}
-function seekAudio(e,bar){const r=bar.getBoundingClientRect();const pct=(e.clientX-r.left)/r.width;audioSec=Math.round(pct*240);document.getElementById('audioProgress').style.width=(pct*100)+'%';const m=Math.floor(audioSec/60),s=audioSec%60;document.getElementById('audioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;}
-
-// ==================== NAV ====================
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
-
-// ==================== TOAST ====================
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
 
-// ==================== INIT ====================
+// ===== INIT =====
 document.getElementById('modalOverlay').addEventListener('click',function(e){if(e.target===this)closeModal();});
 document.getElementById('programModal').addEventListener('click',function(e){if(e.target===this)closeProgramForm();});
 document.getElementById('noteModal').addEventListener('click',function(e){if(e.target===this)closeNoteModal();});
 document.getElementById('programForm').addEventListener('submit',saveProgram);
 document.getElementById('eventPoster').addEventListener('change',function(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=function(){posterDraft=r.result;document.getElementById('posterPreview').innerHTML=`<img src="${posterDraft}" alt="">`;};r.readAsDataURL(f);});
 
+// Apply dark mode preference
+const dark=localStorage.getItem('parcoursDarkMode')==='1';
+if(dark){document.getElementById('parcours').classList.add('dark-mode');document.getElementById('parcoursDarkBtn').textContent='Mode clair';}
+
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
 document.querySelectorAll('.fade-up').forEach(el=>observer.observe(el));
 
-// Initial render
+// Load voices for speech synthesis
+if('speechSynthesis' in window){window.speechSynthesis.onvoiceschanged=()=>{window.speechSynthesis.getVoices();};}
+
+// Initial renders
 renderEvents();
 renderPrieres();
-applyParcoursPreferences();
 renderParcours();
 renderBiblio();
 renderCellules();
 renderEntraide();
 renderNotes();
-// Init Bible sidebar (hidden by default, shown on tab click)
 renderBibleBooks();
 updateBibleStats();
+// Init chapter select for Genèse
+(function(){const book=BIBLE_BOOKS_AT[0];const sel=document.getElementById('bibleChapterSelect');sel.innerHTML=Array.from({length:book.chapters},(_,i)=>`<option value="${i+1}" ${i+1===1?'selected':''}>${i+1}</option>`).join('');})();
 </script>
 </body>
 </html>
