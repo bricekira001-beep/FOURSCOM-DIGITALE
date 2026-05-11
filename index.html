@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fourscom Digital — Foursquare niangon revelation</title>
+<title>Fourscom Digital â€” Foursquare niangon revelation</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <style>
@@ -46,8 +46,13 @@
   .nav-links { display: flex; gap: 1.5rem; list-style: none; }
   .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; letter-spacing: 0.02em; }
   .nav-links a:hover { color: var(--blue); }
+  .nav-actions { display: flex; align-items: center; gap: 0.65rem; }
   .nav-cta { background: var(--red); color: var(--surface-strong); font-size: 0.8rem; font-weight: 700; padding: 10px 18px; border-radius: 14px; text-decoration: none; transition: opacity 0.2s; cursor: pointer; border: none; font-family: var(--font-body); }
   .nav-cta:hover { opacity: 0.9; }
+  .profile-nav-btn { display: none; background: var(--purple); }
+  .profile-nav-btn.show { display: inline-flex; align-items: center; justify-content: center; }
+  .login-nav-btn { display: none; background: var(--blue); }
+  .login-nav-btn.show { display: inline-flex; align-items: center; justify-content: center; }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .hamburger span { display: block; width: 22px; height: 2px; background: var(--gold); border-radius: 2px; transition: all 0.3s; }
   .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(255,255,255,0.98); padding: 1.5rem 2rem; z-index: 99; flex-direction: column; gap: 1rem; border-bottom: 1px solid var(--border); }
@@ -446,7 +451,7 @@
   @media(max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } .priere-grid { grid-template-columns: 1fr; } }
 
   /* =====================================================
-     INSCRIPTION POPUP — POPUP D'INSCRIPTION MODERNE
+     INSCRIPTION POPUP â€” POPUP D'INSCRIPTION MODERNE
      ===================================================== */
   .insc-overlay {
     position: fixed; inset: 0; z-index: 400;
@@ -755,6 +760,11 @@
 
   .premium-success-state { display: none; padding: 2rem; text-align: center; animation: cardIn 0.4s ease both; }
   .premium-success-state.show { display: block; }
+  .premium-success-state > .premium-crown,
+  .premium-success-state > h3,
+  .premium-success-state > p,
+  .premium-success-state > .premium-badge-list,
+  .premium-success-state > .premium-close-btn { display: none; }
   .premium-crown {
     font-size: 3.5rem; margin-bottom: 1rem;
     animation: crownSpin 0.6s ease both;
@@ -791,13 +801,114 @@
     height: 4px;
     background: linear-gradient(90deg, var(--purple) 0 25%, var(--yellow) 25% 50%, var(--red) 50% 75%, var(--blue) 75% 100%);
   }
+
+  .premium-dialog.premium-wide { width: min(1040px, 100%); max-height: 92vh; overflow: auto; }
+  .premium-org-form { padding: 1.5rem 2rem 2rem; }
+  .premium-form-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1.25rem; }
+  .premium-form-head h3 { font-family: var(--font-display); font-size: 1.35rem; color: var(--purple); font-weight: 900; line-height: 1.2; }
+  .premium-form-head p { color: var(--text-muted); font-size: 0.86rem; margin-top: 0.35rem; line-height: 1.5; }
+  .premium-plan-badge { background: linear-gradient(135deg, var(--purple), #2F174F); color: var(--white); border-radius: 999px; padding: 8px 14px; font-size: 0.78rem; font-weight: 900; white-space: nowrap; }
+  .premium-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .premium-field.full { grid-column: 1 / -1; }
+  .premium-field label { display: block; color: var(--text-muted); font-size: 0.78rem; font-weight: 900; margin-bottom: 6px; }
+  .premium-field input, .premium-field select, .premium-field textarea {
+    width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px;
+    background: #FAFBFD; color: var(--text); font-family: var(--font-body); outline: none;
+  }
+  .premium-field textarea { min-height: 90px; resize: vertical; }
+  .premium-field input:focus, .premium-field select:focus, .premium-field textarea:focus { border-color: var(--purple); box-shadow: 0 0 0 4px rgba(94,51,136,0.1); }
+  .premium-logo-row { display: grid; grid-template-columns: 110px 1fr; gap: 1rem; align-items: center; }
+  .premium-logo-preview { width: 110px; height: 110px; border-radius: 20px; border: 1px dashed var(--border-strong); background: #FAFBFD; display: flex; align-items: center; justify-content: center; overflow: hidden; color: var(--purple); font-size: 2rem; font-weight: 900; }
+  .premium-logo-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .premium-submit-row { display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .premium-submit-row button { border: none; border-radius: 14px; padding: 12px 18px; cursor: pointer; font-family: var(--font-body); font-weight: 900; }
+  .premium-submit-secondary { background: #F5F8FC; color: var(--text); border: 1px solid var(--border) !important; }
+  .premium-submit-main { background: var(--purple); color: var(--white); box-shadow: 0 14px 30px rgba(94,51,136,0.2); }
+
+  .profile-overlay { position: fixed; inset: 0; z-index: 460; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(3,7,18,0.82); backdrop-filter: blur(16px); }
+  .profile-overlay.open { display: flex; }
+  .profile-dialog { width: min(1120px, 100%); max-height: 92vh; overflow: auto; background: linear-gradient(180deg, #0A1222 0%, #101A2D 100%); border: 1px solid rgba(245,197,66,0.28); border-radius: 26px; box-shadow: 0 44px 120px rgba(0,0,0,0.48); animation: modalIn 0.28s ease both; }
+  .profile-hero { background: radial-gradient(circle at 88% 12%, rgba(245,197,66,0.18), transparent 28%), linear-gradient(135deg, #050816 0%, #0D1B33 52%, #1A2F55 100%); color: var(--white); padding: 1.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; border-bottom: 1px solid rgba(245,197,66,0.28); }
+  .profile-logo { width: 86px; height: 86px; border-radius: 22px; background: linear-gradient(135deg, rgba(245,197,66,0.22), rgba(255,255,255,0.08)); border: 1px solid rgba(245,197,66,0.48); display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: 2rem; font-weight: 900; color: #F5C542; }
+  .profile-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .profile-title h2 { font-family: var(--font-display); font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.15; font-weight: 900; }
+  .profile-title p { color: rgba(230,238,255,0.78); font-size: 0.88rem; margin-top: 0.35rem; }
+  .profile-actions { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; justify-content: flex-end; }
+  .profile-close { border: none; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.12); color: var(--white); cursor: pointer; font-size: 1.1rem; }
+  .profile-logout { border: 1px solid rgba(245,197,66,0.24); border-radius: 14px; background: rgba(255,255,255,0.1); color: var(--white); cursor: pointer; font-family: var(--font-body); font-weight: 900; padding: 11px 14px; }
+  .profile-db { display: none; border: 1px solid rgba(245,197,66,0.54); border-radius: 14px; background: linear-gradient(135deg, #D8A928, #F5C542); color: #08111F; cursor: pointer; font-family: var(--font-body); font-weight: 900; padding: 11px 14px; box-shadow: 0 14px 34px rgba(245,197,66,0.16); }
+  .profile-db.show { display: inline-flex; align-items: center; justify-content: center; }
+  .profile-body { padding: 1.5rem; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.25rem; }
+  .profile-panel { border: 1px solid rgba(245,197,66,0.18); border-radius: 18px; padding: 1.25rem; background: rgba(255,255,255,0.96); box-shadow: 0 20px 60px rgba(0,0,0,0.18); }
+  .profile-panel h3 { font-size: 1rem; color: #0D1B33; font-weight: 900; margin-bottom: 0.85rem; }
+  .profile-info-list { display: grid; gap: 0.65rem; }
+  .profile-info-list div { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(0,102,179,0.08); padding-bottom: 0.55rem; font-size: 0.86rem; }
+  .profile-info-list strong { color: var(--text-muted); }
+  .profile-menu-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.9rem; }
+  .profile-menu-item { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1rem; min-height: 108px; }
+  .profile-menu-item b { display: block; color: var(--text); font-size: 0.92rem; margin-bottom: 0.35rem; }
+  .profile-menu-item span { display: block; color: var(--text-muted); font-size: 0.78rem; line-height: 1.45; }
+  .member-card-preview { background: radial-gradient(circle at 86% 10%, rgba(245,197,66,0.2), transparent 30%), linear-gradient(135deg, #060A14, #0D1B33 58%, #172B4D); color: var(--white); border: 1px solid rgba(245,197,66,0.34); border-radius: 20px; padding: 1.25rem; min-height: 210px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 20px 48px rgba(0,0,0,0.28); }
+  .member-card-preview .card-top { display: flex; justify-content: space-between; gap: 1rem; font-weight: 900; }
+  .member-card-preview .card-org { font-size: 1.25rem; font-weight: 900; line-height: 1.2; }
+  .member-card-preview .card-id { color: rgba(255,255,255,0.75); font-size: 0.78rem; margin-top: 0.35rem; }
+  .member-card-preview .card-foot { display: flex; justify-content: space-between; gap: 1rem; color: rgba(255,255,255,0.78); font-size: 0.78rem; }
+  .download-card-btn { margin-top: 1rem; width: 100%; border: none; border-radius: 14px; padding: 12px 16px; background: linear-gradient(135deg, #D8A928, #F5C542); color: #08111F; cursor: pointer; font-family: var(--font-body); font-weight: 900; }
+  .login-overlay { position: fixed; inset: 0; z-index: 455; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(5,5,5,0.72); backdrop-filter: blur(14px); }
+  .login-overlay.open { display: flex; }
+  .login-dialog { width: min(460px, 100%); background: var(--white); border-radius: 24px; overflow: hidden; box-shadow: 0 34px 90px rgba(0,0,0,0.28); animation: modalIn 0.28s ease both; }
+  .login-head { background: linear-gradient(135deg, var(--blue), var(--purple)); color: var(--white); padding: 1.6rem; }
+  .login-head h3 { font-size: 1.3rem; font-weight: 900; margin-bottom: 0.35rem; }
+  .login-head p { color: rgba(255,255,255,0.78); font-size: 0.84rem; line-height: 1.5; }
+  .login-body { padding: 1.5rem; }
+  .login-body label { display: block; color: var(--text-muted); font-size: 0.78rem; font-weight: 900; margin-bottom: 6px; }
+  .login-body input { width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 13px 14px; background: #FAFBFD; color: var(--text); font-family: var(--font-body); font-weight: 800; outline: none; text-transform: uppercase; }
+  .login-body input:focus { border-color: var(--blue); box-shadow: 0 0 0 4px rgba(0,102,179,0.12); }
+  .login-msg { display: none; margin-top: 0.8rem; border-radius: 12px; padding: 10px 12px; font-size: 0.82rem; font-weight: 800; }
+  .login-msg.error { display: block; color: var(--red); background: rgba(217,21,43,0.08); border: 1px solid rgba(217,21,43,0.2); }
+  .login-footer { padding: 0 1.5rem 1.5rem; display: flex; gap: 0.75rem; }
+  .login-footer button { border: none; border-radius: 14px; padding: 12px 14px; cursor: pointer; font-family: var(--font-body); font-weight: 900; }
+  .login-cancel { flex: 1; background: #F5F8FC; color: var(--text); border: 1px solid var(--border) !important; }
+  .login-submit { flex: 1.5; background: var(--blue); color: var(--white); }
+  .premium-db-overlay { position: fixed; inset: 0; z-index: 470; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(5,5,5,0.74); backdrop-filter: blur(14px); }
+  .premium-db-overlay.open { display: flex; }
+  .premium-db-dialog { width: min(1120px, 100%); max-height: 92vh; overflow: auto; background: var(--white); border-radius: 24px; box-shadow: 0 34px 90px rgba(0,0,0,0.3); }
+  .premium-db-head { padding: 1.35rem 1.5rem; background: linear-gradient(135deg, var(--purple), var(--blue)); color: var(--white); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .premium-db-head h3 { font-size: 1.2rem; font-weight: 900; }
+  .premium-db-close { border: none; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.14); color: var(--white); cursor: pointer; font-size: 1rem; }
+  .premium-db-body { padding: 1.25rem 1.5rem 1.5rem; }
+  .premium-db-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.85rem; margin-bottom: 1rem; }
+  .premium-db-stat { border: 1px solid var(--border); border-radius: 16px; padding: 1rem; background: #FAFBFD; }
+  .premium-db-stat strong { display: block; color: var(--purple); font-size: 1.35rem; line-height: 1; }
+  .premium-db-stat span { display: block; color: var(--text-muted); font-size: 0.76rem; font-weight: 800; margin-top: 0.4rem; }
+  .premium-db-search { width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; font-family: var(--font-body); margin-bottom: 1rem; outline: none; }
+  .premium-db-table-wrap { overflow: auto; border: 1px solid var(--border); border-radius: 16px; max-height: 460px; }
+  .premium-db-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; min-width: 760px; }
+  .premium-db-table th, .premium-db-table td { padding: 10px 12px; border-bottom: 1px solid rgba(0,102,179,0.08); text-align: left; white-space: nowrap; }
+  .premium-db-table th { background: #F5F8FC; color: var(--text-muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .premium-db-table .used { color: #0C7B50; font-weight: 900; }
+  .premium-db-table .free { color: var(--text-muted); font-weight: 900; }
+
+  @media(max-width: 860px) {
+    .nav-actions { display: none; }
+    .premium-form-grid, .profile-body, .profile-menu-grid { grid-template-columns: 1fr; }
+    .profile-hero { grid-template-columns: auto 1fr; }
+    .profile-actions { grid-column: 1 / -1; justify-self: end; }
+  }
+  @media(max-width: 560px) {
+    .premium-org-form { padding: 1.25rem; }
+    .premium-form-head { flex-direction: column; }
+    .premium-logo-row { grid-template-columns: 1fr; }
+    .profile-info-list div { flex-direction: column; gap: 0.2rem; }
+    .premium-db-stats { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">✦ REV COM</a>
+  <a class="nav-logo" href="#">REV COM</a>
   <ul class="nav-links">
     <li><a href="#agenda">Agenda</a></li>
     <li><a href="#priere">Prière</a></li>
@@ -807,8 +918,12 @@
     <li><a href="#entraide">Entraide</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <!-- ✦ Bouton S'inscrire ouvre la popup d'inscription -->
-  <button class="nav-cta" onclick="openInscription()">S'inscrire</button>
+  <!-- âœ¦ Bouton S'inscrire ouvre la popup d'inscription -->
+  <div class="nav-actions">
+    <button class="nav-cta" onclick="openInscription()">S'inscrire</button>
+    <button class="nav-cta login-nav-btn" id="loginNavBtn" onclick="openPremiumLogin()">Connexion</button>
+    <button class="nav-cta profile-nav-btn" id="profileNavBtn" onclick="openPremiumProfile()">Mon Profil</button>
+  </div>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -822,6 +937,8 @@
   <a href="#entraide" onclick="toggleMenu()">Entraide</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <button class="nav-cta" style="margin-top:0.5rem" onclick="openInscription();toggleMenu()">S'inscrire</button>
+  <button class="nav-cta login-nav-btn" id="loginMobileBtn" style="margin-top:0.5rem" onclick="openPremiumLogin();toggleMenu()">Connexion</button>
+  <button class="nav-cta profile-nav-btn" id="profileMobileBtn" style="margin-top:0.5rem" onclick="openPremiumProfile();toggleMenu()">Mon Profil</button>
 </div>
 
 <!-- ===================================================
@@ -834,10 +951,10 @@
     <div id="inscFormView">
       <div class="insc-strip"></div>
       <div class="insc-header">
-        <button class="insc-close" onclick="closeInscription()" aria-label="Fermer">✕</button>
-        <div class="insc-icon">✦</div>
-        <h2>S'inscrire à REV COM</h2>
-        <p>Rejoignez notre communauté de foi à Abidjan</p>
+        <button class="insc-close" onclick="closeInscription()" aria-label="Fermer">âœ•</button>
+        <div class="insc-icon">âœ¦</div>
+        <h2>S'inscrire Ã  REV COM</h2>
+        <p>Rejoignez notre communautÃ© de foi Ã  Abidjan</p>
       </div>
 
       <div class="insc-body">
@@ -857,7 +974,7 @@
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.4 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/>
     </svg>
 
-    Numéro de téléphone <span class="req">*</span>
+    NumÃ©ro de tÃ©lÃ©phone <span class="req">*</span>
   </label>
 
   <input type="tel"
@@ -867,7 +984,7 @@
          pattern="[0-9]{8,15}"
          inputmode="numeric">
 
-  <div class="err-msg">Entrez un numéro valide.</div>
+  <div class="err-msg">Entrez un numÃ©ro valide.</div>
 </div>
         </div>
 
@@ -885,7 +1002,7 @@
             <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
             Nom de l'organisation <span class="req">*</span>
           </label>
-          <input type="text" id="inscOrg" placeholder="Ex : Foursquare Niangon Révélation">
+          <input type="text" id="inscOrg" placeholder="Ex : Foursquare Niangon RÃ©vÃ©lation">
           <div class="err-msg">Entrez le nom de votre organisation.</div>
         </div>
       </div>
@@ -899,13 +1016,13 @@
       </div>
     </div>
 
-    <!-- Vue succès -->
+    <!-- Vue succÃ¨s -->
     <div class="insc-success" id="inscSuccessView">
-      <div class="insc-success-icon">✓</div>
-      <h3>Inscription envoyée avec succès !</h3>
-      <p>Merci de nous rejoindre. Votre demande a été transmise à notre équipe via WhatsApp.</p>
+      <div class="insc-success-icon">âœ“</div>
+      <h3>Inscription envoyÃ©e avec succÃ¨s !</h3>
+      <p>Merci de nous rejoindre. Votre demande a Ã©tÃ© transmise Ã  notre Ã©quipe via WhatsApp.</p>
       <div class="wa-note">
-        📱 WhatsApp ouvert automatiquement — votre message a été pré-rempli et envoyé à l'administrateur.
+        ðŸ“± WhatsApp ouvert automatiquement â€” votre message a Ã©tÃ© prÃ©-rempli et envoyÃ© Ã  l'administrateur.
       </div>
       <button class="insc-success-close" onclick="closeInscription()">Fermer</button>
     </div>
@@ -917,15 +1034,15 @@
      POPUP CODE SECRET PREMIUM
      =================================================== -->
 <div class="premium-overlay" id="premiumOverlay">
-  <div class="premium-dialog">
+  <div class="premium-dialog" id="premiumDialog">
 
     <!-- Formulaire code -->
     <div id="premiumFormView">
       <div class="premium-strip"></div>
       <div class="premium-header">
-        <div class="premium-lock-icon">🔐</div>
-        <h2>Accès Premium</h2>
-        <p>Entrez votre code secret pour accéder au compte premium</p>
+        <div class="premium-lock-icon">ðŸ”</div>
+        <h2>AccÃ¨s Premium Organisationnel</h2>
+        <p>Entrez le code reÃ§u aprÃ¨s votre inscription pour activer votre profil Premium professionnel.</p>
       </div>
 
       <div class="premium-body">
@@ -948,24 +1065,180 @@
       <div class="premium-footer">
         <button class="premium-btn-cancel" onclick="closePremium()">Annuler</button>
         <button class="premium-btn-validate" onclick="validatePremiumCode()" id="premiumValidateBtn">
-          🔓 Valider le code
+          ðŸ”“ Valider le code
         </button>
       </div>
     </div>
 
-    <!-- Vue succès premium -->
+    <!-- Vue succÃ¨s premium -->
     <div class="premium-success-state" id="premiumSuccessView">
-      <div class="premium-crown">👑</div>
-      <h3>Accès autorisé !</h3>
-      <p>Bienvenue dans l'espace premium REV COM. Vous avez accès à tous les contenus exclusifs.</p>
+      <form class="premium-org-form" id="premiumOrgForm" onsubmit="createPremiumProfile(event)">
+        <div class="premium-form-head">
+          <div>
+            <h3>Profil Premium pour votre structure</h3>
+            <p>Remplissez les informations de votre eglise, ministere, association ou organisation. Elles apparaitront automatiquement dans votre espace Premium.</p>
+          </div>
+          <span class="premium-plan-badge">Premium Pro</span>
+        </div>
+
+        <div class="premium-form-grid">
+          <div class="premium-field full">
+            <label>Logo de la structure</label>
+            <div class="premium-logo-row">
+              <div class="premium-logo-preview" id="premiumLogoPreview">LOGO</div>
+              <input type="file" id="premiumLogo" accept="image/*">
+            </div>
+          </div>
+
+          <div class="premium-field">
+            <label>Nom de l'eglise / organisation *</label>
+            <input type="text" id="premiumOrgName" required placeholder="Ex : Ministere Victoire">
+          </div>
+          <div class="premium-field">
+            <label>Type de structure *</label>
+            <select id="premiumOrgType" required>
+              <option value="">Choisir</option>
+              <option>Eglise</option>
+              <option>Ministere</option>
+              <option>Association</option>
+              <option>Structure organisationnelle</option>
+              <option>ONG / Fondation</option>
+            </select>
+          </div>
+          <div class="premium-field">
+            <label>Pays / Ville *</label>
+            <input type="text" id="premiumCity" required placeholder="Ex : Cote d'Ivoire / Abidjan">
+          </div>
+          <div class="premium-field">
+            <label>Telephone *</label>
+            <input type="tel" id="premiumPhone" required placeholder="Ex : 2250700000000">
+          </div>
+          <div class="premium-field full">
+            <label>Adresse *</label>
+            <input type="text" id="premiumAddress" required placeholder="Adresse complete ou quartier">
+          </div>
+          <div class="premium-field full">
+            <label>Lien des reseaux sociaux</label>
+            <input type="url" id="premiumSocials" placeholder="Facebook, Instagram, YouTube, site web...">
+          </div>
+
+          <div class="premium-field">
+            <label>Responsable principal - Nom complet *</label>
+            <input type="text" id="premiumLeaderName" required placeholder="Nom du responsable">
+          </div>
+          <div class="premium-field">
+            <label>Fonction / Poste *</label>
+            <input type="text" id="premiumLeaderRole" required placeholder="Pasteur, president, coordinateur...">
+          </div>
+          <div class="premium-field">
+            <label>Numero WhatsApp du responsable *</label>
+            <input type="tel" id="premiumLeaderWhatsapp" required placeholder="Ex : 2250700000000">
+          </div>
+        </div>
+
+        <div class="premium-submit-row">
+          <button type="button" class="premium-submit-secondary" onclick="closePremium()">Annuler</button>
+          <button type="submit" class="premium-submit-main">Generer le profil Premium</button>
+        </div>
+      </form>
+      <div class="premium-crown">ðŸ‘‘</div>
+      <h3>AccÃ¨s autorisÃ© !</h3>
+      <p>Bienvenue dans l'espace premium REV COM. Vous avez accÃ¨s Ã  tous les contenus exclusifs.</p>
       <div class="premium-badge-list">
-        <span class="premium-badge">✦ Membre Premium</span>
-        <span class="premium-badge">📚 Bibliothèque complète</span>
-        <span class="premium-badge">🙏 Prières exclusives</span>
+        <span class="premium-badge">âœ¦ Membre Premium</span>
+        <span class="premium-badge">ðŸ“š BibliothÃ¨que complÃ¨te</span>
+        <span class="premium-badge">ðŸ™ PriÃ¨res exclusives</span>
       </div>
-      <button class="premium-close-btn" onclick="closePremium()">Accéder à l'espace premium</button>
+      <button class="premium-close-btn" onclick="closePremium()">AccÃ©der Ã  l'espace premium</button>
     </div>
 
+  </div>
+</div>
+
+<div class="profile-overlay" id="premiumProfileOverlay">
+  <div class="profile-dialog">
+    <div class="profile-hero">
+      <div class="profile-logo" id="profileLogoBox">LOGO</div>
+      <div class="profile-title">
+        <h2 id="profileOrgTitle">Mon Organisation Premium</h2>
+        <p id="profileOrgSubtitle">Profil Premium organisationnel</p>
+      </div>
+      <div class="profile-actions">
+        <button class="profile-db" id="premiumDbBtn" onclick="openPremiumDatabase()">Base Premium</button>
+        <button class="profile-logout" onclick="logoutPremium()">Déconnexion</button>
+        <button class="profile-close" onclick="closePremiumProfile()" aria-label="Fermer">x</button>
+      </div>
+    </div>
+    <div class="profile-body">
+      <div class="profile-panel">
+        <h3>Ma Structure</h3>
+        <div class="profile-info-list" id="profileStructureInfo"></div>
+      </div>
+      <div class="profile-panel">
+        <h3>Carte membre Premium</h3>
+        <div class="member-card-preview" id="memberCardPreview"></div>
+        <button class="download-card-btn" onclick="downloadPremiumCard()">Télécharger la carte membre</button>
+      </div>
+      <div class="profile-panel">
+        <h3>Mon Abonnement</h3>
+        <div class="profile-info-list" id="profileSubscriptionInfo"></div>
+      </div>
+      <div class="profile-panel">
+        <h3>Espace de gestion</h3>
+        <div class="profile-menu-grid">
+          <div class="profile-menu-item"><b>Gestion des Membres</b><span>Membres, responsables et statistiques</span></div>
+          <div class="profile-menu-item"><b>Événements</b><span>Programmes, conférences et activités</span></div>
+          <div class="profile-menu-item"><b>Tableau de Bord</b><span>Statistiques et progression</span></div>
+          <div class="profile-menu-item"><b>Paramètres</b><span>Sécurité, thème et préférences</span></div>
+          <div class="profile-menu-item"><b>Avantages Premium</b><span>Badges, contenus exclusifs et outils VIP</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="login-overlay" id="premiumLoginOverlay">
+  <div class="login-dialog">
+    <div class="login-head">
+      <h3>Connexion Premium</h3>
+      <p>Entrez votre numero organisation pour acceder a votre profil personnel Premium.</p>
+    </div>
+    <div class="login-body">
+      <label>Numero organisation</label>
+      <input type="text" id="premiumLoginOrgNumber" placeholder="ORG-2026-XXXXXX" autocomplete="off" onkeydown="if(event.key==='Enter')loginPremium()">
+      <div class="login-msg" id="premiumLoginMsg"></div>
+    </div>
+    <div class="login-footer">
+      <button class="login-cancel" onclick="closePremiumLogin()">Annuler</button>
+      <button class="login-submit" onclick="loginPremium()">Connexion</button>
+    </div>
+  </div>
+</div>
+
+<div class="premium-db-overlay" id="premiumDatabaseOverlay">
+  <div class="premium-db-dialog">
+    <div class="premium-db-head">
+      <h3>Base de donnees Premium</h3>
+      <button class="premium-db-close" onclick="closePremiumDatabase()" aria-label="Fermer">x</button>
+    </div>
+    <div class="premium-db-body">
+      <div class="premium-db-stats" id="premiumDbStats"></div>
+      <input class="premium-db-search" id="premiumDbSearch" type="text" placeholder="Rechercher un code, numero organisation ou organisation..." oninput="renderPremiumDatabaseRows(this.value)">
+      <div class="premium-db-table-wrap">
+        <table class="premium-db-table">
+          <thead>
+            <tr>
+              <th>Code Premium</th>
+              <th>Statut</th>
+              <th>Numero organisation</th>
+              <th>ID unique</th>
+              <th>Organisation</th>
+            </tr>
+          </thead>
+          <tbody id="premiumDbRows"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -974,23 +1247,23 @@
   <div class="hero-pattern"></div>
   <div class="hero-glow"></div>
   <div class="hero-content fade-up">
-    <p class="hero-eyebrow">Abidjan • REV COM</p>
+    <p class="hero-eyebrow">Abidjan â€¢ REV COM</p>
     <h1>Grandir ensemble<br>dans la <span>foi</span></h1>
-    <p>Une communauté vivante pour vous accompagner chaque jour — ressources, prière, événements et entraide.</p>
+    <p>Une communautÃ© vivante pour vous accompagner chaque jour â€” ressources, priÃ¨re, Ã©vÃ©nements et entraide.</p>
     <div class="hero-btns">
       <a href="#agenda" class="btn-primary">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Voir les événements
+        Voir les Ã©vÃ©nements
       </a>
-      <!-- Bouton accès premium (optionnel dans la page) -->
+      <!-- Bouton accÃ¨s premium (optionnel dans la page) -->
       <button class="btn-outline" style="border-bottom-color:var(--purple);color:var(--purple)" onclick="openPremium()">
-        🔐 Accès Premium
+        Acceder a l'espace Premium
       </button>
     </div>
   </div>
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
-    <span>Découvrir</span>
+    <span>DÃ©couvrir</span>
   </div>
 </section>
 
@@ -1004,12 +1277,12 @@
     </div>
     <div class="verset-card fade-up">
       <div class="verset-quote">"</div>
-      <p class="verset-text" id="versetText">Car je connais les projets que j'ai formés sur vous, dit l'Éternel, projets de paix et non de malheur, afin de vous donner un avenir et de l'espérance.</p>
-      <p class="verset-ref" id="versetRef">— Jérémie 29 : 11</p>
+      <p class="verset-text" id="versetText">Car je connais les projets que j'ai formÃ©s sur vous, dit l'Ã‰ternel, projets de paix et non de malheur, afin de vous donner un avenir et de l'espÃ©rance.</p>
+      <p class="verset-ref" id="versetRef">â€” JÃ©rÃ©mie 29 : 11</p>
       <div class="verset-share">
-        <button class="share-btn" onclick="copyVerset()">📋 Copier</button>
-        <button class="share-btn" onclick="shareWhatsApp()">💬 Partager sur WhatsApp</button>
-        <button class="share-btn" onclick="nextVerset()">→ Verset suivant</button>
+        <button class="share-btn" onclick="copyVerset()">ðŸ“‹ Copier</button>
+        <button class="share-btn" onclick="shareWhatsApp()">ðŸ’¬ Partager sur WhatsApp</button>
+        <button class="share-btn" onclick="nextVerset()">â†’ Verset suivant</button>
       </div>
     </div>
   </div>
@@ -1020,7 +1293,7 @@
   <div class="container">
     <div class="section-header fade-up">
       <span class="section-eyebrow">Programme</span>
-      <h2 class="section-title">Agenda de l'église</h2>
+      <h2 class="section-title">Agenda de l'Ã©glise</h2>
       <div class="section-line"></div>
     </div>
     <div class="agenda-toolbar fade-up">
@@ -1029,7 +1302,7 @@
         <button class="filter-btn" onclick="filterEvents('culte',this)">Cultes</button>
         <button class="filter-btn" onclick="filterEvents('cellule',this)">Cellules</button>
         <button class="filter-btn" onclick="filterEvents('jeune',this)">Jeunes</button>
-        <button class="filter-btn" onclick="filterEvents('special',this)">Spéciaux</button>
+        <button class="filter-btn" onclick="filterEvents('special',this)">SpÃ©ciaux</button>
       </div>
       <div class="agenda-actions">
         <button class="agenda-view-btn active" id="cardsViewBtn" onclick="setAgendaView('cards')">
@@ -1057,21 +1330,21 @@
   <div class="program-dialog">
     <div class="program-head">
       <h3 id="programFormTitle">Ajouter ton programme</h3>
-      <button class="program-close" onclick="closeProgramForm()">×</button>
+      <button class="program-close" onclick="closeProgramForm()">Ã—</button>
     </div>
     <form class="program-form" id="programForm">
       <input type="hidden" id="eventEditId">
       <div class="program-fields">
         <div class="program-field full"><label>Nom du programme</label><input type="text" id="eventTitle" required placeholder="Ex: Nuit de louange"></div>
-        <div class="program-field full"><label>Description</label><textarea id="eventDesc" required placeholder="Présentez brièvement le programme..."></textarea></div>
+        <div class="program-field full"><label>Description</label><textarea id="eventDesc" required placeholder="PrÃ©sentez briÃ¨vement le programme..."></textarea></div>
         <div class="program-field"><label>Date</label><input type="date" id="eventDate" required></div>
         <div class="program-field"><label>Heure</label><input type="time" id="eventTime" required></div>
         <div class="program-field"><label>Lieu</label><input type="text" id="eventPlace" required placeholder="Ex: Temple principal"></div>
-        <div class="program-field"><label>Organisateur</label><input type="text" id="eventOrganizer" required placeholder="Ex: Foursquare niangon révélation"></div>
-        <div class="program-field"><label>Catégorie</label><select id="eventCategory" required><option value="jeune">Jeune</option><option value="cellule">Cellule</option><option value="culte">Culte</option><option value="special">Spéciaux</option></select></div>
+        <div class="program-field"><label>Organisateur</label><input type="text" id="eventOrganizer" required placeholder="Ex: Foursquare niangon rÃ©vÃ©lation"></div>
+        <div class="program-field"><label>CatÃ©gorie</label><select id="eventCategory" required><option value="jeune">Jeune</option><option value="cellule">Cellule</option><option value="culte">Culte</option><option value="special">SpÃ©ciaux</option></select></div>
         <div class="program-field"><label>Affiche</label><input type="file" id="eventPoster" accept="image/*"></div>
       </div>
-      <div class="poster-preview" id="posterPreview">Prévisualisation de l'affiche</div>
+      <div class="poster-preview" id="posterPreview">PrÃ©visualisation de l'affiche</div>
       <div class="program-submit-row">
         <button type="button" class="program-cancel" onclick="closeProgramForm()">Annuler</button>
         <button type="submit" class="program-save">Publier le programme</button>
@@ -1084,15 +1357,15 @@
 <section class="priere-section" id="priere">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-eyebrow" style="color:var(--gold-light)">Communauté</span>
-      <h2 class="section-title">Mur de prière</h2>
+      <span class="section-eyebrow" style="color:var(--gold-light)">CommunautÃ©</span>
+      <h2 class="section-title">Mur de priÃ¨re</h2>
       <div class="section-line"></div>
     </div>
     <div class="priere-grid">
       <div class="fade-up">
         <div class="priere-mur">
-          <h3>Intentions de prière</h3>
-          <div class="priere-live"><span class="priere-live-dot"></span><span id="priereLiveCount">0 prières aujourd'hui</span></div>
+          <h3>Intentions de priÃ¨re</h3>
+          <div class="priere-live"><span class="priere-live-dot"></span><span id="priereLiveCount">0 priÃ¨res aujourd'hui</span></div>
           <div id="priereList"></div>
         </div>
       </div>
@@ -1100,17 +1373,17 @@
         <div class="priere-mur">
           <h3>Soumettre une intention</h3>
           <div class="priere-form">
-            <input type="text" id="priereNom" placeholder="Votre prénom (facultatif)">
-            <textarea id="priereTexte" placeholder="Partagez votre demande de prière..."></textarea>
+            <input type="text" id="priereNom" placeholder="Votre prÃ©nom (facultatif)">
+            <textarea id="priereTexte" placeholder="Partagez votre demande de priÃ¨re..."></textarea>
             <label class="anonymous-row"><input type="checkbox" id="priereAnonyme"> Publier en anonyme</label>
-            <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitPriere()">Publier mon intention ✦</button>
+            <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitPriere()">Publier mon intention âœ¦</button>
           </div>
           <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
-            <h3 style="margin-bottom:1rem;color:var(--text)">Prière guidée du jour</h3>
+            <h3 style="margin-bottom:1rem;color:var(--text)">PriÃ¨re guidÃ©e du jour</h3>
             <div id="priereAudio" style="background:rgba(31,33,41,0.04);border:1px solid var(--border);border-radius:10px;padding:1rem">
-              <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.75rem">✦ Prière du matin — Pasteur Emmanuel</p>
+              <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.75rem">âœ¦ PriÃ¨re du matin â€” Pasteur Emmanuel</p>
               <div style="display:flex;align-items:center;gap:12px">
-                <button onclick="toggleAudio()" id="audioBtn" style="width:40px;height:40px;border-radius:50%;background:var(--yellow);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">▶</button>
+                <button onclick="toggleAudio()" id="audioBtn" style="width:40px;height:40px;border-radius:50%;background:var(--yellow);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0">â–¶</button>
                 <div style="flex:1;background:rgba(31,33,41,0.1);border-radius:10px;height:4px;cursor:pointer" onclick="seekAudio(event,this)">
                   <div id="audioProgress" style="width:0%;height:100%;background:var(--yellow);border-radius:10px;transition:width 0.3s"></div>
                 </div>
@@ -1134,8 +1407,8 @@
     </div>
     <div class="parcours-topbar fade-up">
       <div>
-        <span class="section-eyebrow" style="margin-bottom:0.35rem">52 semaines • 12 mois</span>
-        <p style="color:var(--text-muted);font-weight:700">Une année complète d'enseignements, défis, prières et quiz pour grandir pas à pas.</p>
+        <span class="section-eyebrow" style="margin-bottom:0.35rem">52 semaines â€¢ 12 mois</span>
+        <p style="color:var(--text-muted);font-weight:700">Une annÃ©e complÃ¨te d'enseignements, dÃ©fis, priÃ¨res et quiz pour grandir pas Ã  pas.</p>
       </div>
       <div class="parcours-actions">
         <button class="parcours-mode-btn" id="parcoursDarkBtn" onclick="toggleParcoursDarkMode()">Mode sombre</button>
@@ -1144,11 +1417,11 @@
     </div>
     <div class="parcours-dashboard fade-up">
       <div>
-        <div class="progress-label"><span id="progressLabel">0 / 52 semaines validées</span><span id="progressPct">0%</span></div>
+        <div class="progress-label"><span id="progressLabel">0 / 52 semaines validÃ©es</span><span id="progressPct">0%</span></div>
         <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill" style="width:0%"></div></div>
       </div>
       <div class="parcours-stat"><span>Mois actif</span><strong id="activeMonthLabel">Mois 1</strong></div>
-      <div class="parcours-stat"><span>Prières partagées</span><strong id="quizStat">0</strong></div>
+      <div class="parcours-stat"><span>PriÃ¨res partagÃ©es</span><strong id="quizStat">0</strong></div>
       <div class="parcours-stat"><span>Badges</span><strong id="badgeStat">0</strong></div>
     </div>
     <div class="badge-row fade-up" id="badgeRow"></div>
@@ -1159,8 +1432,8 @@
     </div>
     <div class="certificate-card" id="certificateCard">
       <h3>Certificat de parcours accompli</h3>
-      <p>Félicitations ! Vous avez complété les 52 semaines du Parcours du disciple.</p>
-      <p style="margin-top:0.75rem;font-weight:900;color:var(--text)">REV COM • Croissance spirituelle annuelle</p>
+      <p>FÃ©licitations ! Vous avez complÃ©tÃ© les 52 semaines du Parcours du disciple.</p>
+      <p style="margin-top:0.75rem;font-weight:900;color:var(--text)">REV COM â€¢ Croissance spirituelle annuelle</p>
     </div>
   </div>
 </section>
@@ -1170,17 +1443,17 @@
   <div class="container">
     <div class="section-header fade-up">
       <span class="section-eyebrow" style="color:var(--gold-light)">Ressources</span>
-      <h2 class="section-title">Bibliothèque spirituelle</h2>
+      <h2 class="section-title">BibliothÃ¨que spirituelle</h2>
       <div class="section-line"></div>
     </div>
     <div class="biblio-tabs fade-up">
       <button class="biblio-tab active" onclick="switchBiblioTab('ressources',this)">Tout</button>
-      <button class="biblio-tab" onclick="switchBiblioTab('etude',this)">Études bibliques</button>
-      <button class="biblio-tab" onclick="switchBiblioTab('priere',this)">Prières</button>
+      <button class="biblio-tab" onclick="switchBiblioTab('etude',this)">Ã‰tudes bibliques</button>
+      <button class="biblio-tab" onclick="switchBiblioTab('priere',this)">PriÃ¨res</button>
       <button class="biblio-tab" onclick="switchBiblioTab('plan',this)">Plans de lecture</button>
-      <button class="biblio-tab" onclick="switchBiblioTab('serie',this)">Séries</button>
-      <button class="biblio-tab" onclick="switchBiblioTab('bible',this)">📖 Ma Bible</button>
-      <button class="biblio-tab" onclick="switchBiblioTab('notes',this)">📝 Mes Notes</button>
+      <button class="biblio-tab" onclick="switchBiblioTab('serie',this)">SÃ©ries</button>
+      <button class="biblio-tab" onclick="switchBiblioTab('bible',this)">ðŸ“– Ma Bible</button>
+      <button class="biblio-tab" onclick="switchBiblioTab('notes',this)">ðŸ“ Mes Notes</button>
     </div>
     <div id="panel-ressources" class="fade-up">
       <div class="biblio-grid" id="biblioGrid"></div>
@@ -1188,7 +1461,7 @@
     <div id="panel-bible" class="bible-panel fade-up">
       <div class="bible-stats-bar" style="margin-bottom:1.25rem">
         <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--red)"></div><span id="bibleReadChapters">0 chapitres lus</span></div>
-        <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--yellow)"></div><span id="bibleHighlightCount">0 versets surlignés</span></div>
+        <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--yellow)"></div><span id="bibleHighlightCount">0 versets surlignÃ©s</span></div>
         <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--purple)"></div><span id="bibleFavCount">0 versets favoris</span></div>
         <div class="bible-stat-item"><div class="bible-stat-dot" style="background:var(--blue)"></div><span id="bibleProgressPct">0% de la Bible lue</span></div>
       </div>
@@ -1208,44 +1481,44 @@
         <div class="bible-reader">
           <div class="bible-reader-header">
             <div>
-              <div class="bible-book-title" id="bibleBookTitle">Genèse</div>
+              <div class="bible-book-title" id="bibleBookTitle">GenÃ¨se</div>
               <div style="font-size:0.78rem;color:var(--text-muted);margin-top:2px" id="bibleChapterSubtitle">Chapitre 1</div>
             </div>
             <div class="bible-reader-controls">
               <select class="bible-chapter-select" id="bibleChapterSelect" onchange="loadBibleChapter()"></select>
-              <button class="bible-font-btn" onclick="changeBibleFontSize(-1)">A−</button>
+              <button class="bible-font-btn" onclick="changeBibleFontSize(-1)">Aâˆ’</button>
               <button class="bible-font-btn" onclick="changeBibleFontSize(1)">A+</button>
-              <button class="bible-highlight-btn" id="bibleHighlightBtn" onclick="toggleHighlightMode()">✨ Surligner</button>
-              <button class="bible-fav-btn" id="bibleFavBtn" onclick="toggleFavMode()">♥ Favoris</button>
+              <button class="bible-highlight-btn" id="bibleHighlightBtn" onclick="toggleHighlightMode()">âœ¨ Surligner</button>
+              <button class="bible-fav-btn" id="bibleFavBtn" onclick="toggleFavMode()">â™¥ Favoris</button>
             </div>
           </div>
           <div class="bible-verse-container" id="bibleVerseContainer"></div>
           <div class="bible-nav-row">
-            <button class="bible-nav-btn" onclick="prevBibleChapter()">← Chapitre précédent</button>
-            <button class="bible-nav-btn" onclick="nextBibleChapter()">Chapitre suivant →</button>
+            <button class="bible-nav-btn" onclick="prevBibleChapter()">â† Chapitre prÃ©cÃ©dent</button>
+            <button class="bible-nav-btn" onclick="nextBibleChapter()">Chapitre suivant â†’</button>
           </div>
         </div>
       </div>
       <div class="bible-note-tooltip" id="bibleNoteTooltip">
-        📌 Verset sélectionné — <button onclick="addVerseToNote()">Créer une note</button>
-        <button onclick="closeBibleTooltip()" style="background:rgba(255,255,255,0.1)">✕</button>
+        ðŸ“Œ Verset sÃ©lectionnÃ© â€” <button onclick="addVerseToNote()">CrÃ©er une note</button>
+        <button onclick="closeBibleTooltip()" style="background:rgba(255,255,255,0.1)">âœ•</button>
       </div>
     </div>
     <div id="panel-notes" class="notes-panel fade-up">
       <div class="notes-toolbar">
-        <input class="notes-search" type="text" placeholder="🔍 Rechercher dans mes notes..." oninput="searchNotes(this.value)">
+        <input class="notes-search" type="text" placeholder="ðŸ” Rechercher dans mes notes..." oninput="searchNotes(this.value)">
         <button class="notes-create-btn" onclick="openNoteModal()">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Créer une note
+          CrÃ©er une note
         </button>
       </div>
       <div class="notes-filter-row" id="notesFilterRow">
         <button class="notes-filter-tag active" onclick="filterNotesByTag('all',this)">Toutes</button>
-        <button class="notes-filter-tag" onclick="filterNotesByTag('sermon',this)">📣 Sermon</button>
-        <button class="notes-filter-tag" onclick="filterNotesByTag('etude',this)">📖 Étude</button>
-        <button class="notes-filter-tag" onclick="filterNotesByTag('personnel',this)">🙏 Personnel</button>
-        <button class="notes-filter-tag" onclick="filterNotesByTag('verset',this)">✦ Verset</button>
-        <button class="notes-filter-tag" onclick="filterNotesByTag('epinglée',this)">📌 Épinglées</button>
+        <button class="notes-filter-tag" onclick="filterNotesByTag('sermon',this)">ðŸ“£ Sermon</button>
+        <button class="notes-filter-tag" onclick="filterNotesByTag('etude',this)">ðŸ“– Ã‰tude</button>
+        <button class="notes-filter-tag" onclick="filterNotesByTag('personnel',this)">ðŸ™ Personnel</button>
+        <button class="notes-filter-tag" onclick="filterNotesByTag('verset',this)">âœ¦ Verset</button>
+        <button class="notes-filter-tag" onclick="filterNotesByTag('epinglÃ©e',this)">ðŸ“Œ Ã‰pinglÃ©es</button>
       </div>
       <div class="notes-grid" id="notesGrid"></div>
     </div>
@@ -1257,17 +1530,17 @@
   <div class="note-dialog">
     <div class="note-dialog-header">
       <div class="note-dialog-title" id="noteModalTitle">Nouvelle note</div>
-      <button class="note-dialog-close" onclick="closeNoteModal()">×</button>
+      <button class="note-dialog-close" onclick="closeNoteModal()">Ã—</button>
     </div>
     <div class="note-editor-toolbar">
       <button class="note-format-btn" onclick="formatNote('bold')" title="Gras"><b>B</b></button>
       <button class="note-format-btn" onclick="formatNote('italic')" title="Italique"><i>I</i></button>
       <button class="note-format-btn" onclick="formatNote('underline')" title="Souligner"><u>U</u></button>
       <div class="note-format-sep"></div>
-      <button class="note-format-btn" onclick="insertNoteText('• ')">•</button>
-      <button class="note-format-btn" onclick="insertNoteText('📖 ')">📖</button>
-      <button class="note-format-btn" onclick="insertNoteText('🙏 ')">🙏</button>
-      <button class="note-format-btn" onclick="insertNoteText('✦ ')">✦</button>
+      <button class="note-format-btn" onclick="insertNoteText('â€¢ ')">â€¢</button>
+      <button class="note-format-btn" onclick="insertNoteText('ðŸ“– ')">ðŸ“–</button>
+      <button class="note-format-btn" onclick="insertNoteText('ðŸ™ ')">ðŸ™</button>
+      <button class="note-format-btn" onclick="insertNoteText('âœ¦ ')">âœ¦</button>
       <div class="note-format-sep"></div>
       <div class="note-color-picker">
         <span style="font-size:0.72rem;color:var(--text-muted);font-weight:800">Couleur :</span>
@@ -1282,25 +1555,25 @@
       <input type="hidden" id="noteEditId">
       <div class="note-editor-row">
         <div class="note-field"><label>Titre de la note</label><input type="text" id="noteTitleInput" placeholder="Ex: Sermon du dimanche 11 mai"></div>
-        <div class="note-field"><label>Référence biblique</label><input type="text" id="noteVerseInput" placeholder="Ex: Jean 3 : 16"></div>
+        <div class="note-field"><label>RÃ©fÃ©rence biblique</label><input type="text" id="noteVerseInput" placeholder="Ex: Jean 3 : 16"></div>
       </div>
       <div class="note-editor-row">
-        <div class="note-field"><label>Catégorie</label><select id="noteTagInput"><option value="sermon">📣 Sermon</option><option value="etude">📖 Étude</option><option value="personnel">🙏 Personnel</option><option value="verset">✦ Verset</option></select></div>
-        <div class="note-field"><label>Prédicateur / Source</label><input type="text" id="noteSourceInput" placeholder="Ex: Pasteur Emmanuel"></div>
+        <div class="note-field"><label>CatÃ©gorie</label><select id="noteTagInput"><option value="sermon">ðŸ“£ Sermon</option><option value="etude">ðŸ“– Ã‰tude</option><option value="personnel">ðŸ™ Personnel</option><option value="verset">âœ¦ Verset</option></select></div>
+        <div class="note-field"><label>PrÃ©dicateur / Source</label><input type="text" id="noteSourceInput" placeholder="Ex: Pasteur Emmanuel"></div>
       </div>
       <div class="note-field" style="flex:1">
         <label>Contenu</label>
-        <textarea class="note-content-area" id="noteContentInput" placeholder="Écrivez votre note ici..." oninput="updateCharCount()"></textarea>
-        <div class="note-char-count" id="noteCharCount">0 caractères</div>
+        <textarea class="note-content-area" id="noteContentInput" placeholder="Ã‰crivez votre note ici..." oninput="updateCharCount()"></textarea>
+        <div class="note-char-count" id="noteCharCount">0 caractÃ¨res</div>
       </div>
       <div class="note-pin-row">
         <input type="checkbox" id="notePinInput">
-        <label for="notePinInput">📌 Épingler cette note en haut</label>
+        <label for="notePinInput">ðŸ“Œ Ã‰pingler cette note en haut</label>
       </div>
     </div>
     <div class="note-dialog-footer">
       <button class="note-cancel-btn" onclick="closeNoteModal()">Annuler</button>
-      <button class="note-save-btn" onclick="saveNote()">💾 Enregistrer la note</button>
+      <button class="note-save-btn" onclick="saveNote()">ðŸ’¾ Enregistrer la note</button>
     </div>
   </div>
 </div>
@@ -1310,7 +1583,7 @@
   <div class="container">
     <div class="section-header fade-up">
       <span class="section-eyebrow">Groupes de maison</span>
-      <h2 class="section-title">Cellules à Abidjan</h2>
+      <h2 class="section-title">Cellules Ã  Abidjan</h2>
       <div class="section-line"></div>
     </div>
     <div style="background:var(--gold-pale);border:1px solid rgba(201,168,76,0.3);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:2rem;display:flex;align-items:center;gap:12px" class="fade-up">
@@ -1319,7 +1592,7 @@
     </div>
     <div class="cellule-list fade-up" id="celluleGrid"></div>
     <div style="text-align:center;margin-top:2rem" class="fade-up">
-      <button class="btn-outline" onclick="showToast('Fonctionnalité disponible bientôt — contactez-nous par WhatsApp 0596517982.')">+ Publier une annonce</button>
+      <button class="btn-outline" onclick="showToast('FonctionnalitÃ© disponible bientÃ´t â€” contactez-nous par WhatsApp 0596517982.')">+ Publier une annonce</button>
     </div>
   </div>
 </section>
@@ -1328,7 +1601,7 @@
 <section class="entraide-section" id="entraide">
   <div class="container">
     <div class="section-header fade-up">
-      <span class="section-eyebrow" style="color:var(--blue)">Fraternité</span>
+      <span class="section-eyebrow" style="color:var(--blue)">FraternitÃ©</span>
       <h2 class="section-title">Tableau d'entraide</h2>
       <div class="section-line"></div>
     </div>
@@ -1339,7 +1612,7 @@
     </div>
     <div class="entraide-grid fade-up" id="entraideGrid"></div>
     <div style="text-align:center;margin-top:2rem" class="fade-up">
-      <button class="btn-outline" onclick="showToast('Fonctionnalité disponible bientôt — contactez-nous par WhatsApp 0596517982.')">+ Publier une annonce</button>
+      <button class="btn-outline" onclick="showToast('FonctionnalitÃ© disponible bientÃ´t â€” contactez-nous par WhatsApp 0596517982.')">+ Publier une annonce</button>
     </div>
   </div>
 </section>
@@ -1348,9 +1621,9 @@
 <section class="sms-section">
   <div class="fade-up">
     <h2>Recevez le verset du jour</h2>
-    <p>Abonnez-vous gratuitement — un verset chaque matin sur WhatsApp</p>
+    <p>Abonnez-vous gratuitement â€” un verset chaque matin sur WhatsApp</p>
     <div class="sms-form">
-      <input type="tel" placeholder="Votre numéro WhatsApp (+225 ...)">
+      <input type="tel" placeholder="Votre numÃ©ro WhatsApp (+225 ...)">
       <button onclick="subscribeSMS(this)">S'abonner</button>
     </div>
   </div>
@@ -1369,27 +1642,27 @@
         <h3>Nous trouver</h3>
         <div class="info-row">
           <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><div class="info-label">Adresse</div><div class="info-value">Abidjan, Yopougon Maroc, non loin du marché Bagnon</div></div>
+          <div><div class="info-label">Adresse</div><div class="info-value">Abidjan, Yopougon Maroc, non loin du marchÃ© Bagnon</div></div>
         </div>
         <div class="info-row">
           <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-          <div><div class="info-label">Culte principal</div><div class="info-value">Tous les Dimanches de 08h00 à 11h00</div></div>
+          <div><div class="info-label">Culte principal</div><div class="info-value">Tous les Dimanches de 08h00 Ã  11h00</div></div>
         </div>
         <div class="info-row">
           <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.56 3.4 2 2 0 0 1 3.53 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg></div>
-          <div><div class="info-label">Téléphone</div><div class="info-value">+225 05 96 51 79 82</div></div>
+          <div><div class="info-label">TÃ©lÃ©phone</div><div class="info-value">+225 05 96 51 79 82</div></div>
         </div>
         <div class="info-row">
           <div class="info-icon"><svg fill="none" stroke="var(--gold)" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
           <div><div class="info-label">Email</div><div class="info-value">eglisefoursquarerev@yahoo.com</div></div>
         </div>
-        <div style="margin-top:1.5rem;background:var(--gold-pale);border-radius:var(--radius);height:180px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,0.3);color:var(--text-muted);font-size:0.85rem">🗺️ Carte Google Maps ici</div>
+        <div style="margin-top:1.5rem;background:var(--gold-pale);border-radius:var(--radius);height:180px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,0.3);color:var(--text-muted);font-size:0.85rem">ðŸ—ºï¸ Carte Google Maps ici</div>
       </div>
       <div class="info-box">
-        <h3>Nous écrire</h3>
+        <h3>Nous Ã©crire</h3>
         <div class="contact-form">
           <input type="text" placeholder="Votre nom">
-          <input type="email" placeholder="Votre numéro">
+          <input type="email" placeholder="Votre numÃ©ro">
           <input type="text" placeholder="Sujet">
           <textarea placeholder="Votre message..."></textarea>
           <button class="btn-primary" style="width:100%;justify-content:center;border:none" onclick="submitContact()">Envoyer le message</button>
@@ -1403,20 +1676,20 @@
 <footer>
   <div class="footer-inner">
     <div>
-      <span class="footer-brand">✦ REV COM</span>
-      <p class="footer-tagline">Abidjan, Côte d'Ivoire<br>La communication au cœur de notre mission spirituelle</p>
+      <span class="footer-brand">âœ¦ REV COM</span>
+      <p class="footer-tagline">Abidjan, CÃ´te d'Ivoire<br>La communication au cÅ“ur de notre mission spirituelle</p>
     </div>
     <div class="footer-links">
       <h4>Navigation</h4>
       <ul>
         <li><a href="#agenda">Agenda</a></li>
-        <li><a href="#priere">Mur de prière</a></li>
+        <li><a href="#priere">Mur de priÃ¨re</a></li>
         <li><a href="#parcours">Parcours</a></li>
         <li><a href="#bibliotheque">Ressources</a></li>
       </ul>
     </div>
     <div class="footer-links">
-      <h4>Communauté</h4>
+      <h4>CommunautÃ©</h4>
       <ul>
         <li><a href="#cellules">Cellules</a></li>
         <li><a href="#entraide">Entraide</a></li>
@@ -1424,21 +1697,21 @@
       </ul>
     </div>
   </div>
-  <div class="footer-bottom">© 2025 REV COM — Fait avec foi ✦</div>
+  <div class="footer-bottom">Â© 2025 REV COM â€” Fait avec foi âœ¦</div>
 </footer>
 
-<!-- MODAL INSCRIPTION ÉVÉNEMENT (existant) -->
+<!-- MODAL INSCRIPTION Ã‰VÃ‰NEMENT (existant) -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
-    <h3 id="modalTitle">Inscription à l'événement</h3>
+    <h3 id="modalTitle">Inscription Ã  l'Ã©vÃ©nement</h3>
     <p class="modal-event-info" id="modalInfo"></p>
-    <label>Prénom et nom</label><input type="text" id="inscNom" placeholder="Jean Kouassi">
-    <label>Téléphone / WhatsApp</label><input type="tel" id="inscTel" placeholder="+225 07 00 00 00 00">
+    <label>PrÃ©nom et nom</label><input type="text" id="inscNom" placeholder="Jean Kouassi">
+    <label>TÃ©lÃ©phone / WhatsApp</label><input type="tel" id="inscTel" placeholder="+225 07 00 00 00 00">
     <label>Nombre de personnes</label>
     <select id="inscNbre"><option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option></select>
     <div class="modal-footer">
       <button class="modal-close" onclick="closeModal()">Annuler</button>
-      <button class="modal-submit" onclick="submitModalInscription()">Participer ✦</button>
+      <button class="modal-submit" onclick="submitModalInscription()">Participer âœ¦</button>
     </div>
   </div>
 </div>
@@ -1447,21 +1720,24 @@
 
 <script>
 // =====================================================
-// ⚙️  CONFIGURATION — MODIFIEZ ICI FACILEMENT
+// âš™ï¸  CONFIGURATION â€” MODIFIEZ ICI FACILEMENT
 // =====================================================
 
-// 📱 NUMÉRO WHATSAPP ADMIN (format : indicatif pays + numéro, sans + ni espaces)
-// Exemple Côte d'Ivoire : 225 suivi du numéro à 10 chiffres
+// ðŸ“± NUMÃ‰RO WHATSAPP ADMIN (format : indicatif pays + numÃ©ro, sans + ni espaces)
+// Exemple CÃ´te d'Ivoire : 225 suivi du numÃ©ro Ã  10 chiffres
 const WHATSAPP_ADMIN = "2250596517982";
 
-// 🔐 CODES PREMIUM — Ajoutez ou supprimez des codes ici
+// ðŸ” CODES PREMIUM â€” Ajoutez ou supprimez des codes ici
 const PREMIUM_CODES = [
   "ROLEI2026",    // Code principal
+   "VIP2027",      // Code VIP
   "VIP2026",      // Code VIP
   "PASTEUR01",    // Code pasteur
   "ROLE1",        // Code court
   "REVCOM",    // Code administrateur
 ];
+const PREMIUM_GENERATED_CODE_PREFIX = 'VIP2027';
+const PREMIUM_GENERATED_CODE_COUNT = 10000;
 
 // Nombre maximum de tentatives avant blocage temporaire
 const MAX_PREMIUM_ATTEMPTS = 5;
@@ -1471,97 +1747,35 @@ const MAX_PREMIUM_ATTEMPTS = 5;
 // =====================================================
 function openInscription() {
   document.getElementById('inscOverlay').classList.add('open');
-  document.getElementById('inscFormView').style.display = '';
+  document.getElementById('inscFormView').style.display='';
   document.getElementById('inscSuccessView').classList.remove('show');
-  // Reset les champs
-  ['inscNomComplet','inscTelComplet','inscLieu','inscOrg'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.value = '';
-  });
-  ['fieldNom','fieldTel','fieldLieu','fieldOrg'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.classList.remove('has-error');
-  });
-  const inp = ['inscNomComplet','inscTelComplet','inscLieu','inscOrg'];
-  inp.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.classList.remove('error');
-  });
-  document.getElementById('inscSendBtn').disabled = false;
-  document.getElementById('inscSendBtn').innerHTML = `
-    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-    Envoyer l'inscription`;
+  ['inscNomComplet','inscTelComplet','inscLieu','inscOrg'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  ['fieldNom','fieldTel','fieldLieu','fieldOrg'].forEach(id=>{const el=document.getElementById(id);if(el)el.classList.remove('has-error');});
+  document.getElementById('inscSendBtn').disabled=false;
+  document.getElementById('inscSendBtn').innerHTML=`<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Envoyer l'inscription`;
 }
-
-function closeInscription() {
-  document.getElementById('inscOverlay').classList.remove('open');
+function closeInscription(){document.getElementById('inscOverlay').classList.remove('open');}
+function validateInscField(inputId,fieldId,validator){const val=document.getElementById(inputId).value.trim();const field=document.getElementById(fieldId);const input=document.getElementById(inputId);const valid=validator(val);if(!valid){field.classList.add('has-error');input.classList.add('error');setTimeout(()=>input.classList.remove('error'),400);}else{field.classList.remove('has-error');input.classList.remove('error');}return valid;}
+function submitInscription(){
+  const v1=validateInscField('inscNomComplet','fieldNom',v=>v.length>=2);
+  const v2=validateInscField('inscTelComplet','fieldTel',v=>v.length>=8);
+  const v3=validateInscField('inscLieu','fieldLieu',v=>v.length>=2);
+  const v4=validateInscField('inscOrg','fieldOrg',v=>v.length>=2);
+  if(!v1||!v2||!v3||!v4){showToast('Veuillez remplir tous les champs obligatoires.');return;}
+  const nom=document.getElementById('inscNomComplet').value.trim();
+  const tel=document.getElementById('inscTelComplet').value.trim();
+  const lieu=document.getElementById('inscLieu').value.trim();
+  const org=document.getElementById('inscOrg').value.trim();
+  const msg=['âœ¦ *Nouvelle inscription REV COM* âœ¦','',`ðŸ‘¤ *Nom :* ${nom}`,`ðŸ“ž *TÃ©lÃ©phone :* ${tel}`,`ðŸ“ *Lieu :* ${lieu}`,`ðŸ¢ *Organisation :* ${org}`,'',`_EnvoyÃ© depuis `].join('\n');
+  const waUrl=`https://wa.me/${WHATSAPP_ADMIN}?text=${encodeURIComponent(msg)}`;
+  const btn=document.getElementById('inscSendBtn');
+  btn.disabled=true;
+  btn.innerHTML=`â³ Envoi...`;
+  setTimeout(()=>{document.getElementById('inscFormView').style.display='none';document.getElementById('inscSuccessView').classList.add('show');window.open(waUrl,'_blank');},900);
 }
+document.getElementById('inscOverlay').addEventListener('click',function(e){if(e.target===this)closeInscription();});
 
-function validateInscField(inputId, fieldId, validator) {
-  const val = document.getElementById(inputId).value.trim();
-  const field = document.getElementById(fieldId);
-  const input = document.getElementById(inputId);
-  const valid = validator(val);
-  if (!valid) {
-    field.classList.add('has-error');
-    input.classList.add('error');
-    setTimeout(() => input.classList.remove('error'), 400);
-  } else {
-    field.classList.remove('has-error');
-    input.classList.remove('error');
-  }
-  return valid;
-}
 
-function submitInscription() {
-  // Validation champs
-  const v1 = validateInscField('inscNomComplet', 'fieldNom', v => v.length >= 2);
-  const v2 = validateInscField('inscTelComplet',  'fieldTel',  v => v.length >= 8);
-  const v3 = validateInscField('inscLieu',        'fieldLieu', v => v.length >= 2);
-  const v4 = validateInscField('inscOrg',         'fieldOrg',  v => v.length >= 2);
-
-  if (!v1 || !v2 || !v3 || !v4) {
-    showToast('Veuillez remplir tous les champs obligatoires.');
-    return;
-  }
-
-  const nom  = document.getElementById('inscNomComplet').value.trim();
-  const tel  = document.getElementById('inscTelComplet').value.trim();
-  const lieu = document.getElementById('inscLieu').value.trim();
-  const org  = document.getElementById('inscOrg').value.trim();
-
-  // Construction du message WhatsApp
-  const msg = [
-    '✦ *Nouvelle inscription REV COM* ✦',
-    '',
-    `👤 *Nom :* ${nom}`,
-    `📞 *Téléphone :* ${tel}`,
-    `📍 *Lieu :* ${lieu}`,
-    `🏢 *Organisation :* ${org}`,
-    '',
-    `_Envoyé depuis revcom.ci_`
-  ].join('\n');
-
-  const waUrl = `https://wa.me/${WHATSAPP_ADMIN}?text=${encodeURIComponent(msg)}`;
-
-  // UI : spinner
-  const btn = document.getElementById('inscSendBtn');
-  btn.disabled = true;
-  btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin 0.8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Envoi en cours...`;
-
-  setTimeout(() => {
-    // Afficher succès
-    document.getElementById('inscFormView').style.display = 'none';
-    document.getElementById('inscSuccessView').classList.add('show');
-    // Ouvrir WhatsApp
-    window.open(waUrl, '_blank');
-  }, 900);
-}
-
-// Fermer en cliquant dehors
-document.getElementById('inscOverlay').addEventListener('click', function(e) {
-  if (e.target === this) closeInscription();
-});
 
 // =====================================================
 // PREMIUM CODE MODAL
@@ -1569,9 +1783,15 @@ document.getElementById('inscOverlay').addEventListener('click', function(e) {
 let premiumAttempts = 0;
 let premiumBlocked = false;
 let premiumBlockTimer = null;
+let premiumLogoData = '';
+let pendingPremiumCode = '';
+const PREMIUM_PROFILE_KEY = 'premiumOrgProfile';
+const PREMIUM_PROFILES_KEY = 'premiumOrgProfiles';
+const PREMIUM_SESSION_KEY = 'premiumOrgSession';
 
 function openPremium() {
   document.getElementById('premiumOverlay').classList.add('open');
+  document.getElementById('premiumDialog').classList.remove('premium-wide');
   document.getElementById('premiumFormView').style.display = '';
   document.getElementById('premiumSuccessView').classList.remove('show');
   document.getElementById('premiumCodeInput').value = '';
@@ -1587,34 +1807,60 @@ function closePremium() {
   document.getElementById('premiumOverlay').classList.remove('open');
 }
 
+function normalizePremiumCode(code) {
+  return String(code || '').trim().toUpperCase();
+}
+
+function getGeneratedPremiumCodes() {
+  return Array.from({ length: PREMIUM_GENERATED_CODE_COUNT }, (_, index) => `${PREMIUM_GENERATED_CODE_PREFIX}-${String(index + 1).padStart(5, '0')}`);
+}
+
+function getAllPremiumCodes() {
+  return [...new Set([...PREMIUM_CODES.map(normalizePremiumCode), ...getGeneratedPremiumCodes()])];
+}
+
+function getPremiumProfileByCode(code) {
+  const normalized = normalizePremiumCode(code);
+  return migratePremiumProfiles().find(profile => normalizePremiumCode(profile.premiumCode) === normalized) || null;
+}
+
 function validatePremiumCode() {
   if (premiumBlocked) {
-    showMsg('locked', '⏳ Trop de tentatives. Réessayez dans 30 secondes.');
+    showMsg('locked', 'â³ Trop de tentatives. RÃ©essayez dans 30 secondes.');
     return;
   }
 
-  const code = document.getElementById('premiumCodeInput').value.trim().toUpperCase();
+  const code = normalizePremiumCode(document.getElementById('premiumCodeInput').value);
 
   if (!code) {
-    showMsg('error', '⚠️ Entrez un code pour continuer.');
+    showMsg('error', 'âš ï¸ Entrez un code pour continuer.');
     return;
   }
 
-  const isValid = PREMIUM_CODES.includes(code);
+  const isValid = getAllPremiumCodes().includes(code);
 
   if (isValid) {
-    // Succès
+    // SuccÃ¨s
     document.getElementById('premiumCodeInput').classList.add('success');
     premiumAttempts = 0;
     setTimeout(() => {
-      document.getElementById('premiumFormView').style.display = 'none';
-      document.getElementById('premiumSuccessView').classList.add('show');
+      const linkedProfile = getPremiumProfileByCode(code);
+      pendingPremiumCode = code;
+      if (linkedProfile) {
+        closePremium();
+        if (localStorage.getItem(PREMIUM_SESSION_KEY) === linkedProfile.orgNumber) openPremiumProfile();
+        else openPremiumLogin(code);
+      } else {
+        document.getElementById('premiumDialog').classList.add('premium-wide');
+        document.getElementById('premiumFormView').style.display = 'none';
+        document.getElementById('premiumSuccessView').classList.add('show');
+      }
     }, 500);
     localStorage.setItem('premiumAccess', 'true');
     localStorage.setItem('premiumCode', code);
-    showToast('✦ Accès premium accordé !');
+    showToast(getPremiumProfileByCode(code) ? 'Code deja utilise. Connectez-vous.' : 'Code valide. Creez votre profil Premium.');
   } else {
-    // Échec
+    // Ã‰chec
     premiumAttempts++;
     document.getElementById('premiumCodeInput').classList.add('error');
     setTimeout(() => document.getElementById('premiumCodeInput').classList.remove('error'), 400);
@@ -1624,7 +1870,7 @@ function validatePremiumCode() {
     if (premiumAttempts >= MAX_PREMIUM_ATTEMPTS) {
       premiumBlocked = true;
       document.getElementById('premiumValidateBtn').disabled = true;
-      showMsg('locked', '🔒 Trop de tentatives. Accès bloqué temporairement (30 secondes).');
+      showMsg('locked', 'ðŸ”’ Trop de tentatives. AccÃ¨s bloquÃ© temporairement (30 secondes).');
       document.getElementById('premiumAttempts').textContent = '';
       premiumBlockTimer = setTimeout(() => {
         premiumBlocked = false;
@@ -1633,12 +1879,12 @@ function validatePremiumCode() {
         document.getElementById('premiumMsg').className = 'premium-msg';
         document.getElementById('premiumMsg').innerHTML = '';
         document.getElementById('premiumAttempts').textContent = '';
-        showToast('Vous pouvez réessayer votre code premium.');
+        showToast('Vous pouvez rÃ©essayer votre code premium.');
       }, 30000);
     } else {
-      showMsg('error', '❌ Code invalide — accès refusé.');
+      showMsg('error', 'âŒ Code invalide â€” accÃ¨s refusÃ©.');
       document.getElementById('premiumAttempts').textContent =
-        `Tentative ${premiumAttempts}/${MAX_PREMIUM_ATTEMPTS} — ${restant} essai(s) restant(s).`;
+        `Tentative ${premiumAttempts}/${MAX_PREMIUM_ATTEMPTS} â€” ${restant} essai(s) restant(s).`;
     }
   }
 }
@@ -1653,37 +1899,442 @@ document.getElementById('premiumOverlay').addEventListener('click', function(e) 
   if (e.target === this) closePremium();
 });
 
+function getPremiumProfiles() {
+  try {
+    const profiles = JSON.parse(localStorage.getItem(PREMIUM_PROFILES_KEY) || '[]');
+    return Array.isArray(profiles) ? profiles : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function savePremiumProfiles(profiles) {
+  localStorage.setItem(PREMIUM_PROFILES_KEY, JSON.stringify(profiles));
+}
+
+function migratePremiumProfiles() {
+  const profiles = getPremiumProfiles();
+  if (profiles.length) return profiles;
+  try {
+    const legacy = JSON.parse(localStorage.getItem(PREMIUM_PROFILE_KEY) || 'null');
+    if (!legacy) return [];
+    legacy.userId = legacy.userId || generateUniquePremiumId('USR', 'userId', profiles);
+    legacy.registrationPage = legacy.registrationPage || 'Inscription Premium';
+    legacy.premiumCode = legacy.premiumCode || normalizePremiumCode(localStorage.getItem('premiumCode')) || 'CODE-LEGACY';
+    savePremiumProfiles([legacy]);
+    return [legacy];
+  } catch (e) {
+    return [];
+  }
+}
+
+function getPremiumProfile() {
+  const profiles = migratePremiumProfiles();
+  const sessionOrgNumber = localStorage.getItem(PREMIUM_SESSION_KEY);
+  if (sessionOrgNumber) {
+    const sessionProfile = profiles.find(profile => profile.orgNumber === sessionOrgNumber);
+    if (sessionProfile) return sessionProfile;
+  }
+  return profiles[profiles.length - 1] || null;
+}
+
+function getPremiumProfileByOrgNumber(orgNumber) {
+  const normalized = String(orgNumber || '').trim().toUpperCase();
+  return migratePremiumProfiles().find(profile => String(profile.orgNumber || '').toUpperCase() === normalized) || null;
+}
+
+function isPremiumLoggedIn() {
+  return !!getPremiumProfileByOrgNumber(localStorage.getItem(PREMIUM_SESSION_KEY));
+}
+
+function isPremiumAdmin(profile = getPremiumProfile()) {
+  return normalizePremiumCode(profile?.premiumCode) === 'REVCOM';
+}
+
+function formatPremiumDate(value) {
+  return new Date(value).toLocaleDateString('fr-FR', { day:'2-digit', month:'long', year:'numeric' });
+}
+
+function addOneMonth(date) {
+  const d = new Date(date);
+  d.setMonth(d.getMonth() + 1);
+  return d;
+}
+
+function randomPremiumToken(length = 10) {
+  const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const values = new Uint32Array(length);
+  if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(values);
+  else for (let i = 0; i < length; i++) values[i] = Math.floor(Math.random() * alphabet.length);
+  return Array.from(values, value => alphabet[value % alphabet.length]).join('');
+}
+
+function generateUniquePremiumId(prefix, field, profiles = migratePremiumProfiles()) {
+  let id = '';
+  do {
+    id = `${prefix}-${new Date().getFullYear()}-${randomPremiumToken(10)}`;
+  } while (profiles.some(profile => String(profile[field] || '').toUpperCase() === id.toUpperCase()));
+  return id;
+}
+
+function generateOrgNumber(profiles = migratePremiumProfiles()) {
+  return generateUniquePremiumId('ORG', 'orgNumber', profiles);
+}
+
+function readPremiumForm() {
+  const activatedAt = new Date();
+  const profiles = migratePremiumProfiles();
+  const userId = generateUniquePremiumId('USR', 'userId', profiles);
+  const orgNumber = generateOrgNumber(profiles);
+  const premiumCode = normalizePremiumCode(pendingPremiumCode || localStorage.getItem('premiumCode'));
+  return {
+    premiumCode,
+    userId,
+    orgNumber,
+    registrationPage: `Inscription Premium ${orgNumber}`,
+    activatedAt: activatedAt.toISOString(),
+    expiresAt: addOneMonth(activatedAt).toISOString(),
+    logo: premiumLogoData,
+    orgName: document.getElementById('premiumOrgName').value.trim(),
+    orgType: document.getElementById('premiumOrgType').value.trim(),
+    city: document.getElementById('premiumCity').value.trim(),
+    address: document.getElementById('premiumAddress').value.trim(),
+    phone: document.getElementById('premiumPhone').value.trim(),
+    socials: document.getElementById('premiumSocials').value.trim(),
+    leaderName: document.getElementById('premiumLeaderName').value.trim(),
+    leaderRole: document.getElementById('premiumLeaderRole').value.trim(),
+    leaderWhatsapp: document.getElementById('premiumLeaderWhatsapp').value.trim()
+  };
+}
+
+function createPremiumProfile(event) {
+  event.preventDefault();
+  const profile = readPremiumForm();
+  if (!profile.orgName || !profile.orgType || !profile.city || !profile.address || !profile.phone || !profile.leaderName || !profile.leaderRole || !profile.leaderWhatsapp) {
+    showToast('Veuillez remplir tous les champs obligatoires.');
+    return;
+  }
+  if (!profile.premiumCode || !getAllPremiumCodes().includes(profile.premiumCode)) {
+    showToast('Code Premium inexistant ou invalide.');
+    openPremium();
+    return;
+  }
+
+  const profiles = migratePremiumProfiles();
+  if (profiles.some(item => normalizePremiumCode(item.premiumCode) === profile.premiumCode)) {
+    showToast('Ce code Premium est deja lie a un profil.');
+    openPremiumLogin(profile.premiumCode);
+    return;
+  }
+  if (profiles.some(item => item.orgNumber === profile.orgNumber || item.userId === profile.userId)) {
+    showToast('Identifiant deja existant. Veuillez reessayer.');
+    return;
+  }
+  profiles.push(profile);
+  savePremiumProfiles(profiles);
+  localStorage.setItem(PREMIUM_PROFILE_KEY, JSON.stringify(profile));
+  localStorage.setItem('premiumAccess', 'true');
+  localStorage.setItem(PREMIUM_SESSION_KEY, profile.orgNumber);
+  updatePremiumProfileButtons();
+  closePremium();
+  openPremiumProfile();
+  setTimeout(downloadPremiumCard, 450);
+  openPremiumWhatsapp(profile);
+  showToast('Profil Premium genere avec succes.');
+}
+
+function updatePremiumProfileButtons() {
+  const hasProfile = migratePremiumProfiles().length > 0;
+  const loggedIn = isPremiumLoggedIn();
+  ['loginNavBtn','loginMobileBtn'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.classList.toggle('show', hasProfile && !loggedIn);
+  });
+  ['profileNavBtn','profileMobileBtn'].forEach(id => {
+    const btn = document.getElementById(id);
+    if (btn) btn.classList.toggle('show', hasProfile && loggedIn);
+  });
+}
+
+function renderPremiumProfile(profile) {
+  document.getElementById('profileLogoBox').innerHTML = profile.logo ? `<img src="${profile.logo}" alt="">` : 'LOGO';
+  document.getElementById('profileOrgTitle').textContent = 'Premium - ' + profile.orgName;
+  document.getElementById('profileOrgSubtitle').textContent = `${profile.orgType} - ${profile.city}`;
+  document.getElementById('premiumDbBtn').classList.toggle('show', isPremiumAdmin(profile));
+  document.getElementById('profileStructureInfo').innerHTML = [
+    ['Code Premium', profile.premiumCode || 'Non renseigne'],
+    ['ID unique', profile.userId || 'Non renseigné'],
+    ['Type de structure', profile.orgType],
+    ['Pays / Ville', profile.city],
+    ['Adresse', profile.address],
+    ['Téléphone', profile.phone],
+    ['Réseaux sociaux', profile.socials || 'Non renseigné'],
+    ['Responsable principal', profile.leaderName],
+    ['Fonction / Poste', profile.leaderRole],
+    ['WhatsApp responsable', profile.leaderWhatsapp]
+  ].map(([label, value]) => `<div><strong>${escapeHtml(label)}</strong><span>${escapeHtml(value)}</span></div>`).join('');
+  document.getElementById('profileSubscriptionInfo').innerHTML = [
+    ['Page d’inscription', profile.registrationPage || 'Inscription Premium'],
+    ['Date d’activation', formatPremiumDate(profile.activatedAt)],
+    ['Date d’expiration', formatPremiumDate(profile.expiresAt)],
+    ['Numéro organisation', profile.orgNumber]
+  ].map(([label, value]) => `<div><strong>${escapeHtml(label)}</strong><span>${escapeHtml(value)}</span></div>`).join('');
+  document.getElementById('memberCardPreview').innerHTML = `
+    <div class="card-top"><span>PREMIUM</span><span>REV COM</span></div>
+    <div>
+      <div class="card-org">${escapeHtml(profile.orgName)}</div>
+      <div class="card-id">${escapeHtml(profile.orgNumber)}</div>
+    </div>
+    <div class="card-foot"><span>${escapeHtml(profile.orgType)}</span><span>Expire le ${formatPremiumDate(profile.expiresAt)}</span></div>
+  `;
+}
+
+function openPremiumProfile() {
+  const profile = getPremiumProfile();
+  if (!profile) {
+    showToast('Validez votre code Premium puis creez votre profil.');
+    openPremium();
+    return;
+  }
+  if (!isPremiumLoggedIn()) {
+    showToast('Connectez-vous avec votre numero organisation.');
+    openPremiumLogin();
+    return;
+  }
+  renderPremiumProfile(profile);
+  document.getElementById('premiumProfileOverlay').classList.add('open');
+}
+
+function closePremiumProfile() {
+  document.getElementById('premiumProfileOverlay').classList.remove('open');
+}
+
+function openPremiumLogin(code = '') {
+  if (!migratePremiumProfiles().length) {
+    showToast('Aucun compte Premium trouve. Creez d abord une inscription Premium.');
+    openPremium();
+    return;
+  }
+  pendingPremiumCode = normalizePremiumCode(code || pendingPremiumCode);
+  document.getElementById('premiumLoginOverlay').classList.add('open');
+  document.getElementById('premiumLoginOrgNumber').value = '';
+  document.getElementById('premiumLoginMsg').className = 'login-msg';
+  document.getElementById('premiumLoginMsg').textContent = '';
+  setTimeout(() => document.getElementById('premiumLoginOrgNumber').focus(), 150);
+}
+
+function closePremiumLogin() {
+  document.getElementById('premiumLoginOverlay').classList.remove('open');
+}
+
+function loginPremium() {
+  const orgNumber = document.getElementById('premiumLoginOrgNumber').value.trim().toUpperCase();
+  const linkedProfile = pendingPremiumCode ? getPremiumProfileByCode(pendingPremiumCode) : null;
+  const profile = linkedProfile || getPremiumProfileByOrgNumber(orgNumber);
+  const msg = document.getElementById('premiumLoginMsg');
+  if (!profile || profile.orgNumber.toUpperCase() !== orgNumber) {
+    msg.className = 'login-msg error';
+    msg.textContent = linkedProfile ? 'Numero organisation incorrect pour ce code Premium.' : 'Numero organisation incorrect.';
+    return;
+  }
+  localStorage.setItem(PREMIUM_SESSION_KEY, profile.orgNumber);
+  closePremiumLogin();
+  updatePremiumProfileButtons();
+  openPremiumProfile();
+  showToast('Connexion Premium reussie.');
+}
+
+function logoutPremium() {
+  localStorage.removeItem(PREMIUM_SESSION_KEY);
+  closePremiumProfile();
+  updatePremiumProfileButtons();
+  window.location.hash = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  showToast('Vous etes deconnecte. Connectez-vous pour revenir au profil.');
+}
+
+function getPremiumDatabaseRows() {
+  const profilesByCode = new Map(migratePremiumProfiles().map(profile => [normalizePremiumCode(profile.premiumCode), profile]));
+  return getAllPremiumCodes().map(code => {
+    const profile = profilesByCode.get(code);
+    return {
+      code,
+      status: profile ? 'Utilise' : 'Libre',
+      orgNumber: profile?.orgNumber || '',
+      userId: profile?.userId || '',
+      orgName: profile?.orgName || ''
+    };
+  });
+}
+
+function openPremiumDatabase() {
+  if (!isPremiumAdmin()) {
+    showToast('Accès réservé au compte administrateur REVCOM.');
+    closePremiumDatabase();
+    return;
+  }
+  renderPremiumDatabaseRows('');
+  document.getElementById('premiumDbSearch').value = '';
+  document.getElementById('premiumDatabaseOverlay').classList.add('open');
+}
+
+function closePremiumDatabase() {
+  document.getElementById('premiumDatabaseOverlay').classList.remove('open');
+}
+
+function renderPremiumDatabaseRows(query = '') {
+  const rows = getPremiumDatabaseRows();
+  const used = rows.filter(row => row.status === 'Utilise').length;
+  const q = String(query || '').trim().toLowerCase();
+  const filtered = q ? rows.filter(row =>
+    row.code.toLowerCase().includes(q) ||
+    row.orgNumber.toLowerCase().includes(q) ||
+    row.userId.toLowerCase().includes(q) ||
+    row.orgName.toLowerCase().includes(q)
+  ) : rows;
+  document.getElementById('premiumDbStats').innerHTML = `
+    <div class="premium-db-stat"><strong>${rows.length}</strong><span>Codes Premium disponibles</span></div>
+    <div class="premium-db-stat"><strong>${used}</strong><span>Codes deja utilises</span></div>
+    <div class="premium-db-stat"><strong>${rows.length - used}</strong><span>Codes libres</span></div>
+  `;
+  document.getElementById('premiumDbRows').innerHTML = filtered.map(row => `
+    <tr>
+      <td>${escapeHtml(row.code)}</td>
+      <td class="${row.status === 'Utilise' ? 'used' : 'free'}">${row.status}</td>
+      <td>${escapeHtml(row.orgNumber || '-')}</td>
+      <td>${escapeHtml(row.userId || '-')}</td>
+      <td>${escapeHtml(row.orgName || '-')}</td>
+    </tr>
+  `).join('');
+}
+
+function openPremiumWhatsapp(profile) {
+  const msg = [
+    '*Nouvelle inscription Premium*',
+    '',
+    '*Organisation*',
+    `Code Premium : ${profile.premiumCode}`,
+    `ID unique : ${profile.userId}`,
+    `Page d'inscription : ${profile.registrationPage}`,
+    `Nom : ${profile.orgName}`,
+    `Type : ${profile.orgType}`,
+    `Pays / Ville : ${profile.city}`,
+    `Adresse : ${profile.address}`,
+    `Telephone : ${profile.phone}`,
+    `Reseaux sociaux : ${profile.socials || 'Non renseigne'}`,
+    '',
+    '*Responsable principal*',
+    `Nom : ${profile.leaderName}`,
+    `Fonction : ${profile.leaderRole}`,
+    `WhatsApp : ${profile.leaderWhatsapp}`,
+    '',
+    '*Abonnement*',
+    `Activation : ${formatPremiumDate(profile.activatedAt)}`,
+    `Expiration : ${formatPremiumDate(profile.expiresAt)}`,
+    `Numero organisation : ${profile.orgNumber}`
+  ].join('\n');
+  window.open(`https://wa.me/${WHATSAPP_ADMIN}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+function downloadPremiumCard() {
+  const profile = getPremiumProfile();
+  if (!profile) return;
+  const canvas = document.createElement('canvas');
+  canvas.width = 1200;
+  canvas.height = 720;
+  const ctx = canvas.getContext('2d');
+  const gradient = ctx.createLinearGradient(0, 0, 1200, 720);
+  gradient.addColorStop(0, '#211332');
+  gradient.addColorStop(1, '#5E3388');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 1200, 720);
+  ctx.fillStyle = 'rgba(255,255,255,0.08)';
+  ctx.beginPath();
+  ctx.arc(980, 110, 260, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#FFD23C';
+  ctx.font = '700 38px Poppins, Arial';
+  ctx.fillText('PREMIUM MEMBER', 70, 95);
+  ctx.fillStyle = '#FFFFFF';
+  ctx.font = '900 58px Poppins, Arial';
+  ctx.fillText('ðŸ‘‘ ' + profile.orgName.slice(0, 30), 70, 255);
+  ctx.font = '600 30px Poppins, Arial';
+  ctx.fillText(profile.orgType + ' - ' + profile.city, 70, 315);
+  ctx.fillStyle = 'rgba(255,255,255,0.76)';
+  ctx.font = '500 26px Poppins, Arial';
+  ctx.fillText('Responsable : ' + profile.leaderName, 70, 420);
+  ctx.fillText('ID : ' + (profile.userId || 'Non renseigne'), 70, 470);
+  ctx.fillText('Numero organisation : ' + profile.orgNumber, 70, 520);
+  ctx.fillText('Active le : ' + formatPremiumDate(profile.activatedAt), 70, 570);
+  ctx.fillText('Expire le : ' + formatPremiumDate(profile.expiresAt), 70, 620);
+  ctx.fillStyle = '#D9152B';
+  ctx.fillRect(0, 680, 300, 40);
+  ctx.fillStyle = '#0066B3';
+  ctx.fillRect(300, 680, 300, 40);
+  ctx.fillStyle = '#FFD23C';
+  ctx.fillRect(600, 680, 300, 40);
+  ctx.fillStyle = '#5E3388';
+  ctx.fillRect(900, 680, 300, 40);
+  const link = document.createElement('a');
+  link.download = `carte-premium-${profile.orgNumber}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+document.getElementById('premiumProfileOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closePremiumProfile();
+});
+
+document.getElementById('premiumLoginOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closePremiumLogin();
+});
+
+document.getElementById('premiumDatabaseOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closePremiumDatabase();
+});
+
+document.getElementById('premiumLogo').addEventListener('change', function(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function() {
+    premiumLogoData = reader.result;
+    document.getElementById('premiumLogoPreview').innerHTML = `<img src="${premiumLogoData}" alt="">`;
+  };
+  reader.readAsDataURL(file);
+});
+
 // =====================================================
 // CORE DATA
 // =====================================================
 const versets = [
-  { text:"Car je connais les projets que j'ai formés sur vous, dit l'Éternel, projets de paix et non de malheur, afin de vous donner un avenir et de l'espérance.", ref:"Jérémie 29 : 11" },
+  { text:"Car je connais les projets que j'ai formÃ©s sur vous, dit l'Ã‰ternel, projets de paix et non de malheur, afin de vous donner un avenir et de l'espÃ©rance.", ref:"JÃ©rÃ©mie 29 : 11" },
   { text:"Je puis tout par celui qui me fortifie.", ref:"Philippiens 4 : 13" },
-  { text:"L'Éternel est mon berger : je ne manquerai de rien.", ref:"Psaume 23 : 1" },
-  { text:"Remets ton sort à l'Éternel, mets en lui ta confiance, et il agira.", ref:"Psaume 37 : 5" },
-  { text:"Ne craignez rien, car je suis avec vous ; ne soyez pas effrayés, car je suis votre Dieu.", ref:"Ésaïe 41 : 10" },
-  { text:"La foi est la substance des choses qu'on espère, la démonstration de celles qu'on ne voit pas.", ref:"Hébreux 11 : 1" },
+  { text:"L'Ã‰ternel est mon berger : je ne manquerai de rien.", ref:"Psaume 23 : 1" },
+  { text:"Remets ton sort Ã  l'Ã‰ternel, mets en lui ta confiance, et il agira.", ref:"Psaume 37 : 5" },
+  { text:"Ne craignez rien, car je suis avec vous ; ne soyez pas effrayÃ©s, car je suis votre Dieu.", ref:"Ã‰saÃ¯e 41 : 10" },
+  { text:"La foi est la substance des choses qu'on espÃ¨re, la dÃ©monstration de celles qu'on ne voit pas.", ref:"HÃ©breux 11 : 1" },
 ];
 let versetIdx = 0;
 
 const defaultEvents = [
-  { id:'base-1', title:"Culte du Dimanche", date:"2026-05-11", dateLabel:"11 Mai", time:"09:00", lieu:"Église principale, Cocody", cat:"culte", desc:"Service dominical avec louange et prédication.", organizer:"REV COM", participants:42, owned:false, poster:"" },
-  { id:'base-2', title:"Étude biblique", date:"2026-05-13", dateLabel:"13 Mai", time:"19:00", lieu:"Salle A, Église principale", cat:"cellule", desc:"Étude approfondie de l'Évangile de Jean.", organizer:"Cellules d'Abidjan", participants:18, owned:false, poster:"" },
-  { id:'base-3', title:"Rencontre des Jeunes", date:"2026-05-15", dateLabel:"15 Mai", time:"18:00", lieu:"Centre jeunesse, Marcory", cat:"jeune", desc:"Soirée de louange et partage pour les 15-30 ans.", organizer:"Ministère des jeunes", participants:35, owned:false, poster:"" },
-  { id:'base-4', title:"Nuit de Prière", date:"2026-05-16", dateLabel:"16 Mai", time:"22:00", lieu:"Église principale", cat:"special", desc:"Une nuit entière de prière et d'intercession.", organizer:"Intercession", participants:64, owned:false, poster:"" },
-  { id:'base-5', title:"Culte de Famille", date:"2026-05-18", dateLabel:"18 Mai", time:"10:00", lieu:"Église principale", cat:"culte", desc:"Culte spécial pour toutes les familles.", organizer:"Familles", participants:53, owned:false, poster:"" },
+  { id:'base-1', title:"Culte du Dimanche", date:"2026-05-11", dateLabel:"11 Mai", time:"09:00", lieu:"Ã‰glise principale, Cocody", cat:"culte", desc:"Service dominical avec louange et prÃ©dication.", organizer:"REV COM", participants:42, owned:false, poster:"" },
+  { id:'base-2', title:"Ã‰tude biblique", date:"2026-05-13", dateLabel:"13 Mai", time:"19:00", lieu:"Salle A, Ã‰glise principale", cat:"cellule", desc:"Ã‰tude approfondie de l'Ã‰vangile de Jean.", organizer:"Cellules d'Abidjan", participants:18, owned:false, poster:"" },
+  { id:'base-3', title:"Rencontre des Jeunes", date:"2026-05-15", dateLabel:"15 Mai", time:"18:00", lieu:"Centre jeunesse, Marcory", cat:"jeune", desc:"SoirÃ©e de louange et partage pour les 15-30 ans.", organizer:"MinistÃ¨re des jeunes", participants:35, owned:false, poster:"" },
+  { id:'base-4', title:"Nuit de PriÃ¨re", date:"2026-05-16", dateLabel:"16 Mai", time:"22:00", lieu:"Ã‰glise principale", cat:"special", desc:"Une nuit entiÃ¨re de priÃ¨re et d'intercession.", organizer:"Intercession", participants:64, owned:false, poster:"" },
+  { id:'base-5', title:"Culte de Famille", date:"2026-05-18", dateLabel:"18 Mai", time:"10:00", lieu:"Ã‰glise principale", cat:"culte", desc:"Culte spÃ©cial pour toutes les familles.", organizer:"Familles", participants:53, owned:false, poster:"" },
   { id:'base-6', title:"Retraite Spirituelle", date:"2026-05-24", dateLabel:"24 Mai", time:"08:00", lieu:"Yamoussoukro", cat:"special", desc:"Week-end de retraite et ressourcement spirituel.", organizer:"Formation", participants:27, owned:false, poster:"" },
 ];
 let events = [...defaultEvents, ...JSON.parse(localStorage.getItem('userEvents') || '[]')];
 let eventFilter = 'all', agendaView = 'cards', currentEventId = null, posterDraft = '';
-const categoryLabels = { jeune:'Jeune', cellule:'Cellule', culte:'Culte', special:'Spéciaux' };
+const categoryLabels = { jeune:'Jeune', cellule:'Cellule', culte:'Culte', special:'SpÃ©ciaux' };
 let participantsByEvent = JSON.parse(localStorage.getItem('participantsByEvent') || '{}');
 
 const defaultPrieres = [
-  { id:"priere-1", nom:"Marie K.", texte:"Prière pour la guérison de mon père hospitalisé cette semaine.", count:14, reactions:{amen:6,paix:3}, comments:[{nom:"Sarah",texte:"Amen, nous prions avec toi."}], createdAt:"2026-05-08T08:30:00.000Z" },
-  { id:"priere-2", nom:"Jean-Paul A.", texte:"Demande de sagesse pour une décision importante dans ma famille.", count:8, reactions:{amen:4,paix:2}, comments:[], createdAt:"2026-05-08T09:05:00.000Z" },
-  { id:"priere-3", nom:"Anonyme", texte:"Prière pour la paix dans notre pays et la protection de nos familles.", count:23, reactions:{amen:12,paix:8}, comments:[{nom:"Anonyme",texte:"Que la paix de Dieu nous garde."}], createdAt:"2026-05-08T10:10:00.000Z" },
-  { id:"priere-4", nom:"Esther N.", texte:"Action de grâce pour la naissance de mon fils. Béni soit l'Éternel !", count:31, reactions:{amen:18,paix:5}, comments:[], createdAt:"2026-05-08T11:20:00.000Z" },
+  { id:"priere-1", nom:"Marie K.", texte:"PriÃ¨re pour la guÃ©rison de mon pÃ¨re hospitalisÃ© cette semaine.", count:14, reactions:{amen:6,paix:3}, comments:[{nom:"Sarah",texte:"Amen, nous prions avec toi."}], createdAt:"2026-05-08T08:30:00.000Z" },
+  { id:"priere-2", nom:"Jean-Paul A.", texte:"Demande de sagesse pour une dÃ©cision importante dans ma famille.", count:8, reactions:{amen:4,paix:2}, comments:[], createdAt:"2026-05-08T09:05:00.000Z" },
+  { id:"priere-3", nom:"Anonyme", texte:"PriÃ¨re pour la paix dans notre pays et la protection de nos familles.", count:23, reactions:{amen:12,paix:8}, comments:[{nom:"Anonyme",texte:"Que la paix de Dieu nous garde."}], createdAt:"2026-05-08T10:10:00.000Z" },
+  { id:"priere-4", nom:"Esther N.", texte:"Action de grÃ¢ce pour la naissance de mon fils. BÃ©ni soit l'Ã‰ternel !", count:31, reactions:{amen:18,paix:5}, comments:[], createdAt:"2026-05-08T11:20:00.000Z" },
 ];
 let prieres = JSON.parse(localStorage.getItem('prieresWall') || 'null') || defaultPrieres;
 let priereActions = JSON.parse(localStorage.getItem('priereActions') || '{}');
@@ -1692,10 +2343,10 @@ localStorage.setItem('prayerAuthorId', prayerAuthorId);
 
 // BIBLE DATA
 const BIBLE_AT = [
-  {name:"Genèse",abbr:"Gen",chapters:50},{name:"Exode",abbr:"Ex",chapters:40},{name:"Lévitique",abbr:"Lév",chapters:27},{name:"Nombres",abbr:"Nb",chapters:36},{name:"Deutéronome",abbr:"Dt",chapters:34},{name:"Josué",abbr:"Jos",chapters:24},{name:"Juges",abbr:"Jug",chapters:21},{name:"Ruth",abbr:"Rut",chapters:4},{name:"1 Samuel",abbr:"1S",chapters:31},{name:"2 Samuel",abbr:"2S",chapters:24},{name:"1 Rois",abbr:"1R",chapters:22},{name:"2 Rois",abbr:"2R",chapters:25},{name:"1 Chroniques",abbr:"1Ch",chapters:29},{name:"2 Chroniques",abbr:"2Ch",chapters:36},{name:"Esdras",abbr:"Esd",chapters:10},{name:"Néhémie",abbr:"Né",chapters:13},{name:"Esther",abbr:"Est",chapters:10},{name:"Job",abbr:"Job",chapters:42},{name:"Psaumes",abbr:"Ps",chapters:150},{name:"Proverbes",abbr:"Pr",chapters:31},{name:"Ecclésiaste",abbr:"Ec",chapters:12},{name:"Cantique des cantiques",abbr:"Ct",chapters:8},{name:"Ésaïe",abbr:"És",chapters:66},{name:"Jérémie",abbr:"Jér",chapters:52},{name:"Lamentations",abbr:"Lam",chapters:5},{name:"Ézéchiel",abbr:"Éz",chapters:48},{name:"Daniel",abbr:"Dan",chapters:12},{name:"Osée",abbr:"Os",chapters:14},{name:"Joël",abbr:"Joël",chapters:3},{name:"Amos",abbr:"Am",chapters:9},{name:"Abdias",abbr:"Abd",chapters:1},{name:"Jonas",abbr:"Jon",chapters:4},{name:"Michée",abbr:"Mi",chapters:7},{name:"Nahoum",abbr:"Na",chapters:3},{name:"Habacuc",abbr:"Hab",chapters:3},{name:"Sophonie",abbr:"So",chapters:3},{name:"Aggée",abbr:"Ag",chapters:2},{name:"Zacharie",abbr:"Za",chapters:14},{name:"Malachie",abbr:"Mal",chapters:4},
+  {name:"GenÃ¨se",abbr:"Gen",chapters:50},{name:"Exode",abbr:"Ex",chapters:40},{name:"LÃ©vitique",abbr:"LÃ©v",chapters:27},{name:"Nombres",abbr:"Nb",chapters:36},{name:"DeutÃ©ronome",abbr:"Dt",chapters:34},{name:"JosuÃ©",abbr:"Jos",chapters:24},{name:"Juges",abbr:"Jug",chapters:21},{name:"Ruth",abbr:"Rut",chapters:4},{name:"1 Samuel",abbr:"1S",chapters:31},{name:"2 Samuel",abbr:"2S",chapters:24},{name:"1 Rois",abbr:"1R",chapters:22},{name:"2 Rois",abbr:"2R",chapters:25},{name:"1 Chroniques",abbr:"1Ch",chapters:29},{name:"2 Chroniques",abbr:"2Ch",chapters:36},{name:"Esdras",abbr:"Esd",chapters:10},{name:"NÃ©hÃ©mie",abbr:"NÃ©",chapters:13},{name:"Esther",abbr:"Est",chapters:10},{name:"Job",abbr:"Job",chapters:42},{name:"Psaumes",abbr:"Ps",chapters:150},{name:"Proverbes",abbr:"Pr",chapters:31},{name:"EcclÃ©siaste",abbr:"Ec",chapters:12},{name:"Cantique des cantiques",abbr:"Ct",chapters:8},{name:"Ã‰saÃ¯e",abbr:"Ã‰s",chapters:66},{name:"JÃ©rÃ©mie",abbr:"JÃ©r",chapters:52},{name:"Lamentations",abbr:"Lam",chapters:5},{name:"Ã‰zÃ©chiel",abbr:"Ã‰z",chapters:48},{name:"Daniel",abbr:"Dan",chapters:12},{name:"OsÃ©e",abbr:"Os",chapters:14},{name:"JoÃ«l",abbr:"JoÃ«l",chapters:3},{name:"Amos",abbr:"Am",chapters:9},{name:"Abdias",abbr:"Abd",chapters:1},{name:"Jonas",abbr:"Jon",chapters:4},{name:"MichÃ©e",abbr:"Mi",chapters:7},{name:"Nahoum",abbr:"Na",chapters:3},{name:"Habacuc",abbr:"Hab",chapters:3},{name:"Sophonie",abbr:"So",chapters:3},{name:"AggÃ©e",abbr:"Ag",chapters:2},{name:"Zacharie",abbr:"Za",chapters:14},{name:"Malachie",abbr:"Mal",chapters:4},
 ];
 const BIBLE_NT = [
-  {name:"Matthieu",abbr:"Mt",chapters:28},{name:"Marc",abbr:"Mc",chapters:16},{name:"Luc",abbr:"Lc",chapters:24},{name:"Jean",abbr:"Jn",chapters:21},{name:"Actes",abbr:"Ac",chapters:28},{name:"Romains",abbr:"Rm",chapters:16},{name:"1 Corinthiens",abbr:"1Co",chapters:16},{name:"2 Corinthiens",abbr:"2Co",chapters:13},{name:"Galates",abbr:"Ga",chapters:6},{name:"Éphésiens",abbr:"Ép",chapters:6},{name:"Philippiens",abbr:"Ph",chapters:4},{name:"Colossiens",abbr:"Col",chapters:4},{name:"1 Thessaloniciens",abbr:"1Th",chapters:5},{name:"2 Thessaloniciens",abbr:"2Th",chapters:3},{name:"1 Timothée",abbr:"1Ti",chapters:6},{name:"2 Timothée",abbr:"2Ti",chapters:4},{name:"Tite",abbr:"Tt",chapters:3},{name:"Philémon",abbr:"Phm",chapters:1},{name:"Hébreux",abbr:"Hé",chapters:13},{name:"Jacques",abbr:"Ja",chapters:5},{name:"1 Pierre",abbr:"1Pi",chapters:5},{name:"2 Pierre",abbr:"2Pi",chapters:3},{name:"1 Jean",abbr:"1Jn",chapters:5},{name:"2 Jean",abbr:"2Jn",chapters:1},{name:"3 Jean",abbr:"3Jn",chapters:1},{name:"Jude",abbr:"Jud",chapters:1},{name:"Apocalypse",abbr:"Ap",chapters:22},
+  {name:"Matthieu",abbr:"Mt",chapters:28},{name:"Marc",abbr:"Mc",chapters:16},{name:"Luc",abbr:"Lc",chapters:24},{name:"Jean",abbr:"Jn",chapters:21},{name:"Actes",abbr:"Ac",chapters:28},{name:"Romains",abbr:"Rm",chapters:16},{name:"1 Corinthiens",abbr:"1Co",chapters:16},{name:"2 Corinthiens",abbr:"2Co",chapters:13},{name:"Galates",abbr:"Ga",chapters:6},{name:"Ã‰phÃ©siens",abbr:"Ã‰p",chapters:6},{name:"Philippiens",abbr:"Ph",chapters:4},{name:"Colossiens",abbr:"Col",chapters:4},{name:"1 Thessaloniciens",abbr:"1Th",chapters:5},{name:"2 Thessaloniciens",abbr:"2Th",chapters:3},{name:"1 TimothÃ©e",abbr:"1Ti",chapters:6},{name:"2 TimothÃ©e",abbr:"2Ti",chapters:4},{name:"Tite",abbr:"Tt",chapters:3},{name:"PhilÃ©mon",abbr:"Phm",chapters:1},{name:"HÃ©breux",abbr:"HÃ©",chapters:13},{name:"Jacques",abbr:"Ja",chapters:5},{name:"1 Pierre",abbr:"1Pi",chapters:5},{name:"2 Pierre",abbr:"2Pi",chapters:3},{name:"1 Jean",abbr:"1Jn",chapters:5},{name:"2 Jean",abbr:"2Jn",chapters:1},{name:"3 Jean",abbr:"3Jn",chapters:1},{name:"Jude",abbr:"Jud",chapters:1},{name:"Apocalypse",abbr:"Ap",chapters:22},
 ];
 const ALL_BOOKS = [...BIBLE_AT, ...BIBLE_NT];
 let currentTestament = 'AT', currentBookIndex = 0, currentChapter = 1;
@@ -1705,7 +2356,7 @@ function getBibleState() { return JSON.parse(localStorage.getItem('bibleState') 
 function saveBibleState(state) { localStorage.setItem('bibleState', JSON.stringify(state)); }
 
 function generateVerses(bookName, chapter, count) {
-  const base = ["Au commencement, dans le livre de "+bookName+", chapitre "+chapter+", Dieu établit ses fondements et posa les bases de ce qui allait être révélé.","Et il dit : que la lumière soit, et la lumière fut. La parole divine était puissante et accomplit tout ce qu'elle déclarait.","Ainsi les cieux et la terre furent achevés, avec toute leur armée. L'œuvre était bonne et parfaite.","Il bénit le septième jour et le sanctifia, car en ce jour il se reposa de toute son œuvre qu'il avait créée.","L'Éternel Dieu forma l'homme de la poussière de la terre et insuffla dans ses narines un souffle de vie.","Dieu vit tout ce qu'il avait fait et voici, cela était très bon. Il y eut un soir et il y eut un matin.","Et l'Éternel Dieu prit l'homme et le plaça dans le jardin pour le cultiver et le garder avec soin.","Il n'est pas bon que l'homme soit seul, je lui ferai une aide qui lui soit assortie et convenable.","C'est pourquoi l'homme quittera son père et sa mère et s'attachera à sa femme et ils deviendront une seule chair.","L'Éternel dit à l'homme : où es-tu ? Et l'homme répondit : j'ai entendu ta voix et j'ai eu peur.","Tu aimeras l'Éternel ton Dieu de tout ton cœur, de toute ton âme et de toute ta force, dit la Parole.","Cherchez premièrement le royaume de Dieu et sa justice, et toutes ces choses vous seront données par-dessus.","Je suis le chemin, la vérité et la vie, dit le Seigneur. Nul ne vient au Père que par moi.","Dieu a tant aimé le monde qu'il a donné son Fils unique afin que quiconque croit en lui ne périsse pas.","La grâce du Seigneur Jésus-Christ, l'amour de Dieu et la communion du Saint-Esprit soient avec vous tous."];
+  const base = ["Au commencement, dans le livre de "+bookName+", chapitre "+chapter+", Dieu Ã©tablit ses fondements et posa les bases de ce qui allait Ãªtre rÃ©vÃ©lÃ©.","Et il dit : que la lumiÃ¨re soit, et la lumiÃ¨re fut. La parole divine Ã©tait puissante et accomplit tout ce qu'elle dÃ©clarait.","Ainsi les cieux et la terre furent achevÃ©s, avec toute leur armÃ©e. L'Å“uvre Ã©tait bonne et parfaite.","Il bÃ©nit le septiÃ¨me jour et le sanctifia, car en ce jour il se reposa de toute son Å“uvre qu'il avait crÃ©Ã©e.","L'Ã‰ternel Dieu forma l'homme de la poussiÃ¨re de la terre et insuffla dans ses narines un souffle de vie.","Dieu vit tout ce qu'il avait fait et voici, cela Ã©tait trÃ¨s bon. Il y eut un soir et il y eut un matin.","Et l'Ã‰ternel Dieu prit l'homme et le plaÃ§a dans le jardin pour le cultiver et le garder avec soin.","Il n'est pas bon que l'homme soit seul, je lui ferai une aide qui lui soit assortie et convenable.","C'est pourquoi l'homme quittera son pÃ¨re et sa mÃ¨re et s'attachera Ã  sa femme et ils deviendront une seule chair.","L'Ã‰ternel dit Ã  l'homme : oÃ¹ es-tu ? Et l'homme rÃ©pondit : j'ai entendu ta voix et j'ai eu peur.","Tu aimeras l'Ã‰ternel ton Dieu de tout ton cÅ“ur, de toute ton Ã¢me et de toute ta force, dit la Parole.","Cherchez premiÃ¨rement le royaume de Dieu et sa justice, et toutes ces choses vous seront donnÃ©es par-dessus.","Je suis le chemin, la vÃ©ritÃ© et la vie, dit le Seigneur. Nul ne vient au PÃ¨re que par moi.","Dieu a tant aimÃ© le monde qu'il a donnÃ© son Fils unique afin que quiconque croit en lui ne pÃ©risse pas.","La grÃ¢ce du Seigneur JÃ©sus-Christ, l'amour de Dieu et la communion du Saint-Esprit soient avec vous tous."];
   return Array.from({length: count}, (_,i) => base[i % base.length]);
 }
 
@@ -1730,7 +2381,7 @@ function loadBibleChapter() {
     const key = `${bookKey}-${i+1}`;
     const hl = highlights[key] ? ' highlighted' : '';
     const fv = favs[key] ? ' favorited' : '';
-    return `<div class="bible-verse${hl}${fv}" id="bv-${i+1}" onclick="onVerseClick(${i+1},'${bookKey}','${book.name}')"><div class="bible-verse-num">${i+1}</div><div class="bible-verse-text">${v}</div><div class="bible-verse-actions"><button class="bible-va-btn" onclick="highlightVerse(event,${i+1},'${bookKey}')">✨</button><button class="bible-va-btn" onclick="favVerse(event,${i+1},'${bookKey}')">♥</button><button class="bible-va-btn" onclick="noteVerse(event,${i+1},'${book.name}',${currentChapter})">📝</button><button class="bible-va-btn" onclick="shareVerse(event,${i+1},'${book.name}',${currentChapter})">📤</button></div></div>`;
+    return `<div class="bible-verse${hl}${fv}" id="bv-${i+1}" onclick="onVerseClick(${i+1},'${bookKey}','${book.name}')"><div class="bible-verse-num">${i+1}</div><div class="bible-verse-text">${v}</div><div class="bible-verse-actions"><button class="bible-va-btn" onclick="highlightVerse(event,${i+1},'${bookKey}')">âœ¨</button><button class="bible-va-btn" onclick="favVerse(event,${i+1},'${bookKey}')">â™¥</button><button class="bible-va-btn" onclick="noteVerse(event,${i+1},'${book.name}',${currentChapter})">ðŸ“</button><button class="bible-va-btn" onclick="shareVerse(event,${i+1},'${book.name}',${currentChapter})">ðŸ“¤</button></div></div>`;
   }).join('');
   updateBibleStats();
 }
@@ -1738,55 +2389,55 @@ function loadBibleChapter() {
 function onVerseClick(num,bookKey,bookName){if(highlightMode){highlightVerse(null,num,bookKey);return;}if(favMode){favVerse(null,num,bookKey);return;}selectedVerseRef=`${bookName} ${currentChapter} : ${num}`;const t=document.getElementById('bibleNoteTooltip');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),5000);}
 function closeBibleTooltip(){document.getElementById('bibleNoteTooltip').classList.remove('show');}
 function addVerseToNote(){closeBibleTooltip();openNoteModal(null,selectedVerseRef);switchBiblioTab('notes',null);}
-function highlightVerse(e,num,bookKey){if(e)e.stopPropagation();const state=getBibleState();const key=`${bookKey}-${num}`;state.highlights=state.highlights||{};state.highlights[key]=!state.highlights[key];saveBibleState(state);const el=document.getElementById(`bv-${num}`);if(el)el.classList.toggle('highlighted',!!state.highlights[key]);updateBibleStats();showToast(state.highlights[key]?`Verset ${num} surligné.`:`Surlignage retiré.`);}
-function favVerse(e,num,bookKey){if(e)e.stopPropagation();const state=getBibleState();const key=`${bookKey}-${num}`;state.favs=state.favs||{};state.favs[key]=!state.favs[key];saveBibleState(state);const el=document.getElementById(`bv-${num}`);if(el)el.classList.toggle('favorited',!!state.favs[key]);updateBibleStats();showToast(state.favs[key]?`Verset ${num} ajouté aux favoris.`:`Retiré des favoris.`);}
+function highlightVerse(e,num,bookKey){if(e)e.stopPropagation();const state=getBibleState();const key=`${bookKey}-${num}`;state.highlights=state.highlights||{};state.highlights[key]=!state.highlights[key];saveBibleState(state);const el=document.getElementById(`bv-${num}`);if(el)el.classList.toggle('highlighted',!!state.highlights[key]);updateBibleStats();showToast(state.highlights[key]?`Verset ${num} surlignÃ©.`:`Surlignage retirÃ©.`);}
+function favVerse(e,num,bookKey){if(e)e.stopPropagation();const state=getBibleState();const key=`${bookKey}-${num}`;state.favs=state.favs||{};state.favs[key]=!state.favs[key];saveBibleState(state);const el=document.getElementById(`bv-${num}`);if(el)el.classList.toggle('favorited',!!state.favs[key]);updateBibleStats();showToast(state.favs[key]?`Verset ${num} ajoutÃ© aux favoris.`:`RetirÃ© des favoris.`);}
 function noteVerse(e,num,bookName,ch){if(e)e.stopPropagation();const ref=`${bookName} ${ch} : ${num}`;switchBiblioTab('notes',null);openNoteModal(null,ref);}
-function shareVerse(e,num,bookName,ch){if(e)e.stopPropagation();const txt=`📖 ${bookName} ${ch}:${num} — REV COM`;navigator.clipboard.writeText(txt).catch(()=>{});showToast(`Référence copiée : ${bookName} ${ch}:${num}`);}
-function updateBibleStats(){const state=getBibleState();const hl=Object.values(state.highlights||{}).filter(Boolean).length;const fv=Object.values(state.favs||{}).filter(Boolean).length;const read=(state.readChapters||[]).length;const total=ALL_BOOKS.reduce((s,b)=>s+b.chapters,0);const pct=Math.round((read/total)*100);document.getElementById('bibleReadChapters').textContent=`${read} chapitres lus`;document.getElementById('bibleHighlightCount').textContent=`${hl} versets surlignés`;document.getElementById('bibleFavCount').textContent=`${fv} versets favoris`;document.getElementById('bibleProgressPct').textContent=`${pct}% de la Bible lue`;}
+function shareVerse(e,num,bookName,ch){if(e)e.stopPropagation();const txt=`ðŸ“– ${bookName} ${ch}:${num} â€” REV COM`;navigator.clipboard.writeText(txt).catch(()=>{});showToast(`RÃ©fÃ©rence copiÃ©e : ${bookName} ${ch}:${num}`);}
+function updateBibleStats(){const state=getBibleState();const hl=Object.values(state.highlights||{}).filter(Boolean).length;const fv=Object.values(state.favs||{}).filter(Boolean).length;const read=(state.readChapters||[]).length;const total=ALL_BOOKS.reduce((s,b)=>s+b.chapters,0);const pct=Math.round((read/total)*100);document.getElementById('bibleReadChapters').textContent=`${read} chapitres lus`;document.getElementById('bibleHighlightCount').textContent=`${hl} versets surlignÃ©s`;document.getElementById('bibleFavCount').textContent=`${fv} versets favoris`;document.getElementById('bibleProgressPct').textContent=`${pct}% de la Bible lue`;}
 function renderBibleBooks(filter=''){const books=currentTestament==='AT'?BIBLE_AT:BIBLE_NT;const filtered=filter?books.filter(b=>b.name.toLowerCase().includes(filter.toLowerCase())):books;document.getElementById('bibleBookList').innerHTML=filtered.map((b,i)=>{const realIndex=books.findIndex(bk=>bk.name===b.name);const isActive=realIndex===currentBookIndex;return `<div class="bible-book-item ${isActive?'active':''}" onclick="selectBibleBook(${realIndex})"><span>${b.name}</span><span class="bible-book-chapters">${b.chapters} ch.</span></div>`;}).join('');document.getElementById('bibleTestamentLabel').textContent=currentTestament==='AT'?'Ancien Testament':'Nouveau Testament';}
 function selectBibleBook(index){currentBookIndex=index;currentChapter=1;loadBibleChapter();renderBibleBooks(document.getElementById('bibleBookSearch').value);document.getElementById('bibleChapterSelect').value=1;}
 function setBibleTestament(t){currentTestament=t;currentBookIndex=0;currentChapter=1;document.getElementById('atBtn').classList.toggle('active',t==='AT');document.getElementById('ntBtn').classList.toggle('active',t==='NT');renderBibleBooks();loadBibleChapter();}
 function filterBibleBooks(val){renderBibleBooks(val);}
 function changeBibleFontSize(delta){bibleFontSize=Math.min(1.4,Math.max(0.78,bibleFontSize+delta*0.08));document.getElementById('bibleVerseContainer').style.setProperty('--bible-font-size',bibleFontSize+'rem');}
-function toggleHighlightMode(){highlightMode=!highlightMode;favMode=false;document.getElementById('bibleHighlightBtn').style.background=highlightMode?'var(--yellow)':'';document.getElementById('bibleFavBtn').style.background='';showToast(highlightMode?'Mode surlignage activé.':'Mode surlignage désactivé.');}
-function toggleFavMode(){favMode=!favMode;highlightMode=false;document.getElementById('bibleFavBtn').style.background=favMode?'var(--red)':'';document.getElementById('bibleFavBtn').style.color=favMode?'white':'';document.getElementById('bibleHighlightBtn').style.background='';showToast(favMode?'Mode favoris activé.':'Mode favoris désactivé.');}
-function prevBibleChapter(){if(currentChapter>1){currentChapter--;document.getElementById('bibleChapterSelect').value=currentChapter;loadBibleChapter();}else showToast('Vous êtes au premier chapitre.');}
+function toggleHighlightMode(){highlightMode=!highlightMode;favMode=false;document.getElementById('bibleHighlightBtn').style.background=highlightMode?'var(--yellow)':'';document.getElementById('bibleFavBtn').style.background='';showToast(highlightMode?'Mode surlignage activÃ©.':'Mode surlignage dÃ©sactivÃ©.');}
+function toggleFavMode(){favMode=!favMode;highlightMode=false;document.getElementById('bibleFavBtn').style.background=favMode?'var(--red)':'';document.getElementById('bibleFavBtn').style.color=favMode?'white':'';document.getElementById('bibleHighlightBtn').style.background='';showToast(favMode?'Mode favoris activÃ©.':'Mode favoris dÃ©sactivÃ©.');}
+function prevBibleChapter(){if(currentChapter>1){currentChapter--;document.getElementById('bibleChapterSelect').value=currentChapter;loadBibleChapter();}else showToast('Vous Ãªtes au premier chapitre.');}
 function nextBibleChapter(){const book=currentTestament==='AT'?BIBLE_AT[currentBookIndex]:BIBLE_NT[currentBookIndex];if(currentChapter<book.chapters){currentChapter++;document.getElementById('bibleChapterSelect').value=currentChapter;loadBibleChapter();}else showToast('Fin du livre.');}
 
 // NOTES
 let notes=JSON.parse(localStorage.getItem('userNotes')||'[]');let noteEditId=null;let noteFilter='all';let noteSearch='';let noteColor='#0066B3';
-const TAG_LABELS={sermon:'📣 Sermon',etude:'📖 Étude',personnel:'🙏 Personnel',verset:'✦ Verset'};
+const TAG_LABELS={sermon:'ðŸ“£ Sermon',etude:'ðŸ“– Ã‰tude',personnel:'ðŸ™ Personnel',verset:'âœ¦ Verset'};
 const TAG_COLORS_BG={sermon:'rgba(217,21,43,0.1)',etude:'rgba(0,102,179,0.1)',personnel:'rgba(94,51,136,0.1)',verset:'rgba(255,210,60,0.2)'};
 const TAG_COLORS_TEXT={sermon:'var(--red)',etude:'var(--blue)',personnel:'var(--purple)',verset:'#8B6E00'};
 function saveNotes(){localStorage.setItem('userNotes',JSON.stringify(notes));}
-function renderNotes(){const grid=document.getElementById('notesGrid');let filtered=[...notes];if(noteFilter==='epinglée')filtered=filtered.filter(n=>n.pinned);else if(noteFilter!=='all')filtered=filtered.filter(n=>n.tag===noteFilter);if(noteSearch)filtered=filtered.filter(n=>(n.title+n.content+n.verseRef+n.source).toLowerCase().includes(noteSearch.toLowerCase()));filtered.sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0)||new Date(b.createdAt)-new Date(a.createdAt));if(!filtered.length){grid.innerHTML=`<div class="notes-empty" style="grid-column:1/-1"><div class="notes-empty-icon">📝</div><h3>${noteSearch?'Aucun résultat':'Aucune note'}</h3><p style="color:var(--text-muted);font-size:0.85rem">${noteSearch?'Essayez un autre terme.':'Cliquez sur "Créer une note".'}</p></div>`;return;}grid.innerHTML=filtered.map((note,i)=>`<div class="note-card" onclick="openNoteModal('${note.id}')" style="animation-delay:${i*0.04}s;border-top:3px solid ${note.color||'var(--blue)'}">${note.pinned?`<div class="note-pin-icon">📌</div>`:''}<div class="note-card-top"><div class="note-card-color" style="background:${note.color||'var(--blue)'}"></div><div class="note-card-actions" onclick="event.stopPropagation()"><button class="note-card-action-btn" onclick="toggleNotePin('${note.id}')">${note.pinned?'📌':'📍'}</button><button class="note-card-action-btn" onclick="exportNote('${note.id}')">📤</button><button class="note-card-action-btn delete" onclick="deleteNote('${note.id}')">🗑️</button></div></div><div class="note-title">${escapeHtml(note.title||'Note sans titre')}</div>${note.verseRef?`<div class="note-verse-ref" style="margin-bottom:4px">📖 ${escapeHtml(note.verseRef)}</div>`:''}<div class="note-preview">${escapeHtml(note.content||'')}</div><div class="note-footer"><span class="note-tag" style="background:${TAG_COLORS_BG[note.tag]||'rgba(0,102,179,0.1)'};color:${TAG_COLORS_TEXT[note.tag]||'var(--blue)'}">${TAG_LABELS[note.tag]||note.tag}</span><span class="note-date">${formatNoteDate(note.createdAt)}</span></div>${note.source?`<div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;font-weight:700">— ${escapeHtml(note.source)}</div>`:''}</div>`).join('');}
+function renderNotes(){const grid=document.getElementById('notesGrid');let filtered=[...notes];if(noteFilter==='epinglÃ©e')filtered=filtered.filter(n=>n.pinned);else if(noteFilter!=='all')filtered=filtered.filter(n=>n.tag===noteFilter);if(noteSearch)filtered=filtered.filter(n=>(n.title+n.content+n.verseRef+n.source).toLowerCase().includes(noteSearch.toLowerCase()));filtered.sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0)||new Date(b.createdAt)-new Date(a.createdAt));if(!filtered.length){grid.innerHTML=`<div class="notes-empty" style="grid-column:1/-1"><div class="notes-empty-icon">ðŸ“</div><h3>${noteSearch?'Aucun rÃ©sultat':'Aucune note'}</h3><p style="color:var(--text-muted);font-size:0.85rem">${noteSearch?'Essayez un autre terme.':'Cliquez sur "CrÃ©er une note".'}</p></div>`;return;}grid.innerHTML=filtered.map((note,i)=>`<div class="note-card" onclick="openNoteModal('${note.id}')" style="animation-delay:${i*0.04}s;border-top:3px solid ${note.color||'var(--blue)'}">${note.pinned?`<div class="note-pin-icon">ðŸ“Œ</div>`:''}<div class="note-card-top"><div class="note-card-color" style="background:${note.color||'var(--blue)'}"></div><div class="note-card-actions" onclick="event.stopPropagation()"><button class="note-card-action-btn" onclick="toggleNotePin('${note.id}')">${note.pinned?'ðŸ“Œ':'ðŸ“'}</button><button class="note-card-action-btn" onclick="exportNote('${note.id}')">ðŸ“¤</button><button class="note-card-action-btn delete" onclick="deleteNote('${note.id}')">ðŸ—‘ï¸</button></div></div><div class="note-title">${escapeHtml(note.title||'Note sans titre')}</div>${note.verseRef?`<div class="note-verse-ref" style="margin-bottom:4px">ðŸ“– ${escapeHtml(note.verseRef)}</div>`:''}<div class="note-preview">${escapeHtml(note.content||'')}</div><div class="note-footer"><span class="note-tag" style="background:${TAG_COLORS_BG[note.tag]||'rgba(0,102,179,0.1)'};color:${TAG_COLORS_TEXT[note.tag]||'var(--blue)'}">${TAG_LABELS[note.tag]||note.tag}</span><span class="note-date">${formatNoteDate(note.createdAt)}</span></div>${note.source?`<div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px;font-weight:700">â€” ${escapeHtml(note.source)}</div>`:''}</div>`).join('');}
 function formatNoteDate(iso){if(!iso)return'';const d=new Date(iso);return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'});}
-function openNoteModal(id=null,prefillVerse=null){noteEditId=id;noteColor='#0066B3';document.getElementById('noteModalTitle').textContent=id?'Modifier la note':'Nouvelle note';document.getElementById('noteEditId').value=id||'';document.getElementById('noteTitleInput').value='';document.getElementById('noteVerseInput').value=prefillVerse||'';document.getElementById('noteContentInput').value='';document.getElementById('noteTagInput').value='sermon';document.getElementById('noteSourceInput').value='';document.getElementById('notePinInput').checked=false;document.getElementById('noteCharCount').textContent='0 caractères';document.querySelectorAll('.note-color-dot').forEach(d=>d.classList.remove('active'));document.querySelector('.note-color-dot').classList.add('active');if(id){const note=notes.find(n=>n.id===id);if(note){document.getElementById('noteTitleInput').value=note.title||'';document.getElementById('noteVerseInput').value=note.verseRef||'';document.getElementById('noteContentInput').value=note.content||'';document.getElementById('noteTagInput').value=note.tag||'sermon';document.getElementById('noteSourceInput').value=note.source||'';document.getElementById('notePinInput').checked=!!note.pinned;noteColor=note.color||'#0066B3';document.getElementById('noteCharCount').textContent=(note.content||'').length+' caractères';document.querySelectorAll('.note-color-dot').forEach(d=>{d.classList.toggle('active',d.dataset.color===noteColor);});}}document.getElementById('noteModal').classList.add('open');}
+function openNoteModal(id=null,prefillVerse=null){noteEditId=id;noteColor='#0066B3';document.getElementById('noteModalTitle').textContent=id?'Modifier la note':'Nouvelle note';document.getElementById('noteEditId').value=id||'';document.getElementById('noteTitleInput').value='';document.getElementById('noteVerseInput').value=prefillVerse||'';document.getElementById('noteContentInput').value='';document.getElementById('noteTagInput').value='sermon';document.getElementById('noteSourceInput').value='';document.getElementById('notePinInput').checked=false;document.getElementById('noteCharCount').textContent='0 caractÃ¨res';document.querySelectorAll('.note-color-dot').forEach(d=>d.classList.remove('active'));document.querySelector('.note-color-dot').classList.add('active');if(id){const note=notes.find(n=>n.id===id);if(note){document.getElementById('noteTitleInput').value=note.title||'';document.getElementById('noteVerseInput').value=note.verseRef||'';document.getElementById('noteContentInput').value=note.content||'';document.getElementById('noteTagInput').value=note.tag||'sermon';document.getElementById('noteSourceInput').value=note.source||'';document.getElementById('notePinInput').checked=!!note.pinned;noteColor=note.color||'#0066B3';document.getElementById('noteCharCount').textContent=(note.content||'').length+' caractÃ¨res';document.querySelectorAll('.note-color-dot').forEach(d=>{d.classList.toggle('active',d.dataset.color===noteColor);});}}document.getElementById('noteModal').classList.add('open');}
 function closeNoteModal(){document.getElementById('noteModal').classList.remove('open');noteEditId=null;}
-function saveNote(){const title=document.getElementById('noteTitleInput').value.trim();const content=document.getElementById('noteContentInput').value.trim();if(!title&&!content){showToast('Veuillez écrire un titre ou du contenu.');return;}const payload={id:noteEditId||'note-'+Date.now(),title:title||'Note sans titre',content,verseRef:document.getElementById('noteVerseInput').value.trim(),tag:document.getElementById('noteTagInput').value,source:document.getElementById('noteSourceInput').value.trim(),pinned:document.getElementById('notePinInput').checked,color:noteColor,createdAt:noteEditId?(notes.find(n=>n.id===noteEditId)?.createdAt||new Date().toISOString()):new Date().toISOString(),updatedAt:new Date().toISOString()};if(noteEditId)notes=notes.map(n=>n.id===noteEditId?payload:n);else notes.unshift(payload);saveNotes();closeNoteModal();renderNotes();showToast(noteEditId?'Note modifiée.':'Note créée !');}
-function deleteNote(id){if(!confirm('Supprimer ?'))return;notes=notes.filter(n=>n.id!==id);saveNotes();renderNotes();showToast('Note supprimée.');}
-function toggleNotePin(id){notes=notes.map(n=>n.id===id?{...n,pinned:!n.pinned}:n);saveNotes();renderNotes();const note=notes.find(n=>n.id===id);showToast(note?.pinned?'Note épinglée.':'Note désépinglée.');}
-function exportNote(id){const note=notes.find(n=>n.id===id);if(!note)return;const txt=`${note.title||'Note'}\n${note.verseRef?'📖 '+note.verseRef+'\n':''}\n${note.content||''}\n\n— ${note.source||'REV COM'} · ${formatNoteDate(note.createdAt)}`;navigator.clipboard.writeText(txt).catch(()=>{});showToast('Note copiée.');}
+function saveNote(){const title=document.getElementById('noteTitleInput').value.trim();const content=document.getElementById('noteContentInput').value.trim();if(!title&&!content){showToast('Veuillez Ã©crire un titre ou du contenu.');return;}const payload={id:noteEditId||'note-'+Date.now(),title:title||'Note sans titre',content,verseRef:document.getElementById('noteVerseInput').value.trim(),tag:document.getElementById('noteTagInput').value,source:document.getElementById('noteSourceInput').value.trim(),pinned:document.getElementById('notePinInput').checked,color:noteColor,createdAt:noteEditId?(notes.find(n=>n.id===noteEditId)?.createdAt||new Date().toISOString()):new Date().toISOString(),updatedAt:new Date().toISOString()};if(noteEditId)notes=notes.map(n=>n.id===noteEditId?payload:n);else notes.unshift(payload);saveNotes();closeNoteModal();renderNotes();showToast(noteEditId?'Note modifiÃ©e.':'Note crÃ©Ã©e !');}
+function deleteNote(id){if(!confirm('Supprimer ?'))return;notes=notes.filter(n=>n.id!==id);saveNotes();renderNotes();showToast('Note supprimÃ©e.');}
+function toggleNotePin(id){notes=notes.map(n=>n.id===id?{...n,pinned:!n.pinned}:n);saveNotes();renderNotes();const note=notes.find(n=>n.id===id);showToast(note?.pinned?'Note Ã©pinglÃ©e.':'Note dÃ©sÃ©pinglÃ©e.');}
+function exportNote(id){const note=notes.find(n=>n.id===id);if(!note)return;const txt=`${note.title||'Note'}\n${note.verseRef?'ðŸ“– '+note.verseRef+'\n':''}\n${note.content||''}\n\nâ€” ${note.source||'REV COM'} Â· ${formatNoteDate(note.createdAt)}`;navigator.clipboard.writeText(txt).catch(()=>{});showToast('Note copiÃ©e.');}
 function searchNotes(val){noteSearch=val;renderNotes();}
 function filterNotesByTag(tag,btn){noteFilter=tag;document.querySelectorAll('.notes-filter-tag').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderNotes();}
 function selectNoteColor(color,el){noteColor=color;document.querySelectorAll('.note-color-dot').forEach(d=>d.classList.remove('active'));el.classList.add('active');}
 function formatNote(cmd){const ta=document.getElementById('noteContentInput');const start=ta.selectionStart,end=ta.selectionEnd;const selected=ta.value.slice(start,end);let wrap={bold:'**',italic:'_',underline:'__'}[cmd];if(!wrap)return;ta.value=ta.value.slice(0,start)+wrap+selected+wrap+ta.value.slice(end);ta.focus();updateCharCount();}
 function insertNoteText(txt){const ta=document.getElementById('noteContentInput');const pos=ta.selectionStart;ta.value=ta.value.slice(0,pos)+txt+ta.value.slice(pos);ta.focus();ta.selectionStart=ta.selectionEnd=pos+txt.length;updateCharCount();}
-function updateCharCount(){const len=document.getElementById('noteContentInput').value.length;document.getElementById('noteCharCount').textContent=len+' caractère'+(len!==1?'s':'');}
+function updateCharCount(){const len=document.getElementById('noteContentInput').value.length;document.getElementById('noteCharCount').textContent=len+' caractÃ¨re'+(len!==1?'s':'');}
 
 // BIBLIO
 let biblioTabMode='ressources';let biblioFilter='all';
-const biblio=[{type:"etude",titre:"L'Évangile de Jean",desc:"Étude verset par verset du quatrième évangile. 12 leçons.",lien:"#"},{type:"plan",titre:"Plan 30 jours – Psaumes",desc:"Lisez un psaume par jour pendant 30 jours avec commentaires.",lien:"#"},{type:"priere",titre:"Prières du matin",desc:"7 prières guidées pour commencer chaque jour avec Dieu.",lien:"#"},{type:"serie",titre:"Série : Foi et Persévérance",desc:"5 messages audio du Pasteur Emmanuel sur la foi en temps de crise.",lien:"#"},{type:"etude",titre:"Les Béatitudes",desc:"Étude profonde du Sermon sur la Montagne. 8 sessions.",lien:"#"},{type:"plan",titre:"Plan de lecture 1 an",desc:"Lire toute la Bible en 365 jours avec un plan quotidien structuré.",lien:"#"}];
+const biblio=[{type:"etude",titre:"L'Ã‰vangile de Jean",desc:"Ã‰tude verset par verset du quatriÃ¨me Ã©vangile. 12 leÃ§ons.",lien:"#"},{type:"plan",titre:"Plan 30 jours â€“ Psaumes",desc:"Lisez un psaume par jour pendant 30 jours avec commentaires.",lien:"#"},{type:"priere",titre:"PriÃ¨res du matin",desc:"7 priÃ¨res guidÃ©es pour commencer chaque jour avec Dieu.",lien:"#"},{type:"serie",titre:"SÃ©rie : Foi et PersÃ©vÃ©rance",desc:"5 messages audio du Pasteur Emmanuel sur la foi en temps de crise.",lien:"#"},{type:"etude",titre:"Les BÃ©atitudes",desc:"Ã‰tude profonde du Sermon sur la Montagne. 8 sessions.",lien:"#"},{type:"plan",titre:"Plan de lecture 1 an",desc:"Lire toute la Bible en 365 jours avec un plan quotidien structurÃ©.",lien:"#"}];
 function switchBiblioTab(tab,btn){biblioTabMode=tab;if(btn){document.querySelectorAll('.biblio-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}document.getElementById('panel-ressources').style.display='none';document.getElementById('panel-bible').style.display='none';document.getElementById('panel-notes').style.display='none';if(tab==='bible'){document.getElementById('panel-bible').style.display='block';document.getElementById('panel-bible').classList.add('active');renderBibleBooks();loadBibleChapter();}else if(tab==='notes'){document.getElementById('panel-notes').style.display='block';document.getElementById('panel-notes').classList.add('active');renderNotes();}else{document.getElementById('panel-ressources').style.display='block';if(tab!=='ressources')biblioFilter=tab;else biblioFilter='all';renderBiblio();}}
-function renderBiblio(){const grid=document.getElementById('biblioGrid');const filtered=biblioFilter==='all'?biblio:biblio.filter(b=>b.type===biblioFilter);const typeLabel={etude:'Étude biblique',plan:'Plan de lecture',priere:'Prières',serie:'Série audio'};grid.innerHTML=filtered.map(b=>`<div class="biblio-card"><div class="biblio-type">${typeLabel[b.type]}</div><div class="biblio-title">${b.titre}</div><div class="biblio-desc">${b.desc}</div><a href="${b.lien}" class="biblio-link">Accéder →</a></div>`).join('');}
+function renderBiblio(){const grid=document.getElementById('biblioGrid');const filtered=biblioFilter==='all'?biblio:biblio.filter(b=>b.type===biblioFilter);const typeLabel={etude:'Ã‰tude biblique',plan:'Plan de lecture',priere:'PriÃ¨res',serie:'SÃ©rie audio'};grid.innerHTML=filtered.map(b=>`<div class="biblio-card"><div class="biblio-type">${typeLabel[b.type]}</div><div class="biblio-title">${b.titre}</div><div class="biblio-desc">${b.desc}</div><a href="${b.lien}" class="biblio-link">AccÃ©der â†’</a></div>`).join('');}
 
 // PARCOURS
-const parcoursMonths=[{titre:"Les bases de la foi",themes:["Nouvelle naissance","Le salut","La foi","La repentance"]},{titre:"La prière",themes:["Comment prier","La persévérance","Le jeûne","L'intimité avec Dieu"]},{titre:"La Parole de Dieu",themes:["Lire la Bible","Méditer","Comprendre les Écritures","Appliquer la Parole"]},{titre:"Le Saint-Esprit",themes:["Qui est le Saint-Esprit","Les dons spirituels","Les fruits de l'Esprit","Être conduit par l'Esprit"]},{titre:"La vie chrétienne",themes:["Sanctification","Obéissance","Discipline spirituelle","La sagesse"]},{titre:"La communion fraternelle",themes:["L'église","Le pardon","L'amour","Le service"]},{titre:"L'évangélisation",themes:["Témoigner","Partager sa foi","Mission","Impacter le monde"]},{titre:"Le combat spirituel",themes:["Les tentations","Les attaques spirituelles","La victoire en Christ","L'armure de Dieu"]},{titre:"La foi et les miracles",themes:["Faire confiance à Dieu","Les promesses de Dieu","Persévérer","La puissance de la foi","Reconnaître les miracles"]},{titre:"Le leadership chrétien",themes:["Servir","Diriger avec humilité","Influence positive","Responsabilité","Former d'autres disciples"]},{titre:"La maturité spirituelle",themes:["Persévérance","Croissance","Sagesse","Fidélité","Porter du fruit"]},{titre:"Vivre sa mission",themes:["Appel de Dieu","Vision","Impact","Héritage spirituel","Envoyé dans le monde"]}];
-const keyVerses=["Jean 3 : 3","Éphésiens 2 : 8","Hébreux 11 : 6","Actes 3 : 19","Matthieu 6 : 9","Luc 18 : 1","Matthieu 6 : 17","Jacques 4 : 8","Josué 1 : 8","Psaume 1 : 2","Luc 24 : 45","Jacques 1 : 22","Jean 14 : 26","1 Corinthiens 12 : 4","Galates 5 : 22","Romains 8 : 14","1 Thessaloniciens 4 : 3","Jean 14 : 15","1 Timothée 4 : 8","Jacques 1 : 5","Hébreux 10 : 25","Colossiens 3 : 13","Jean 13 : 35","1 Pierre 4 : 10","Actes 1 : 8","1 Pierre 3 : 15","Matthieu 28 : 19","Matthieu 5 : 14","1 Corinthiens 10 : 13","Éphésiens 6 : 12","Romains 8 : 37","Éphésiens 6 : 11","Proverbes 3 : 5","2 Pierre 1 : 4","Hébreux 10 : 36","Marc 11 : 24","Psaume 77 : 15","Marc 10 : 45","Philippiens 2 : 3","Matthieu 5 : 16","Luc 12 : 48","2 Timothée 2 : 2","Jacques 1 : 12","2 Pierre 3 : 18","Proverbes 4 : 7","Apocalypse 2 : 10","Jean 15 : 5","Jérémie 1 : 5","Habacuc 2 : 2","Matthieu 5 : 16","Psaume 78 : 4","Jean 20 : 21"];
+const parcoursMonths=[{titre:"Les bases de la foi",themes:["Nouvelle naissance","Le salut","La foi","La repentance"]},{titre:"La priÃ¨re",themes:["Comment prier","La persÃ©vÃ©rance","Le jeÃ»ne","L'intimitÃ© avec Dieu"]},{titre:"La Parole de Dieu",themes:["Lire la Bible","MÃ©diter","Comprendre les Ã‰critures","Appliquer la Parole"]},{titre:"Le Saint-Esprit",themes:["Qui est le Saint-Esprit","Les dons spirituels","Les fruits de l'Esprit","ÃŠtre conduit par l'Esprit"]},{titre:"La vie chrÃ©tienne",themes:["Sanctification","ObÃ©issance","Discipline spirituelle","La sagesse"]},{titre:"La communion fraternelle",themes:["L'Ã©glise","Le pardon","L'amour","Le service"]},{titre:"L'Ã©vangÃ©lisation",themes:["TÃ©moigner","Partager sa foi","Mission","Impacter le monde"]},{titre:"Le combat spirituel",themes:["Les tentations","Les attaques spirituelles","La victoire en Christ","L'armure de Dieu"]},{titre:"La foi et les miracles",themes:["Faire confiance Ã  Dieu","Les promesses de Dieu","PersÃ©vÃ©rer","La puissance de la foi","ReconnaÃ®tre les miracles"]},{titre:"Le leadership chrÃ©tien",themes:["Servir","Diriger avec humilitÃ©","Influence positive","ResponsabilitÃ©","Former d'autres disciples"]},{titre:"La maturitÃ© spirituelle",themes:["PersÃ©vÃ©rance","Croissance","Sagesse","FidÃ©litÃ©","Porter du fruit"]},{titre:"Vivre sa mission",themes:["Appel de Dieu","Vision","Impact","HÃ©ritage spirituel","EnvoyÃ© dans le monde"]}];
+const keyVerses=["Jean 3 : 3","Ã‰phÃ©siens 2 : 8","HÃ©breux 11 : 6","Actes 3 : 19","Matthieu 6 : 9","Luc 18 : 1","Matthieu 6 : 17","Jacques 4 : 8","JosuÃ© 1 : 8","Psaume 1 : 2","Luc 24 : 45","Jacques 1 : 22","Jean 14 : 26","1 Corinthiens 12 : 4","Galates 5 : 22","Romains 8 : 14","1 Thessaloniciens 4 : 3","Jean 14 : 15","1 TimothÃ©e 4 : 8","Jacques 1 : 5","HÃ©breux 10 : 25","Colossiens 3 : 13","Jean 13 : 35","1 Pierre 4 : 10","Actes 1 : 8","1 Pierre 3 : 15","Matthieu 28 : 19","Matthieu 5 : 14","1 Corinthiens 10 : 13","Ã‰phÃ©siens 6 : 12","Romains 8 : 37","Ã‰phÃ©siens 6 : 11","Proverbes 3 : 5","2 Pierre 1 : 4","HÃ©breux 10 : 36","Marc 11 : 24","Psaume 77 : 15","Marc 10 : 45","Philippiens 2 : 3","Matthieu 5 : 16","Luc 12 : 48","2 TimothÃ©e 2 : 2","Jacques 1 : 12","2 Pierre 3 : 18","Proverbes 4 : 7","Apocalypse 2 : 10","Jean 15 : 5","JÃ©rÃ©mie 1 : 5","Habacuc 2 : 2","Matthieu 5 : 16","Psaume 78 : 4","Jean 20 : 21"];
 const weekPrayers=Array.from({length:52},(_,i)=>`Seigneur, guide-moi dans ma semaine ${i+1} avec sagesse et foi. Amen.`);
 function seededIndex(seed,length){return Math.floor(Math.abs(Math.sin(seed*999)*10000))%length;}
 function shuffleQuizOptions(options,correctText,seed){const shuffled=[...options];for(let i=shuffled.length-1;i>0;i--){const j=seededIndex(seed+i,i+1);[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];}return{options:shuffled,answer:shuffled.indexOf(correctText)};}
-const parcours=parcoursMonths.flatMap((month,monthIndex)=>month.themes.map((theme,themeIndex)=>{const week=parcoursMonths.slice(0,monthIndex).reduce((sum,m)=>sum+m.themes.length,0)+themeIndex+1;return{id:`week-${week}`,week,month:monthIndex+1,monthTitle:month.titre,titre:theme,enseignement:`Semaine ${week} — "${theme}" : Prenez un temps calme, observez ce que Dieu forme dans votre caractère et choisissez une action concrète.`,verset:keyVerses[week-1],defi:`Vivez une action simple liée à "${theme}" et notez ce que vous avez appris.`,priere:weekPrayers[week-1]};}));
+const parcours=parcoursMonths.flatMap((month,monthIndex)=>month.themes.map((theme,themeIndex)=>{const week=parcoursMonths.slice(0,monthIndex).reduce((sum,m)=>sum+m.themes.length,0)+themeIndex+1;return{id:`week-${week}`,week,month:monthIndex+1,monthTitle:month.titre,titre:theme,enseignement:`Semaine ${week} â€” "${theme}" : Prenez un temps calme, observez ce que Dieu forme dans votre caractÃ¨re et choisissez une action concrÃ¨te.`,verset:keyVerses[week-1],defi:`Vivez une action simple liÃ©e Ã  "${theme}" et notez ce que vous avez appris.`,priere:weekPrayers[week-1]};}));
 let parcoursState=JSON.parse(localStorage.getItem('parcoursState')||'{}');
 let activeParcoursMonth=Number(localStorage.getItem('activeParcoursMonth')||'1');
 let activeParcoursWeek=Number(localStorage.getItem('activeParcoursWeek')||'1');
@@ -1795,68 +2446,68 @@ function isWeekUnlocked(item){if(item.week===1)return true;const prev=parcours.f
 function isMonthUnlocked(month){return parcours.filter(p=>p.month<month).every(isWeekCompleted);}
 function isPrayerSubmitted(item){return!!parcoursState.prayers?.[item.id];}
 function getLastAccessibleWeek(){return parcours.reduce((last,item)=>isWeekUnlocked(item)?item.week:last,1);}
-function renderParcours(){const grid=document.getElementById('parcoursGrid'),monthTabs=document.getElementById('monthTabs');if(!isWeekUnlocked(parcours.find(p=>p.week===activeParcoursWeek)||parcours[0])){activeParcoursWeek=getLastAccessibleWeek();activeParcoursMonth=parcours.find(p=>p.week===activeParcoursWeek)?.month||1;}const filtered=parcours.filter(p=>p.month===activeParcoursMonth);monthTabs.innerHTML=parcoursMonths.map((m,i)=>{const mn=i+1;const mw=parcours.filter(p=>p.month===mn);const done=mw.filter(p=>parcoursState.completed?.[p.id]).length;const locked=!isMonthUnlocked(mn);return `<button class="month-tab ${mn===activeParcoursMonth?'active':''} ${locked?'locked':''}" onclick="setParcoursMonth(${mn})">${locked?'🔒':'✓'} Mois ${mn} · ${done}/${mw.length}</button>`;}).join('');grid.innerHTML=filtered.map((p,i)=>{const done=isWeekCompleted(p);const locked=!isWeekUnlocked(p);return `<div class="parcours-card ${done?'done':''} ${locked?'locked':''} ${p.week===activeParcoursWeek?'active':''}" onclick="selectParcoursWeek(${p.week})" style="animation-delay:${i*0.04}s"><div class="parcours-week">Semaine ${p.week}</div><div class="parcours-title">${escapeHtml(p.titre)}</div><div class="parcours-desc">${locked?'Terminez la semaine précédente pour déverrouiller.':escapeHtml(p.enseignement.slice(0,100))+'...'}</div><div class="parcours-check ${done?'done':''}">${done?'✓':(locked?'🔒':'')}</div></div>`;}).join('');renderParcoursDetail();renderBadges();updateProgress();}
-function renderParcoursDetail(){const detail=document.getElementById('parcoursDetail');const week=parcours.find(p=>p.week===activeParcoursWeek)||parcours[0];const locked=!isWeekUnlocked(week);const done=isWeekCompleted(week);const prayerSubmitted=isPrayerSubmitted(week);detail.innerHTML=`<span class="detail-pill">Semaine ${week.week} · ${escapeHtml(week.monthTitle)}</span><h3>${escapeHtml(week.titre)}</h3>${locked?`<p class="locked-note">🔒 Terminez la semaine précédente.</p>`:''}<div class="parcours-features-grid"><div class="feature-card"><div class="feature-icon">📖</div><div class="feature-content"><h4>Enseignement</h4><p>${escapeHtml(week.enseignement)}</p></div></div><div class="feature-card"><div class="feature-icon">📜</div><div class="feature-content"><h4>Verset clé</h4><p>${escapeHtml(week.verset)}</p></div></div><div class="feature-card"><div class="feature-icon">🎯</div><div class="feature-content"><h4>Défi pratique</h4><p>${escapeHtml(week.defi)}</p></div></div><div class="feature-card"><div class="feature-icon">🙏</div><div class="feature-content"><h4>Prière</h4><p>${escapeHtml(week.priere)}</p></div></div></div><div class="detail-block"><strong>Partage de prière</strong>${prayerSubmitted?`<div class="prayer-submitted">✓ Prière partagée pour cette semaine</div>`:`<textarea id="weekPrayerText" placeholder="Écrivez votre prière..." ${locked?'disabled':''}></textarea><button class="btn-primary" style="margin-top:1rem" onclick="submitWeekPrayer(${week.week})" ${locked?'disabled':''}>Partager ma prière ✦</button>`}</div><button class="complete-week-btn ${done?'done':''}" onclick="toggleParcours(${week.week})" ${locked?'disabled':''}>${done?'Semaine validée ✓':'Valider cette semaine'}</button>`;}
+function renderParcours(){const grid=document.getElementById('parcoursGrid'),monthTabs=document.getElementById('monthTabs');if(!isWeekUnlocked(parcours.find(p=>p.week===activeParcoursWeek)||parcours[0])){activeParcoursWeek=getLastAccessibleWeek();activeParcoursMonth=parcours.find(p=>p.week===activeParcoursWeek)?.month||1;}const filtered=parcours.filter(p=>p.month===activeParcoursMonth);monthTabs.innerHTML=parcoursMonths.map((m,i)=>{const mn=i+1;const mw=parcours.filter(p=>p.month===mn);const done=mw.filter(p=>parcoursState.completed?.[p.id]).length;const locked=!isMonthUnlocked(mn);return `<button class="month-tab ${mn===activeParcoursMonth?'active':''} ${locked?'locked':''}" onclick="setParcoursMonth(${mn})">${locked?'ðŸ”’':'âœ“'} Mois ${mn} Â· ${done}/${mw.length}</button>`;}).join('');grid.innerHTML=filtered.map((p,i)=>{const done=isWeekCompleted(p);const locked=!isWeekUnlocked(p);return `<div class="parcours-card ${done?'done':''} ${locked?'locked':''} ${p.week===activeParcoursWeek?'active':''}" onclick="selectParcoursWeek(${p.week})" style="animation-delay:${i*0.04}s"><div class="parcours-week">Semaine ${p.week}</div><div class="parcours-title">${escapeHtml(p.titre)}</div><div class="parcours-desc">${locked?'Terminez la semaine prÃ©cÃ©dente pour dÃ©verrouiller.':escapeHtml(p.enseignement.slice(0,100))+'...'}</div><div class="parcours-check ${done?'done':''}">${done?'âœ“':(locked?'ðŸ”’':'')}</div></div>`;}).join('');renderParcoursDetail();renderBadges();updateProgress();}
+function renderParcoursDetail(){const detail=document.getElementById('parcoursDetail');const week=parcours.find(p=>p.week===activeParcoursWeek)||parcours[0];const locked=!isWeekUnlocked(week);const done=isWeekCompleted(week);const prayerSubmitted=isPrayerSubmitted(week);detail.innerHTML=`<span class="detail-pill">Semaine ${week.week} Â· ${escapeHtml(week.monthTitle)}</span><h3>${escapeHtml(week.titre)}</h3>${locked?`<p class="locked-note">ðŸ”’ Terminez la semaine prÃ©cÃ©dente.</p>`:''}<div class="parcours-features-grid"><div class="feature-card"><div class="feature-icon">ðŸ“–</div><div class="feature-content"><h4>Enseignement</h4><p>${escapeHtml(week.enseignement)}</p></div></div><div class="feature-card"><div class="feature-icon">ðŸ“œ</div><div class="feature-content"><h4>Verset clÃ©</h4><p>${escapeHtml(week.verset)}</p></div></div><div class="feature-card"><div class="feature-icon">ðŸŽ¯</div><div class="feature-content"><h4>DÃ©fi pratique</h4><p>${escapeHtml(week.defi)}</p></div></div><div class="feature-card"><div class="feature-icon">ðŸ™</div><div class="feature-content"><h4>PriÃ¨re</h4><p>${escapeHtml(week.priere)}</p></div></div></div><div class="detail-block"><strong>Partage de priÃ¨re</strong>${prayerSubmitted?`<div class="prayer-submitted">âœ“ PriÃ¨re partagÃ©e pour cette semaine</div>`:`<textarea id="weekPrayerText" placeholder="Ã‰crivez votre priÃ¨re..." ${locked?'disabled':''}></textarea><button class="btn-primary" style="margin-top:1rem" onclick="submitWeekPrayer(${week.week})" ${locked?'disabled':''}>Partager ma priÃ¨re âœ¦</button>`}</div><button class="complete-week-btn ${done?'done':''}" onclick="toggleParcours(${week.week})" ${locked?'disabled':''}>${done?'Semaine validÃ©e âœ“':'Valider cette semaine'}</button>`;}
 function setParcoursMonth(month){if(!isMonthUnlocked(month)){showToast('Terminez le mois actuel d\'abord.');return;}activeParcoursMonth=month;const fw=parcours.find(p=>p.month===month);activeParcoursWeek=fw?fw.week:activeParcoursWeek;localStorage.setItem('activeParcoursMonth',String(activeParcoursMonth));localStorage.setItem('activeParcoursWeek',String(activeParcoursWeek));renderParcours();}
-function selectParcoursWeek(week){const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item)){showToast('Terminez la semaine précédente.');return;}activeParcoursWeek=week;activeParcoursMonth=item.month;localStorage.setItem('activeParcoursWeek',String(activeParcoursWeek));localStorage.setItem('activeParcoursMonth',String(activeParcoursMonth));renderParcours();}
-function submitWeekPrayer(week){const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item))return;const txt=document.getElementById('weekPrayerText')?.value.trim();if(!txt){showToast('Veuillez écrire votre prière.');return;}parcoursState.prayers=parcoursState.prayers||{};parcoursState.prayers[item.id]={text:txt,submittedAt:new Date().toISOString()};localStorage.setItem('parcoursState',JSON.stringify(parcoursState));renderParcours();showToast('Prière enregistrée.');}
-function toggleParcours(week){const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item))return;if(!parcoursState.completed?.[item.id]&&!isPrayerSubmitted(item)){showToast('Partagez votre prière pour valider.');return;}parcoursState.completed=parcoursState.completed||{};parcoursState.completed[item.id]=!parcoursState.completed[item.id];localStorage.setItem('parcoursState',JSON.stringify(parcoursState));renderParcours();showToast(parcoursState.completed[item.id]?'Semaine validée !':'Validation retirée.');}
-function renderBadges(){const completed=Object.values(parcoursState.completed||{}).filter(Boolean).length;const badges=[{label:'Premier pas',min:1},{label:'Disciple régulier',min:4},{label:'Chercheur de Dieu',min:13},{label:'Serviteur fidèle',min:26},{label:'Persévérant',min:39},{label:'Mission accomplie',min:52}];const unlocked=badges.filter(b=>completed>=b.min).length;document.getElementById('badgeRow').innerHTML=badges.map(b=>`<span class="spiritual-badge ${completed>=b.min?'unlocked':''}">${completed>=b.min?'✓':'○'} ${b.label}</span>`).join('');document.getElementById('badgeStat').textContent=unlocked;}
-function updateProgress(){const done=Object.values(parcoursState.completed||{}).filter(Boolean).length;const prayers=parcours.filter(isPrayerSubmitted).length;const pct=Math.round((done/parcours.length)*100);document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressLabel').textContent=`${done} / ${parcours.length} semaines validées`;document.getElementById('progressPct').textContent=pct+'%';document.getElementById('activeMonthLabel').textContent=`Mois ${activeParcoursMonth}`;document.getElementById('quizStat').textContent=prayers;document.getElementById('certificateBtn').disabled=done<parcours.length;}
+function selectParcoursWeek(week){const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item)){showToast('Terminez la semaine prÃ©cÃ©dente.');return;}activeParcoursWeek=week;activeParcoursMonth=item.month;localStorage.setItem('activeParcoursWeek',String(activeParcoursWeek));localStorage.setItem('activeParcoursMonth',String(activeParcoursMonth));renderParcours();}
+function submitWeekPrayer(week){const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item))return;const txt=document.getElementById('weekPrayerText')?.value.trim();if(!txt){showToast('Veuillez Ã©crire votre priÃ¨re.');return;}parcoursState.prayers=parcoursState.prayers||{};parcoursState.prayers[item.id]={text:txt,submittedAt:new Date().toISOString()};localStorage.setItem('parcoursState',JSON.stringify(parcoursState));renderParcours();showToast('PriÃ¨re enregistrÃ©e.');}
+function toggleParcours(week){const item=parcours.find(p=>p.week===week);if(!item||!isWeekUnlocked(item))return;if(!parcoursState.completed?.[item.id]&&!isPrayerSubmitted(item)){showToast('Partagez votre priÃ¨re pour valider.');return;}parcoursState.completed=parcoursState.completed||{};parcoursState.completed[item.id]=!parcoursState.completed[item.id];localStorage.setItem('parcoursState',JSON.stringify(parcoursState));renderParcours();showToast(parcoursState.completed[item.id]?'Semaine validÃ©e !':'Validation retirÃ©e.');}
+function renderBadges(){const completed=Object.values(parcoursState.completed||{}).filter(Boolean).length;const badges=[{label:'Premier pas',min:1},{label:'Disciple rÃ©gulier',min:4},{label:'Chercheur de Dieu',min:13},{label:'Serviteur fidÃ¨le',min:26},{label:'PersÃ©vÃ©rant',min:39},{label:'Mission accomplie',min:52}];const unlocked=badges.filter(b=>completed>=b.min).length;document.getElementById('badgeRow').innerHTML=badges.map(b=>`<span class="spiritual-badge ${completed>=b.min?'unlocked':''}">${completed>=b.min?'âœ“':'â—‹'} ${b.label}</span>`).join('');document.getElementById('badgeStat').textContent=unlocked;}
+function updateProgress(){const done=Object.values(parcoursState.completed||{}).filter(Boolean).length;const prayers=parcours.filter(isPrayerSubmitted).length;const pct=Math.round((done/parcours.length)*100);document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressLabel').textContent=`${done} / ${parcours.length} semaines validÃ©es`;document.getElementById('progressPct').textContent=pct+'%';document.getElementById('activeMonthLabel').textContent=`Mois ${activeParcoursMonth}`;document.getElementById('quizStat').textContent=prayers;document.getElementById('certificateBtn').disabled=done<parcours.length;}
 function toggleParcoursDarkMode(){const section=document.getElementById('parcours');section.classList.toggle('dark-mode');const dark=section.classList.contains('dark-mode');localStorage.setItem('parcoursDarkMode',dark?'1':'0');document.getElementById('parcoursDarkBtn').textContent=dark?'Mode clair':'Mode sombre';}
 function applyParcoursPreferences(){const dark=localStorage.getItem('parcoursDarkMode')==='1';document.getElementById('parcours').classList.toggle('dark-mode',dark);document.getElementById('parcoursDarkBtn').textContent=dark?'Mode clair':'Mode sombre';}
-function toggleCertificate(){const done=Object.values(parcoursState.completed||{}).filter(Boolean).length;if(done<parcours.length){showToast('Le certificat sera disponible après les 52 semaines.');return;}document.getElementById('certificateCard').classList.toggle('open');}
+function toggleCertificate(){const done=Object.values(parcoursState.completed||{}).filter(Boolean).length;if(done<parcours.length){showToast('Le certificat sera disponible aprÃ¨s les 52 semaines.');return;}document.getElementById('certificateCard').classList.toggle('open');}
 
 // EVENTS
 function escapeHtml(v){return String(v||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
 function formatEventDate(e){if(e.dateLabel)return e.dateLabel;if(!e.date)return'';const d=new Date(e.date+'T00:00:00');return d.toLocaleDateString('fr-FR',{day:'2-digit',month:'short',year:'numeric'});}
 function persistUserEvents(){localStorage.setItem('userEvents',JSON.stringify(events.filter(e=>e.owned)));}
-function renderEvents(){const grid=document.getElementById('eventGrid');const filtered=eventFilter==='all'?events:events.filter(e=>e.cat===eventFilter);grid.innerHTML=filtered.map((e,i)=>`<div class="event-card" style="animation-delay:${i*0.04}s"><div class="event-poster">${e.poster?`<img src="${e.poster}" alt="">`:`<span class="event-poster-placeholder">Affiche de l'événement</span>`}</div><div class="event-header"><span class="event-date-badge">${formatEventDate(e)}</span><span class="event-category ${e.cat}">${categoryLabels[e.cat]||e.cat}</span></div><div class="event-body"><div class="event-title">${escapeHtml(e.title)}</div><div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${formatEventDate(e)}</div><div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${escapeHtml(e.time||'')}</div><div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${escapeHtml(e.lieu)}</div><div style="font-size:0.82rem;color:var(--text-muted);margin-top:6px">${escapeHtml(e.desc)}</div><div class="event-organizer">${escapeHtml(e.organizer||'')}</div><div class="event-count">👥 ${e.participants||0} participant(s)</div></div><div class="event-footer"><button class="event-btn" onclick="participateEvent('${e.id}')">Participer</button><button class="event-btn" onclick="setReminder('${e.id}')">Rappel</button>${e.owned?`<button class="event-btn" onclick="editEvent('${e.id}')">Modifier</button><button class="event-btn danger" onclick="deleteEvent('${e.id}')">Supprimer</button>`:''}</div></div>`).join('');if(!filtered.length)grid.innerHTML='<div class="event-card" style="padding:1.5rem">Aucun programme dans cette catégorie.</div>';renderCalendar();}
-function renderCalendar(){const cg=document.getElementById('calendarGrid');if(!cg)return;const filtered=eventFilter==='all'?events:events.filter(e=>e.cat===eventFilter);const groups=filtered.reduce((acc,e)=>{const k=e.date||e.dateLabel||'Sans date';acc[k]=acc[k]||[];acc[k].push(e);return acc;},{});cg.innerHTML=Object.keys(groups).sort().map(date=>`<div class="calendar-day"><div class="calendar-date">${formatEventDate(groups[date][0])}</div>${groups[date].map(e=>`<div class="calendar-event"><strong>${escapeHtml(e.title)}</strong>${escapeHtml(e.time||'')} · ${escapeHtml(e.lieu)}</div>`).join('')}</div>`).join('');if(!filtered.length)cg.innerHTML='<div class="calendar-day">Aucun programme.</div>';}
+function renderEvents(){const grid=document.getElementById('eventGrid');const filtered=eventFilter==='all'?events:events.filter(e=>e.cat===eventFilter);grid.innerHTML=filtered.map((e,i)=>`<div class="event-card" style="animation-delay:${i*0.04}s"><div class="event-poster">${e.poster?`<img src="${e.poster}" alt="">`:`<span class="event-poster-placeholder">Affiche de l'Ã©vÃ©nement</span>`}</div><div class="event-header"><span class="event-date-badge">${formatEventDate(e)}</span><span class="event-category ${e.cat}">${categoryLabels[e.cat]||e.cat}</span></div><div class="event-body"><div class="event-title">${escapeHtml(e.title)}</div><div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>${formatEventDate(e)}</div><div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>${escapeHtml(e.time||'')}</div><div class="event-meta"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>${escapeHtml(e.lieu)}</div><div style="font-size:0.82rem;color:var(--text-muted);margin-top:6px">${escapeHtml(e.desc)}</div><div class="event-organizer">${escapeHtml(e.organizer||'')}</div><div class="event-count">ðŸ‘¥ ${e.participants||0} participant(s)</div></div><div class="event-footer"><button class="event-btn" onclick="participateEvent('${e.id}')">Participer</button><button class="event-btn" onclick="setReminder('${e.id}')">Rappel</button>${e.owned?`<button class="event-btn" onclick="editEvent('${e.id}')">Modifier</button><button class="event-btn danger" onclick="deleteEvent('${e.id}')">Supprimer</button>`:''}</div></div>`).join('');if(!filtered.length)grid.innerHTML='<div class="event-card" style="padding:1.5rem">Aucun programme dans cette catÃ©gorie.</div>';renderCalendar();}
+function renderCalendar(){const cg=document.getElementById('calendarGrid');if(!cg)return;const filtered=eventFilter==='all'?events:events.filter(e=>e.cat===eventFilter);const groups=filtered.reduce((acc,e)=>{const k=e.date||e.dateLabel||'Sans date';acc[k]=acc[k]||[];acc[k].push(e);return acc;},{});cg.innerHTML=Object.keys(groups).sort().map(date=>`<div class="calendar-day"><div class="calendar-date">${formatEventDate(groups[date][0])}</div>${groups[date].map(e=>`<div class="calendar-event"><strong>${escapeHtml(e.title)}</strong>${escapeHtml(e.time||'')} Â· ${escapeHtml(e.lieu)}</div>`).join('')}</div>`).join('');if(!filtered.length)cg.innerHTML='<div class="calendar-day">Aucun programme.</div>';}
 function setAgendaView(view){agendaView=view;document.getElementById('eventGrid').style.display=view==='cards'?'grid':'none';document.getElementById('calendarView').classList.toggle('open',view==='calendar');document.getElementById('cardsViewBtn').classList.toggle('active',view==='cards');document.getElementById('calendarViewBtn').classList.toggle('active',view==='calendar');renderCalendar();}
 function filterEvents(cat,btn){eventFilter=cat;document.querySelectorAll('#agenda .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderEvents();}
-function openProgramForm(id=null){document.getElementById('programForm').reset();posterDraft='';document.getElementById('eventEditId').value='';document.getElementById('posterPreview').innerHTML="Prévisualisation de l'affiche";document.getElementById('programFormTitle').textContent='Ajouter ton programme';document.querySelector('.program-save').textContent='Publier le programme';if(id){const e=events.find(ev=>ev.id===id&&ev.owned);if(!e)return;document.getElementById('programFormTitle').textContent='Modifier';document.querySelector('.program-save').textContent='Enregistrer';document.getElementById('eventEditId').value=e.id;document.getElementById('eventTitle').value=e.title;document.getElementById('eventDesc').value=e.desc;document.getElementById('eventDate').value=e.date||'';document.getElementById('eventTime').value=e.time||'';document.getElementById('eventPlace').value=e.lieu;document.getElementById('eventOrganizer').value=e.organizer||'';document.getElementById('eventCategory').value=e.cat;posterDraft=e.poster||'';if(posterDraft)document.getElementById('posterPreview').innerHTML=`<img src="${posterDraft}" alt="">`;}document.getElementById('programModal').classList.add('open');}
+function openProgramForm(id=null){document.getElementById('programForm').reset();posterDraft='';document.getElementById('eventEditId').value='';document.getElementById('posterPreview').innerHTML="PrÃ©visualisation de l'affiche";document.getElementById('programFormTitle').textContent='Ajouter ton programme';document.querySelector('.program-save').textContent='Publier le programme';if(id){const e=events.find(ev=>ev.id===id&&ev.owned);if(!e)return;document.getElementById('programFormTitle').textContent='Modifier';document.querySelector('.program-save').textContent='Enregistrer';document.getElementById('eventEditId').value=e.id;document.getElementById('eventTitle').value=e.title;document.getElementById('eventDesc').value=e.desc;document.getElementById('eventDate').value=e.date||'';document.getElementById('eventTime').value=e.time||'';document.getElementById('eventPlace').value=e.lieu;document.getElementById('eventOrganizer').value=e.organizer||'';document.getElementById('eventCategory').value=e.cat;posterDraft=e.poster||'';if(posterDraft)document.getElementById('posterPreview').innerHTML=`<img src="${posterDraft}" alt="">`;}document.getElementById('programModal').classList.add('open');}
 function closeProgramForm(){document.getElementById('programModal').classList.remove('open');}
-function saveProgram(e){e.preventDefault();const editId=document.getElementById('eventEditId').value;const payload={id:editId||'user-'+Date.now(),title:document.getElementById('eventTitle').value.trim(),desc:document.getElementById('eventDesc').value.trim(),date:document.getElementById('eventDate').value,time:document.getElementById('eventTime').value,lieu:document.getElementById('eventPlace').value.trim(),organizer:document.getElementById('eventOrganizer').value.trim(),cat:document.getElementById('eventCategory').value,poster:posterDraft,participants:editId?(events.find(ev=>ev.id===editId)?.participants||0):0,owned:true};if(editId)events=events.map(ev=>ev.id===editId?payload:ev);else events.unshift(payload);persistUserEvents();closeProgramForm();renderEvents();showToast(editId?'Programme modifié.':'Programme ajouté !');}
+function saveProgram(e){e.preventDefault();const editId=document.getElementById('eventEditId').value;const payload={id:editId||'user-'+Date.now(),title:document.getElementById('eventTitle').value.trim(),desc:document.getElementById('eventDesc').value.trim(),date:document.getElementById('eventDate').value,time:document.getElementById('eventTime').value,lieu:document.getElementById('eventPlace').value.trim(),organizer:document.getElementById('eventOrganizer').value.trim(),cat:document.getElementById('eventCategory').value,poster:posterDraft,participants:editId?(events.find(ev=>ev.id===editId)?.participants||0):0,owned:true};if(editId)events=events.map(ev=>ev.id===editId?payload:ev);else events.unshift(payload);persistUserEvents();closeProgramForm();renderEvents();showToast(editId?'Programme modifiÃ©.':'Programme ajoutÃ© !');}
 function editEvent(id){openProgramForm(id);}
-function deleteEvent(id){const e=events.find(ev=>ev.id===id);if(!e||!e.owned)return;if(!confirm('Supprimer ce programme ?'))return;events=events.filter(ev=>ev.id!==id);persistUserEvents();renderEvents();showToast('Programme supprimé.');}
-function participateEvent(id){const e=events.find(ev=>ev.id===id);if(!e)return;currentEventId=id;openModal(e.title,`${formatEventDate(e)} à ${e.time||''} — ${e.lieu}`);}
-function setReminder(id){const e=events.find(ev=>ev.id===id);if(!e)return;showToast(`Rappel activé pour ${e.title}.`);}
+function deleteEvent(id){const e=events.find(ev=>ev.id===id);if(!e||!e.owned)return;if(!confirm('Supprimer ce programme ?'))return;events=events.filter(ev=>ev.id!==id);persistUserEvents();renderEvents();showToast('Programme supprimÃ©.');}
+function participateEvent(id){const e=events.find(ev=>ev.id===id);if(!e)return;currentEventId=id;openModal(e.title,`${formatEventDate(e)} Ã  ${e.time||''} â€” ${e.lieu}`);}
+function setReminder(id){const e=events.find(ev=>ev.id===id);if(!e)return;showToast(`Rappel activÃ© pour ${e.title}.`);}
 
 // PRAYERS
 function persistPrayerWall(){localStorage.setItem('prieresWall',JSON.stringify(prieres));localStorage.setItem('priereActions',JSON.stringify(priereActions));}
-function formatPrayerTime(v){if(!v)return"Maintenant";const diff=Math.max(0,Date.now()-new Date(v).getTime());const min=Math.floor(diff/60000);if(min<1)return"À l'instant";if(min<60)return`Il y a ${min} min`;const h=Math.floor(min/60);if(h<24)return`Il y a ${h} h`;return new Date(v).toLocaleDateString('fr-FR',{day:'2-digit',month:'short'});}
-function renderPrieres(){const total=prieres.reduce((s,p)=>s+(p.count||0),0);document.getElementById('priereLiveCount').textContent=`${total} prières en direct`;document.getElementById('priereList').innerHTML=prieres.map((p,i)=>{const actions=priereActions[p.id]||{};const reactions=p.reactions||{amen:0,paix:0};const comments=p.comments||[];const canDelete=p.ownerId===prayerAuthorId;return `<div class="priere-item" id="priereItem-${p.id}" style="animation-delay:${i*0.04}s"><div class="priere-item-top"><div class="priere-item-name">${escapeHtml(p.nom)}</div><div class="priere-time">${formatPrayerTime(p.createdAt)}</div></div><div class="priere-item-text">${escapeHtml(p.texte)}</div><div class="priere-item-footer"><span class="priere-count">${p.count||0} personne(s) prient</span><div class="priere-actions"><button class="priere-action-btn ${actions.prayed?'prayed':''}" onclick="prier(${i})" ${actions.prayed?'disabled':''}>🙏 ${actions.prayed?'Déjà prié':'Je prie'}</button><button class="priere-action-btn ${actions.amen?'active':''}" onclick="reactPrayer(${i},'amen')">❤️ Amen <span>${reactions.amen||0}</span></button><button class="priere-action-btn ${actions.paix?'active':''}" onclick="reactPrayer(${i},'paix')">🕊️ Paix <span>${reactions.paix||0}</span></button>${canDelete?`<button class="priere-action-btn delete" onclick="deletePrayer('${p.id}')">🗑️</button>`:''}</div></div><div class="priere-comments">${comments.map(c=>`<div class="priere-comment"><strong>${escapeHtml(c.nom||'Anonyme')}</strong> ${escapeHtml(c.texte)}</div>`).join('')}<div class="priere-comment-form"><input type="text" id="comment-${p.id}" placeholder="Ajouter un commentaire..."><button onclick="addPrayerComment(${i})">Envoyer</button></div></div></div>`;}).join('');}
-function prier(i){const p=prieres[i];const actions=priereActions[p.id]=priereActions[p.id]||{};if(actions.prayed){showToast('Vous avez déjà prié.');return;}p.count=(p.count||0)+1;actions.prayed=true;persistPrayerWall();renderPrieres();showToast('Votre prière ajoutée.');}
+function formatPrayerTime(v){if(!v)return"Maintenant";const diff=Math.max(0,Date.now()-new Date(v).getTime());const min=Math.floor(diff/60000);if(min<1)return"Ã€ l'instant";if(min<60)return`Il y a ${min} min`;const h=Math.floor(min/60);if(h<24)return`Il y a ${h} h`;return new Date(v).toLocaleDateString('fr-FR',{day:'2-digit',month:'short'});}
+function renderPrieres(){const total=prieres.reduce((s,p)=>s+(p.count||0),0);document.getElementById('priereLiveCount').textContent=`${total} priÃ¨res en direct`;document.getElementById('priereList').innerHTML=prieres.map((p,i)=>{const actions=priereActions[p.id]||{};const reactions=p.reactions||{amen:0,paix:0};const comments=p.comments||[];const canDelete=p.ownerId===prayerAuthorId;return `<div class="priere-item" id="priereItem-${p.id}" style="animation-delay:${i*0.04}s"><div class="priere-item-top"><div class="priere-item-name">${escapeHtml(p.nom)}</div><div class="priere-time">${formatPrayerTime(p.createdAt)}</div></div><div class="priere-item-text">${escapeHtml(p.texte)}</div><div class="priere-item-footer"><span class="priere-count">${p.count||0} personne(s) prient</span><div class="priere-actions"><button class="priere-action-btn ${actions.prayed?'prayed':''}" onclick="prier(${i})" ${actions.prayed?'disabled':''}>ðŸ™ ${actions.prayed?'DÃ©jÃ  priÃ©':'Je prie'}</button><button class="priere-action-btn ${actions.amen?'active':''}" onclick="reactPrayer(${i},'amen')">â¤ï¸ Amen <span>${reactions.amen||0}</span></button><button class="priere-action-btn ${actions.paix?'active':''}" onclick="reactPrayer(${i},'paix')">ðŸ•Šï¸ Paix <span>${reactions.paix||0}</span></button>${canDelete?`<button class="priere-action-btn delete" onclick="deletePrayer('${p.id}')">ðŸ—‘ï¸</button>`:''}</div></div><div class="priere-comments">${comments.map(c=>`<div class="priere-comment"><strong>${escapeHtml(c.nom||'Anonyme')}</strong> ${escapeHtml(c.texte)}</div>`).join('')}<div class="priere-comment-form"><input type="text" id="comment-${p.id}" placeholder="Ajouter un commentaire..."><button onclick="addPrayerComment(${i})">Envoyer</button></div></div></div>`;}).join('');}
+function prier(i){const p=prieres[i];const actions=priereActions[p.id]=priereActions[p.id]||{};if(actions.prayed){showToast('Vous avez dÃ©jÃ  priÃ©.');return;}p.count=(p.count||0)+1;actions.prayed=true;persistPrayerWall();renderPrieres();showToast('Votre priÃ¨re ajoutÃ©e.');}
 function reactPrayer(i,type){const p=prieres[i];const actions=priereActions[p.id]=priereActions[p.id]||{};if(actions[type])return;p.reactions=p.reactions||{amen:0,paix:0};p.reactions[type]=(p.reactions[type]||0)+1;actions[type]=true;persistPrayerWall();renderPrieres();}
-function addPrayerComment(i){const p=prieres[i];const inp=document.getElementById(`comment-${p.id}`);const txt=inp.value.trim();if(!txt)return;p.comments=p.comments||[];p.comments.push({nom:'Anonyme',texte:txt,createdAt:new Date().toISOString()});persistPrayerWall();renderPrieres();showToast('Commentaire publié.');}
-function deletePrayer(id){const p=prieres.find(pr=>pr.id===id);if(!p||p.ownerId!==prayerAuthorId)return;if(!confirm('Supprimer ?'))return;const el=document.getElementById(`priereItem-${id}`);if(el)el.classList.add('removing');setTimeout(()=>{prieres=prieres.filter(pr=>pr.id!==id);delete priereActions[id];persistPrayerWall();renderPrieres();showToast('Intention supprimée.');},320);}
-function submitPriere(){const anon=document.getElementById('priereAnonyme').checked;const nom=anon?'Anonyme':(document.getElementById('priereNom').value.trim()||'Anonyme');const texte=document.getElementById('priereTexte').value.trim();if(!texte){showToast('Veuillez écrire votre intention.');return;}prieres.unshift({id:'priere-'+Date.now(),ownerId:prayerAuthorId,nom,texte,count:0,reactions:{amen:0,paix:0},comments:[],createdAt:new Date().toISOString()});document.getElementById('priereNom').value='';document.getElementById('priereTexte').value='';document.getElementById('priereAnonyme').checked=false;persistPrayerWall();renderPrieres();showToast('Intention publiée !');}
+function addPrayerComment(i){const p=prieres[i];const inp=document.getElementById(`comment-${p.id}`);const txt=inp.value.trim();if(!txt)return;p.comments=p.comments||[];p.comments.push({nom:'Anonyme',texte:txt,createdAt:new Date().toISOString()});persistPrayerWall();renderPrieres();showToast('Commentaire publiÃ©.');}
+function deletePrayer(id){const p=prieres.find(pr=>pr.id===id);if(!p||p.ownerId!==prayerAuthorId)return;if(!confirm('Supprimer ?'))return;const el=document.getElementById(`priereItem-${id}`);if(el)el.classList.add('removing');setTimeout(()=>{prieres=prieres.filter(pr=>pr.id!==id);delete priereActions[id];persistPrayerWall();renderPrieres();showToast('Intention supprimÃ©e.');},320);}
+function submitPriere(){const anon=document.getElementById('priereAnonyme').checked;const nom=anon?'Anonyme':(document.getElementById('priereNom').value.trim()||'Anonyme');const texte=document.getElementById('priereTexte').value.trim();if(!texte){showToast('Veuillez Ã©crire votre intention.');return;}prieres.unshift({id:'priere-'+Date.now(),ownerId:prayerAuthorId,nom,texte,count:0,reactions:{amen:0,paix:0},comments:[],createdAt:new Date().toISOString()});document.getElementById('priereNom').value='';document.getElementById('priereTexte').value='';document.getElementById('priereAnonyme').checked=false;persistPrayerWall();renderPrieres();showToast('Intention publiÃ©e !');}
 
 // CELLULES & ENTRAIDE
-const cellules=[{quartier:"Cocody",nom:"Cellule Espérance",responsable:"Frère Kouamé",jour:"Mardi 19h00",membres:12},{quartier:"Yopougon",nom:"Cellule Lumière",responsable:"Sœur Adjoua",jour:"Mercredi 18h30",membres:9},{quartier:"Marcory",nom:"Cellule Grâce",responsable:"Pasteur Denis",jour:"Jeudi 19h00",membres:15},{quartier:"Abobo",nom:"Cellule Shalom",responsable:"Frère Brou",jour:"Vendredi 18h00",membres:11},{quartier:"Plateau",nom:"Cellule Siloé",responsable:"Sœur Ama",jour:"Samedi 10h00",membres:7},{quartier:"Treichville",nom:"Cellule Béthel",responsable:"Frère Yao",jour:"Mardi 19h30",membres:10}];
-const entraides=[{type:"besoin",titre:"Transport vers l'église",desc:"Cherche covoiturage depuis Abobo le dimanche matin.",contact:"Frère Konan"},{type:"offre",titre:"Garde d'enfants",desc:"Disponible pour garder des enfants pendant les cultes.",contact:"Sœur Fatou"},{type:"besoin",titre:"Aide alimentaire",desc:"Famille dans le besoin ce mois-ci, toute aide appréciée.",contact:"Voir le pasteur"},{type:"offre",titre:"Cours de soutien",desc:"Je peux aider les enfants en maths et français, niveau collège.",contact:"Frère Éric"},{type:"besoin",titre:"Accompagnement médical",desc:"Besoin d'aide pour accompagner une personne âgée chez le médecin.",contact:"Sœur Bernadette"},{type:"offre",titre:"Covoiturage Cocody",desc:"Je peux prendre des personnes depuis Cocody chaque dimanche.",contact:"Frère Amani"}];
+const cellules=[{quartier:"Cocody",nom:"Cellule EspÃ©rance",responsable:"FrÃ¨re KouamÃ©",jour:"Mardi 19h00",membres:12},{quartier:"Yopougon",nom:"Cellule LumiÃ¨re",responsable:"SÅ“ur Adjoua",jour:"Mercredi 18h30",membres:9},{quartier:"Marcory",nom:"Cellule GrÃ¢ce",responsable:"Pasteur Denis",jour:"Jeudi 19h00",membres:15},{quartier:"Abobo",nom:"Cellule Shalom",responsable:"FrÃ¨re Brou",jour:"Vendredi 18h00",membres:11},{quartier:"Plateau",nom:"Cellule SiloÃ©",responsable:"SÅ“ur Ama",jour:"Samedi 10h00",membres:7},{quartier:"Treichville",nom:"Cellule BÃ©thel",responsable:"FrÃ¨re Yao",jour:"Mardi 19h30",membres:10}];
+const entraides=[{type:"besoin",titre:"Transport vers l'Ã©glise",desc:"Cherche covoiturage depuis Abobo le dimanche matin.",contact:"0141010116"},{type:"offre",titre:"Garde d'enfants",desc:"Disponible pour garder des enfants pendant les cultes.",contact:"SÅ“ur Fatou"},{type:"besoin",titre:"Aide alimentaire",desc:"Famille dans le besoin ce mois-ci, toute aide apprÃ©ciÃ©e.",contact:"Voir le pasteur"},{type:"offre",titre:"Cours de soutien",desc:"Je peux aider les enfants en maths et franÃ§ais, niveau collÃ¨ge.",contact:"FrÃ¨re Ã‰ric"},{type:"besoin",titre:"Accompagnement mÃ©dical",desc:"Besoin d'aide pour accompagner une personne Ã¢gÃ©e chez le mÃ©decin.",contact:"SÅ“ur Bernadette"},{type:"offre",titre:"Covoiturage Cocody",desc:"Je peux prendre des personnes depuis Cocody chaque dimanche.",contact:"FrÃ¨re Amani"},{type:"offre",titre:"Formation",desc:"Je fait des formation pour des cours en ligne.",contact:"FrÃ¨re 05996517982"}];
 let entraideFilter='all';
-function renderCellules(q=''){const grid=document.getElementById('celluleGrid');const filtered=q?cellules.filter(c=>c.quartier.toLowerCase().includes(q.toLowerCase())||c.nom.toLowerCase().includes(q.toLowerCase())):cellules;grid.innerHTML=filtered.map(c=>`<div class="cellule-card"><div class="cellule-quartier">${c.quartier}</div><div class="cellule-nom">${c.nom}</div><div class="cellule-info">👤 ${c.responsable}</div><div class="cellule-info">🗓 ${c.jour}</div><div class="cellule-badge">${c.membres} membres</div></div>`).join('');}
+function renderCellules(q=''){const grid=document.getElementById('celluleGrid');const filtered=q?cellules.filter(c=>c.quartier.toLowerCase().includes(q.toLowerCase())||c.nom.toLowerCase().includes(q.toLowerCase())):cellules;grid.innerHTML=filtered.map(c=>`<div class="cellule-card"><div class="cellule-quartier">${c.quartier}</div><div class="cellule-nom">${c.nom}</div><div class="cellule-info">ðŸ‘¤ ${c.responsable}</div><div class="cellule-info">ðŸ—“ ${c.jour}</div><div class="cellule-badge">${c.membres} membres</div></div>`).join('');}
 function searchCellule(v){renderCellules(v);}
 function renderEntraide(){const grid=document.getElementById('entraideGrid');const filtered=entraideFilter==='all'?entraides:entraides.filter(e=>e.type===entraideFilter);grid.innerHTML=filtered.map(e=>`<div class="entraide-card"><span class="entraide-type-badge ${e.type==='besoin'?'badge-besoin':'badge-offre'}">${e.type==='besoin'?'Besoin':'Offre'}</span><div class="entraide-title">${e.titre}</div><div class="entraide-desc">${e.desc}</div><div class="entraide-contact">Contact : ${e.contact}</div></div>`).join('');}
 function filterEntraide(type,btn){entraideFilter=type;document.querySelectorAll('#entraide .filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderEntraide();}
 
 // VERSET
-function nextVerset(){versetIdx=(versetIdx+1)%versets.length;document.getElementById('versetText').textContent=versets[versetIdx].text;document.getElementById('versetRef').textContent='— '+versets[versetIdx].ref;}
-function copyVerset(){const v=versets[versetIdx];navigator.clipboard.writeText(`"${v.text}" — ${v.ref}`).catch(()=>{});showToast('Verset copié !');}
-function shareWhatsApp(){const v=versets[versetIdx];window.open(`https://wa.me/?text=${encodeURIComponent(`"${v.text}" — ${v.ref}`)}`, '_blank');}
+function nextVerset(){versetIdx=(versetIdx+1)%versets.length;document.getElementById('versetText').textContent=versets[versetIdx].text;document.getElementById('versetRef').textContent='â€” '+versets[versetIdx].ref;}
+function copyVerset(){const v=versets[versetIdx];navigator.clipboard.writeText(`"${v.text}" â€” ${v.ref}`).catch(()=>{});showToast('Verset copiÃ© !');}
+function shareWhatsApp(){const v=versets[versetIdx];window.open(`https://wa.me/?text=${encodeURIComponent(`"${v.text}" â€” ${v.ref}`)}`, '_blank');}
 
 // MODALS EVENEMENT
 function openModal(titre,info){document.getElementById('modalTitle').textContent='Inscription : '+titre;document.getElementById('modalInfo').textContent=info;document.getElementById('modalOverlay').classList.add('open');}
 function closeModal(){document.getElementById('modalOverlay').classList.remove('open');}
-function submitModalInscription(){const nom=document.getElementById('inscNom').value.trim();const tel=document.getElementById('inscTel').value.trim();if(!nom){showToast('Veuillez entrer votre nom.');return;}if(!tel){showToast('Veuillez entrer votre numéro.');return;}if(currentEventId){const e=events.find(ev=>ev.id===currentEventId);if(e){const nbre=parseInt(document.getElementById('inscNbre').value)||1;e.participants=(e.participants||0)+nbre;persistUserEvents();renderEvents();}}closeModal();showToast('Participation confirmée !');currentEventId=null;}
-function submitContact(){showToast('Message envoyé ! Nous vous répondrons très bientôt.');}
-function subscribeSMS(btn){if(!btn.previousElementSibling.value.trim()){showToast('Veuillez entrer votre numéro.');return;}btn.textContent='✓ Abonné(e) !';btn.disabled=true;showToast('Abonnement confirmé !');}
+function submitModalInscription(){const nom=document.getElementById('inscNom').value.trim();const tel=document.getElementById('inscTel').value.trim();if(!nom){showToast('Veuillez entrer votre nom.');return;}if(!tel){showToast('Veuillez entrer votre numÃ©ro.');return;}if(currentEventId){const e=events.find(ev=>ev.id===currentEventId);if(e){const nbre=parseInt(document.getElementById('inscNbre').value)||1;e.participants=(e.participants||0)+nbre;persistUserEvents();renderEvents();}}closeModal();showToast('Participation confirmÃ©e !');currentEventId=null;}
+function submitContact(){showToast('Message envoyÃ© ! Nous vous rÃ©pondrons trÃ¨s bientÃ´t.');}
+function subscribeSMS(btn){if(!btn.previousElementSibling.value.trim()){showToast('Veuillez entrer votre numÃ©ro.');return;}btn.textContent='âœ“ AbonnÃ©(e) !';btn.disabled=true;showToast('Abonnement confirmÃ© !');}
 
 // AUDIO
 let audioPlaying=false,audioSec=0,audioInterval=null;
-function toggleAudio(){audioPlaying=!audioPlaying;const btn=document.getElementById('audioBtn');if(audioPlaying){btn.textContent='⏸';audioInterval=setInterval(()=>{audioSec=Math.min(audioSec+1,240);const pct=(audioSec/240)*100;document.getElementById('audioProgress').style.width=pct+'%';const m=Math.floor(audioSec/60),s=audioSec%60;document.getElementById('audioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;if(audioSec>=240){audioPlaying=false;clearInterval(audioInterval);btn.textContent='▶';audioSec=0;}},1000);}else{btn.textContent='▶';clearInterval(audioInterval);}}
+function toggleAudio(){audioPlaying=!audioPlaying;const btn=document.getElementById('audioBtn');if(audioPlaying){btn.textContent='â¸';audioInterval=setInterval(()=>{audioSec=Math.min(audioSec+1,240);const pct=(audioSec/240)*100;document.getElementById('audioProgress').style.width=pct+'%';const m=Math.floor(audioSec/60),s=audioSec%60;document.getElementById('audioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;if(audioSec>=240){audioPlaying=false;clearInterval(audioInterval);btn.textContent='â–¶';audioSec=0;}},1000);}else{btn.textContent='â–¶';clearInterval(audioInterval);}}
 function seekAudio(e,bar){const r=bar.getBoundingClientRect();const pct=(e.clientX-r.left)/r.width;audioSec=Math.round(pct*240);document.getElementById('audioProgress').style.width=(pct*100)+'%';const m=Math.floor(audioSec/60),s=audioSec%60;document.getElementById('audioTime').textContent=`${m}:${s.toString().padStart(2,'0')}`;}
 
 // NAV & TOAST
@@ -1890,6 +2541,8 @@ renderEntraide();
 renderNotes();
 renderBibleBooks();
 updateBibleStats();
+updatePremiumProfileButtons();
 </script>
 </body>
 </html>
+
